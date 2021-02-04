@@ -93,13 +93,13 @@
                                         <table class="categories_frame">
                                             <tr>
                                                 <th> 
-                                                    <table class="logo_frame">
+                                                    <table>
                                                         <tr>
                                                             <th>
-                                                                <table class="logo_icon">
+                                                                <table  class="logo_frame">
                                                                     <tr>
                                                                         <th>
-                                                                            <img src="https://dynamic.brandcrowd.com/asset/logo/3be43897-018d-4384-94bd-59f14dfb762f/logo?v=4" width=100% alt="logo_image">
+                                                                            <img src="https://media-exp1.licdn.com/dms/image/C560BAQHFiK3xdd_AwQ/company-logo_200_200/0/1588679357791?e=2159024400&v=beta&t=6EeGhyA9B187tOqDx9-BUocBYo49-QYE3LxcGOTTLm8" width=70% alt="logo_image">
                                                                         </th>
                                                                     </tr>
                                                                 </table>
@@ -142,12 +142,12 @@
                                                                                                             </tr>
                                                                                                         </table>
                                                                                                         <table>
-                                                                                                                        <tr>
-                                                                                                                            <th>
-                                                                                                                                <?php echo "<p style='color:red; font-size: 10px;'>" . $wrong_user . "</p>"; ?>
-                                                                                                                            </th>
-                                                                                                                        </tr>
-                                                                                                                    </table>
+                                                                                                            <tr>
+                                                                                                                <th>
+                                                                                                                    <?php echo "<p style='color:red; font-size: 10px;'>" . $wrong_user . "</p>"; ?>
+                                                                                                                </th>
+                                                                                                            </tr>
+                                                                                                        </table>
                                                                                                     </th>
                                                                                                 </tr>
                                                                                             </table>
