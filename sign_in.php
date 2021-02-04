@@ -8,7 +8,7 @@
 <title>DatAnalysis</title>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="http://localhost/webproject/sign_in.css">
+<link rel="stylesheet" type="text/css" href="http://localhost/webproject/styling.css">
 
 </head>
 
@@ -16,32 +16,65 @@
 <?php
 
     $email = "";
-    $password = "123456";
+    $real_pwd_hash = "";
+    $password = "";
+    $wrong_pwd = "";
+    $wrong_user = "";
 
+    $servername = "localhost";
+    $dbusername = "root";
+    $dbpassword = "";
+    $dbname = "webproject";
+    
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
-        if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$_POST["email"])) {
-            echo "Invalid email";
-            echo "<br>";
+        if (!preg_match("/^[a-zA-Z0-9-' ]*$/",$_POST["username"])) {
+            echo "
+                <script>alert('Please enter a valid username.');</script>
+            ";
         }
-        elseif($_POST["password"] != $password ) {
-            echo "Invalid password";
-            echo "<br>";
+        elseif(!preg_match("/^[a-zA-Z0-9-' ]*$/",$_POST["password"])) {
+            echo "
+                <script>alert('Please enter a valid password.');</script>
+            ";
         }
         else{
-            $email = $_POST["email"];
-            $password = "123456";
+
+            $username = $_POST["username"];
+            $password = $_POST["password"];
+            $hashed_pwd = '';
+
+            //Create connection
+            $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+
+            //Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            $sql = "SELECT * FROM users WHERE username='$username'";
+            $result = $conn->query($sql);
+              
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $hashed_pwd = $row['password'];
+                
+                if(password_verify($password ,$hashed_pwd)){
+                    $conn->close();
+                    exit(header("Location: http://localhost/webproject/sign_up.php"));
+                }
+                else{
+                    $wrong_pwd = "The password is incorect.";
+                }  
+            }
+            else {
+                $wrong_user = "User does not exist";
+            }
+            
+            $conn->close();
         }
-    }
-
-
-    function val($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-
-        return $data;
+        
     }
 
 ?>
@@ -104,10 +137,17 @@
                                                                                                         <table>
                                                                                                             <tr>
                                                                                                                 <th>
-                                                                                                                    <input type="text" placeholder="Email/Username">
+                                                                                                                    <input type="text" placeholder="Email/Username" name = "username">
                                                                                                                 </th>
                                                                                                             </tr>
                                                                                                         </table>
+                                                                                                        <table>
+                                                                                                                        <tr>
+                                                                                                                            <th>
+                                                                                                                                <?php echo "<p style='color:red; font-size: 10px;'>" . $wrong_user . "</p>"; ?>
+                                                                                                                            </th>
+                                                                                                                        </tr>
+                                                                                                                    </table>
                                                                                                     </th>
                                                                                                 </tr>
                                                                                             </table>
@@ -120,7 +160,7 @@
                                                                                                                     <table class="wrapper">
                                                                                                                         <tr>
                                                                                                                             <th>
-                                                                                                                                <input type="Password" placeholder="Password" id="password">
+                                                                                                                                <input type="Password" placeholder="Password" name = "password">
                                                                                                                                 <span>
                                                                                                                                     <i class="fa fa-eye" id="eye" onclick="toggle()">
                                                                                                                                     </i>
@@ -140,6 +180,13 @@
                                                                                                                                         }
                                                                                                                                     }
                                                                                                                                 </script>
+                                                                                                                            </th>
+                                                                                                                        </tr>
+                                                                                                                    </table>
+                                                                                                                    <table>
+                                                                                                                        <tr>
+                                                                                                                            <th>
+                                                                                                                                <?php echo "<p style='color:red; font-size: 10px;'>" . $wrong_pwd . "</p>"; ?>
                                                                                                                             </th>
                                                                                                                         </tr>
                                                                                                                     </table>
@@ -191,17 +238,7 @@
                 </table>
             </th>
         </tr>
-    </table>
-
-
-<?php
-
-    echo "User email is " . $email;
-    echo "<br>";
-    echo "Uset password is " . $password;
-    echo "<br>";
-
-?>
+    </table> 
 
 
 
