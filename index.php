@@ -62,7 +62,7 @@
                 
                 if(password_verify($password ,$hashed_pwd)){
                     $conn->close();
-                    exit(header("Location: http://localhost/webproject/sign_up.php"));
+                    exit(header("Location: ./main_page/index.html"));
                 }
                 else{
                     $wrong_pwd = "The password is incorect.";
