@@ -106,6 +106,20 @@
                                                             </th>
                                                         </tr>
                                                     </table>
+                                                    <table class="question-frame">
+                                                        <tr>
+                                                            <th>
+                                                                <table class="question">
+                                                                    <tr>
+                                                                        <th>
+                                                                            Don't you have an account? Join us
+                                                                            <a href="sign_up.php"> here</a>
+                                                                        </th>
+                                                                    </tr>
+                                                                </table>
+                                                            </th>
+                                                        </tr>
+                                                    </table>
                                                 </th>
                                                 <th>
                                                     <table class="form">
@@ -117,7 +131,7 @@
                                                                             <table class="tab-header">
                                                                                 <tr>
                                                                                     <th>
-                                                                                        Sign In
+                                                                                        Log in
                                                                                     </th>
                                                                                 </tr>
                                                                             </table>
@@ -137,7 +151,7 @@
                                                                                                         <table>
                                                                                                             <tr>
                                                                                                                 <th>
-                                                                                                                    <input type="text" placeholder="Email/Username" name = "username">
+                                                                                                                    <input type="text" placeholder="Username" name = "username" required>
                                                                                                                 </th>
                                                                                                             </tr>
                                                                                                         </table>
@@ -160,26 +174,12 @@
                                                                                                                     <table class="wrapper">
                                                                                                                         <tr>
                                                                                                                             <th>
-                                                                                                                                <input type="Password" placeholder="Password" name = "password">
-                                                                                                                                <span>
-                                                                                                                                    <i class="fa fa-eye" id="eye" onclick="toggle()">
-                                                                                                                                    </i>
-                                                                                                                                </span>
-                                                                                                                                <script>
-                                                                                                                                    var state= false;
-                                                                                                                                    function toggle(){
-                                                                                                                                        if(state){
-                                                                                                                                        document.getElementById("password").setAttribute("type","password");
-                                                                                                                                        document.getElementById("eye").style.color='#7a797e';
-                                                                                                                                        state = false;
-                                                                                                                                        }
-                                                                                                                                        else{
-                                                                                                                                        document.getElementById("password").setAttribute("type","text");
-                                                                                                                                        document.getElementById("eye").style.color='#5887ef';
-                                                                                                                                        state = true;
-                                                                                                                                        }
-                                                                                                                                    }
-                                                                                                                                </script>
+                                                                                                                                <table>
+                                                                                                                                     <input class= "pswrd" type="Password" placeholder="Password" name = "password" required>
+                                                                                                                                </table>
+                                                                                                                                <table>
+                                                                                                                                    <span class="show">SHOW</span>
+                                                                                                                                </table>
                                                                                                                             </th>
                                                                                                                         </tr>
                                                                                                                     </table>
@@ -199,24 +199,11 @@
                                                                                             <table>
                                                                                                 <tr>
                                                                                                     <th>
-                                                                                                        <input type="submit" name="submit" value = "Submit" />
+                                                                                                        <input class="login" type="submit" name="submit" value="LOGIN" />
                                                                                                     </th>
                                                                                                 </tr>
                                                                                             </table>
-                                                                                            <table class="question-frame">
-                                                                                                <tr>
-                                                                                                    <th>
-                                                                                                        <table class="question">
-                                                                                                            <tr>
-                                                                                                                <th>
-                                                                                                                    Don't you have an account? 
-                                                                                                                    <a href="sign_up.php">click here</a>
-                                                                                                                </th>
-                                                                                                            </tr>
-                                                                                                        </table>
-                                                                                                    </th>
-                                                                                                </tr>
-                                                                                            </table>
+                                                                                            
                                                                                         </th>
                                                                                     </tr>
                                                                                 </table>
@@ -239,6 +226,23 @@
             </th>
         </tr>
     </table> 
+    
+    <script>
+        var input = document.querySelector('.pswrd');
+        var show = document.querySelector('.show');
+        show.addEventListener('click', active);
+        function active(){
+            if(input.type === "password"){
+            input.type = "text";
+            show.style.color = "#ce2e2e";
+            show.textContent = "HIDE";
+            }else{
+            input.type = "password";
+            show.textContent = "SHOW";
+            show.style.color = "#4a4a4a";
+            }
+        }
+    </script>
 
 
 

@@ -120,6 +120,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                                                         </th>
                                                     </tr>
                                                 </table>
+                                                <table class="question-frame">
+                                                    <tr>
+                                                        <th>
+                                                            <table class="question">
+                                                                <tr>
+                                                                    <th>
+                                                                        Already have an account? Go and log in by
+                                                                        <a href="index.php">clicking here</a>
+                                                                    </th>
+                                                                </tr>
+                                                            </table>
+                                                        </th>
+                                                    </tr>
+                                                </table>
                                             </th>
                                             <th>
                                                 <table class="form">
@@ -151,7 +165,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                                                                                                     <table class="form-element">
                                                                                                         <tr>
                                                                                                             <th>
-                                                                                                                <input type="text" placeholder="Email" name = "email">
+                                                                                                            <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email" required />
                                                                                                             </th>
                                                                                                         </tr>
                                                                                                     </table>
@@ -191,7 +205,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                                                                                                     <table class="form-element">
                                                                                                         <tr>
                                                                                                             <th>
-                                                                                                                <input type="Password" placeholder="Password" id="password" name = "password">
+                                                                                                            <input type="password" id="psw" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                                                                                                             </th>
                                                                                                         </tr>
                                                                                                     </table>
@@ -204,7 +218,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                                                                                                     <table class="form-element">
                                                                                                         <tr>
                                                                                                             <th>
-                                                                                                                <input type="Password" placeholder="Confirm Password" id="password">
+                                                                                                                <input type="Password" placeholder="Confirm Password" id="psw">
                                                                                                             </th>
                                                                                                         </tr>
                                                                                                     </table>
@@ -214,21 +228,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                                                                                         <table>
                                                                                             <tr>
                                                                                                 <th>
-                                                                                                    <input type="submit" name="submit" value = "Submit" />
-                                                                                                </th>
-                                                                                            </tr>
-                                                                                        </table>
-                                                                                        <table class="question-frame">
-                                                                                            <tr>
-                                                                                                <th>
-                                                                                                    <table class="question">
-                                                                                                        <tr>
-                                                                                                            <th>
-                                                                                                                Already have an account? Go and sign in 
-                                                                                                                <a href="index.php">click here</a>
-                                                                                                            </th>
-                                                                                                        </tr>
-                                                                                                    </table>
+                                                                                                    <input type="submit" name="submit" value = "Create Account" />
                                                                                                 </th>
                                                                                             </tr>
                                                                                         </table>
@@ -254,8 +254,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         </th>
     </tr>
 </table>
-
-
 
 </body>
 
