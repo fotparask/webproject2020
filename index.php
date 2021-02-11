@@ -234,7 +234,7 @@
         function active(){
             if(input.type === "password"){
             input.type = "text";
-            show.style.color = "#ce2e2e";
+            show.style.color = "#b80603";
             show.textContent = "HIDE";
             }else{
             input.type = "password";
