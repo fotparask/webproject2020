@@ -112,7 +112,7 @@
                                                                 <table class="question">
                                                                     <tr>
                                                                         <th>
-                                                                            Don't you have an account? Join us
+                                                                            Don't you have an account? JOIN US
                                                                             <a href="sign_up.php"> here</a>
                                                                         </th>
                                                                     </tr>
