@@ -1,17 +1,12 @@
 body {
     align-content: center;
-    background-image: url(https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
 }
 
 .main_frame{
     margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
-    align-content: center;
+    align-content: left;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -21,7 +16,7 @@ body {
     border-style: solid;
     border-width: 1px;
     border-color: black;
-    background-color: rgb(53, 91, 105);
+    background-color: rgb(206, 46, 46);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -46,18 +41,24 @@ body {
     margin-right: auto;
 }
 
-.logins_frame{
-    background-image: url(https://artedeco.gr/wp-content/uploads/2020/01/S151.jpg);
-    background-size: cover;
-    width: 70%;
-}
-
 .login_padding{
     margin-top: 1%;
     margin-bottom: 3%;
 }
 
-input{
+.tab-header{
+    font-weight: bold;
+    font-size: x-large;
+}
+
+input label, span.show{
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    color: #4a4a4a;
+    
+}
+
+input {
     box-sizing: border-box;
     width: 100%;
     font-size: 13px;
@@ -69,7 +70,24 @@ input{
     letter-spacing: 0.5px;
 }
 
-.question {
+span.show {
+    position: relative;
+    left: 55px;
+    top: -28px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    visibility: hidden;
+}
+
+input:valid ~ span.show {
+    visibility: visible;
+}
+
+.question-frame {
+    position: relative;
+    top: 10px;
     padding: 10px;
 }
 
@@ -79,15 +97,3 @@ input{
     height: auto;
 }
 
-span{
-    position: absolute;
-    right: 15px;
-    transform: translate(0,-50%);
-    top: 50%;
-    cursor: pointer;
-
-}
-.fa{
-    font-size: 20px;
-    color: #7a797e;
-}

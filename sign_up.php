@@ -3,7 +3,8 @@
 <html>
 
 <head>
-<title>Web Project Sign-up</title>
+<meta charset="utf-8">
+<title>DatAnalysis Sign-up</title>
 <link rel="stylesheet" type="text/css" href="styling.css">
 </head>
 
