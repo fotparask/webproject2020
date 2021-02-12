@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $email_exists = "Email already exists.";
         }
         elseif($result2->num_rows > 0) {
-            $username_exists = "User already exists.";
+            $username_exists = "User " . $username . " already exists.";
         }
         else{
 

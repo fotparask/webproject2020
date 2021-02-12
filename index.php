@@ -70,7 +70,7 @@
                 }  
             }
             else {
-                $wrong_user = "User does not exist";
+                $wrong_user = "User " . $username . " does not exist";
             }
             
             $conn->close();

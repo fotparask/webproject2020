@@ -25,14 +25,13 @@
 
     <?php
 
-        $real_pwd_hash = "";
-        $old_password = "";
-        $new_password = "";
-        $confirm_password = "";
-        $username = "";
+        $old_username = "";
+        $new_username = "";
+        $confirm_username = "";
+        $password = "";
         $wrong_pwd = "";
         $wrong_user = "";
-        $password_changed = "";
+        $user_changed = ""; 
 
 
         $servername = "localhost";
@@ -43,17 +42,18 @@
 
         if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
-            if ($_POST["new_password"] != $_POST["confirm_password"]){
+            if ($_POST["new_username"] != $_POST["confirm_username"]){
                 echo "
-                    <script>alert('Passwords do not match.');</script>
+                    <script>alert('Usernames do not match.');</script>
                 ";
             }
             else{
 
-                $username = $_POST["username"];
-                $old_password = $_POST["old_password"];
-                $new_password = $_POST["new_password"];
+                $old_username = $_POST["old_username"];
+                $new_username = $_POST["new_username"];
+                $password = $_POST["password"];
                 $hashed_pwd = "";
+                
 
                 //Create connection
                 $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
@@ -64,18 +64,17 @@
                 }
 
 
-                $sql = "SELECT * FROM users WHERE username='$username'";
+                $sql = "SELECT * FROM users WHERE username='$old_username'";
                 $result = $conn->query($sql);
                     
                 if ($result->num_rows > 0) {
                     $row = $result->fetch_assoc();
                     $hashed_pwd = $row['password'];
                     
-                    if(password_verify($old_password ,$hashed_pwd)){
-                        $hashed_pwd = password_hash($new_password, PASSWORD_DEFAULT);
-                        $sql = "UPDATE users SET password='$hashed_pwd' WHERE username='$username';";
+                    if(password_verify($password ,$hashed_pwd)){
+                        $sql = "UPDATE users SET username='$new_username' WHERE username='$old_username';";
                         if ($conn->query($sql) === TRUE) {
-                            $password_changed = "You have successfully changed the password.";
+                            $user_changed = "You have successfully changed your username.";
                         }
                         $conn->close();
                     }
@@ -85,7 +84,7 @@
                     }  
                 }
                 else {
-                    $wrong_user = "User " . $username . " does not exist";
+                    $wrong_user = "User" . $old_username . "does not exist";
                     $conn->close();
                 }
                 
@@ -137,23 +136,23 @@
                         <br>
                         <div class= "form">
                             <div class= "labels">
-                                <label for="username">  Όνομα χρήστη:</label> <br>
-                                <label for="password"> Παλιός κωδικός:</label> <br>
-                                <label for="password"> Νέος κωδικός:</label> <br>
-                                <label for="password"> Επιβεβαίωση κωδικού:</label> <br>
+                                <label for="username"> Παλιό όνομα χρήστη:</label> <br>
+                                <label for="username"> Νέο όνομα χρήστη:</label> <br>
+                                <label for="username"> Επιβεβαίωση νέου ονόματος:</label> <br>
+                                <label for="password"> Κωδικός:</label><br>
                             </div>
             
                             <div class= "inputs">
-                                <input type="text" placeholder="Όνομα χρήστη" name="username" required><br>
-                                <input type="password" placeholder="Παλιός κωδικός" name="old_password" required> <br>
-                                <input type="password" placeholder="Νέος κωδικός" name="new_password"  required> <br>
-                                <input type="password" placeholder="Επιβεβαίωση κωδικού" name="confirm_password" required><br> 
+                                <input type="text" placeholder="Παλιό όνομα χρήστη" name="old_username" required> <br>
+                                <input type="text" placeholder="Νέο όνομα χρήστη" name="new_username">  <br>
+                                <input type="text" placeholder="Επιβεβαίωση" name="confirm_username">  <br>
+                                <input type="password" placeholder="Κωδικός" name="password" required>  <br>
                             </div>
 
                             <div>
                                 <?php echo "<p style='color:red; font-size: 13px;'>" . $wrong_user . "</p>"; ?><br>
                                 <?php echo "<p style='color:red; font-size: 13px;'>" . $wrong_pwd . "</p>"; ?> <br>
-                                <?php echo "<p style='color:green; font-size: 13px;'>" . $password_changed . "</p>"; ?> <br>
+                                <?php echo "<p style='color:green; font-size: 13px;'>" . $user_changed . "</p>"; ?> <br>
                             </div>
                         </div>
                     </h3>
@@ -164,12 +163,8 @@
                 Ή αλλάξτε κωδικό μέσω:
                 <div class="social">
                     <br>
-                
                             <a href="https://www.facebook.com/" target="blank" >    <img src="facebook2.png" > </a> 
-                        
                             <a href="https://accounts.google.com/ServiceLogin/signinchooser?passive=1209600&continue=https%3A%2F%2Faccounts.google.com%2Fb%2F0%2FAddMailService&followup=https%3A%2F%2Faccounts.google.com%2Fb%2F0%2FAddMailService&flowName=GlifWebSignIn&flowEntry=ServiceLogin/" target="blank" >    <img src="gmail2.jpg" width="33px" > </a>
-                        
-                    
                     <br>
                     <br>
                     <br>
@@ -185,7 +180,7 @@
             <br>
             <br>
             <div class="buttons">
-                <button type="submit" class="primier" name="submit"> Αλλαγή Κωδικού </button>
+                <button type="submit" class="primier" name="submit"> Αλλαγή Ονόματος </button>
             </div>
         </form>
     </div>  
