@@ -3,7 +3,8 @@
 <html>
 
 <head>
-<title>Web Project Sign-up</title>
+<meta charset="utf-8">
+<title>DatAnalysis Sign-up</title>
 <link rel="stylesheet" type="text/css" href="styling.css">
 </head>
 
@@ -66,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $email_exists = "Email already exists.";
         }
         elseif($result2->num_rows > 0) {
-            $username_exists = "User " . $username . " already exists.";
+            $username_exists = "User already exists.";
         }
         else{
 
@@ -218,7 +219,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                                                                                                     <table class="form-element">
                                                                                                         <tr>
                                                                                                             <th>
-                                                                                                                <input type="Password" placeholder="Confirm Password" id="psw">
+                                                                                                            <input type="password" id="psw" name="password" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                                                                                                             </th>
                                                                                                         </tr>
                                                                                                     </table>
@@ -228,7 +229,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                                                                                         <table>
                                                                                             <tr>
                                                                                                 <th>
-                                                                                                    <input type="submit" name="submit" value = "Create Account" />
+                                                                                                    <input class="login" type="submit" name="submit" value = "Create Account" />
                                                                                                 </th>
                                                                                             </tr>
                                                                                         </table>

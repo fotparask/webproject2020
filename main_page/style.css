@@ -4,13 +4,11 @@
     /*background-color: rgb(221, 221, 220); */
     font-family: 'Roboto',sans-serif;
     align-content: center;
-    background-image: url("wall7.jpg"); 
+    background-image: url("images.png"); 
     background-repeat: no-repeat;
     background-position: right top;
     background-attachment: fixed;
     background-size: 100% 100%;
-   
-    
 }
 
 
@@ -24,7 +22,6 @@
     margin-bottom: 0px;
     display: flex;
     align-items: center;
-    
 }
 
 .second_navbar ul{
@@ -36,8 +33,6 @@
     display: inline-block;
     list-style: none;
     margin: 0 5px;
-
-    
     position: relative;
 }
 
@@ -77,8 +72,6 @@
     transform: translateX(-50%);
     top: -230%;
     transition: 1.0s;
-    
-
 }
 
 .second_navbar ul li a:hover:after{
@@ -92,7 +85,6 @@
     margin-left: 30px;
     margin-right: 40px;
     cursor: pointer;
-
 }
 
 .navbar_icons{
@@ -102,7 +94,6 @@
 .ban{
     display: flex;
     margin-top: 0px;
-    
 }
 
 .lcolumn, .rcolumn{
@@ -155,7 +146,7 @@ spanun{
 
 .lcolumn p{
     font-size: 18px;
-    color: black;
+    color:black;
     margin: 50px 0;
 }
 
@@ -171,8 +162,8 @@ spanun{
 }
 
 .buttons .primier{
-    background: linear-gradient(  rgb(163, 3, 3),black);
-    box-shadow: 0 2px 15px rgb(97, 96, 96) ;
+    background: linear-gradient(rgb(136, 3, 3),rgb(136, 3, 3));
+   /* box-shadow: 0 2px 15px rgb(97, 96, 96) ;*/
     color: rgb(221, 220, 220); 
 }
 
@@ -183,7 +174,6 @@ spanun{
 .social{
     width: 10px;
     text-align: center;
-    
 }
 
 .social img{
@@ -200,11 +190,11 @@ a:active{
 }
 
 .buttons .primier:hover{
-    color: rgb(158, 155, 155);
+    color: black;
 }
 
 .buttons .primier:active{
-    color: black;
+    color: rgb(158, 155, 155);
 }
 
 
@@ -297,7 +287,6 @@ a:active{
     margin:0px auto;
     /*position: relative;*/
     top: 100px;
- 
     float: left;
     /*
     background: rgb(158, 155, 155,0.8);
