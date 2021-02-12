@@ -42,7 +42,7 @@
 
         if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
-            if ($_POST["new_username"] != $_POST["confirm_username"]){
+            if ($_POST["new_username"] !== $_POST["confirm_username"]){
                 echo "
                     <script>alert('Usernames do not match.');</script>
                 ";
@@ -148,8 +148,8 @@
                                 <input type="text" placeholder="Επιβεβαίωση" name="confirm_username">  <br>
                                 <input type="password" placeholder="Κωδικός" name="password" required>  <br>
                             </div>
-
-                            <div>
+                            <br>
+                            <div> 
                                 <?php echo "<p style='color:red; font-size: 13px;'>" . $wrong_user . "</p>"; ?><br>
                                 <?php echo "<p style='color:red; font-size: 13px;'>" . $wrong_pwd . "</p>"; ?> <br>
                                 <?php echo "<p style='color:green; font-size: 13px;'>" . $user_changed . "</p>"; ?> <br>
@@ -160,15 +160,6 @@
             </div>
             <!--
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                Ή αλλάξτε κωδικό μέσω:
-                <div class="social">
-                    <br>
-                            <a href="https://www.facebook.com/" target="blank" >    <img src="facebook2.png" > </a> 
-                            <a href="https://accounts.google.com/ServiceLogin/signinchooser?passive=1209600&continue=https%3A%2F%2Faccounts.google.com%2Fb%2F0%2FAddMailService&followup=https%3A%2F%2Faccounts.google.com%2Fb%2F0%2FAddMailService&flowName=GlifWebSignIn&flowEntry=ServiceLogin/" target="blank" >    <img src="gmail2.jpg" width="33px" > </a>
-                    <br>
-                    <br>
-                    <br>
-                </div>
             -->
             <div class="rcolumn"></div>
     

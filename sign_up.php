@@ -128,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                                                                 <tr>
                                                                     <th>
                                                                         Already have an account? Go and log in by
-                                                                        <a href="index.php">clicking here</a>
+                                                                        <a href="sign_in.php">clicking here</a>
                                                                     </th>
                                                                 </tr>
                                                             </table>

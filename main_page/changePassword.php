@@ -37,13 +37,13 @@
 
         $servername = "localhost";
         $dbusername = "root";
-        $dbpassword = "";
+        $dbpassword = "vofogi62";
         $dbname = "webproject";
 
 
         if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
-            if ($_POST["new_password"] != $_POST["confirm_password"]){
+            if ($_POST["new_password"] !== $_POST["confirm_password"]){
                 echo "
                     <script>alert('Passwords do not match.');</script>
                 ";

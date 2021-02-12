@@ -1,251 +1,136 @@
-<!DOCTYPE html>
+<?php  
+    session_start();
+?>
 
-<html>
+<!DOCTYPE html>
+<html lang="=el">
 
 <head>
 
-<meta charset="utf-8">
-<title>DatAnalysis Login</title>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="styling.css">
+    
+
+    <title>website</title>
+    <meta charshet="UTF-8">
+    <meta name="description" content="website">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="">
+
+    <link rel="stylesheet" href="main_page/style.css">
+
+    <!--    
+        style at style.css
+    -->
 
 </head>
 
 
-<?php
-
-    $email = "";
-    $real_pwd_hash = "";
-    $password = "";
-    $wrong_pwd = "";
-    $wrong_user = "";
-
-    $servername = "localhost";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "webproject";
-    
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
-        if (!preg_match("/^[a-zA-Z0-9-' ]*$/",$_POST["username"])) {
-            echo "
-                <script>alert('Please enter a valid username.');</script>
-            ";
-        }
-        elseif(!preg_match("/^[a-zA-Z0-9-' ]*$/",$_POST["password"])) {
-            echo "
-                <script>alert('Please enter a valid password.');</script>
-            ";
-        }
-        else{
-
-            $username = $_POST["username"];
-            $password = $_POST["password"];
-            $hashed_pwd = '';
-
-            //Create connection
-            $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-            //Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            $sql = "SELECT * FROM users WHERE username='$username'";
-            $result = $conn->query($sql);
-              
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                $hashed_pwd = $row['password'];
-                
-                if(password_verify($password ,$hashed_pwd)){
-                    $conn->close();
-                    exit(header("Location: ./main_page/index.html"));
-                }
-                else{
-                    $wrong_pwd = "The password is incorect.";
-                }  
-            }
-            else {
-                $wrong_user = "User does not exist";
-            }
-            
-            $conn->close();
-        }
-        
-    }
-
-?>
-
 <body>
+    <!--
+    <h1>  yes  </h1>
+    <h2 class="title"> no no </h2>
+    <br>
+    <p>  
+        <a href="test2.html" target="blank" > <strong> SIGN UP HERE </strong> </a> 
+
+        <img src="user2.png" alt="user image" width="30" height="30">
+        <img src="logout1.jpg" alt="logout image" width="37" height="50">
+    </p>
+    -->
+    <div class="first_all">
+        <div class="second_navbar">   
+            <a href="index.php"  > <img src="main_page/datalysis1.png" alt="datalysis image" width="" height="" top=100px> </a>
+            <ul>
+                <li>    <a href="#"> Upload Δεδομένων </a> 
+                        <!--
+                        <div>
+                            <ul>
+                                <li> <a href="#"> Ανέβασμα HAR αρχείου στο Σύτημα</a> </li>
+                                <li> <a href="#"> Αποθήκευση επξεργασμένου αρχείου Τοπικά </a> </li>
+                               
+                            </ul>
+                        </div> 
+                        -->
+                </li>
+                <li>    <a href="#"> Διαχείριση Προφίλ </a> 
+                    <!--
+                    <div>
+                        <ul>
+                            <li> <a href="#"> Αλλαγή Ονόματος Χρήστη</a> </li>
+                            <li> <a href="#"> Αλλαγή Κωδικού </a> </li>
+                            <li> <a href="#"> Στατιστικά Δεδομένων </a> </li>
+                           
+                        </ul>
+                    </div>
+                    -->
+                </li>
+                <li>    <a href="#"> Οπτικοποίηση Δεδομένων </a> 
+                         
+                </li>
+               
+            </ul>
+           
+            <div class="navbar_icons"> 
+                <ul>
+                    <?php
+                        if(isset($_SESSION["username"])){
+                            echo "<li> <a href='include/logout.php'> Αποσύνδεση </a> </li>";
+                        }
+                        else{
+                            echo "<li> <a href='sign_in.php'> Σύνδεση </a> </li>";
+                        }
+                    ?>
+                </ul>
+            </div>
+
+        </div>
+        <div class="ban">
+           
+            <div class="lcolumn">  
+                <!--
+                <div class="search">
+                    <img src="search.png">
+                    <input type="text">
+                </div>-->
+                <br>
+                <br>
+                
+                <h3> <span> Καλώς ήλθατε </span> <small> στην </small> Ιστοσελίδα μας </h3>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h2>ΣΚΟ<spanun>ΠΟΣ</spanun> μας είναι:</h2>
+                <p>
+                    Μέσω της συγκεκριμένης ιστοσελίδας η απεικόνιση ενός πλήρους συστήματος συλλογής, διαχείρισης και ανάλυσης πληθοποριστικής (crowdsourced) πληροφορίας, που αφορά δεδομένα κίνησης HTTP.
+                </p>
+
+               <h2>Σημαντικές πληροφορίες:</h2>
+               <br>
+                Η κίνηση στο διαδίκτυο μέσω HTTP, μπορεί να καταγραφεί από οποιονδήποτε πελάτη (client), 
+                ώστε τα δεδομένα αυτά να χρησιμοποιηθούν αργότερα για την ανάλυση της συμπεριφοράς ενός ιστοτόπου. 
+                Για το σκοπό αυτό, έχει δημιουργηθεί το πρότυπο HAR (HTTP ARchive), που ορίζει μια συγκεκριμένη δομή (σχήμα) JSON για την αποθήκευση αυτών των δεδομένων.
+                Αν και η ανάλυση των δεδομένων ενός υπολογιστή δεν έχει τόσο μεγάλο ενδιαφέρον, 
+                η ανάλυση HAR αρχείων από πολλούς υπολογιστές, που αφορούν πολλούς ιστότοπους και διαφορετικές ώρες πρόσβασης, 
+                έχει τη δυνατότητα να αποκαλύψει ιδιαίτερα ενδιαφέρουσες πτυχές της υποδομής του παγκόσμιου ιστού.
+                Έτσι λοιπόν, παρουσιάζουμε ένα σύστημα πληθοποριστικής συλλογής δεδομένων HAR με σκοπό την παροχή κάποιων βασικών αναλύσεων για κάθε χρήστη ξεχωριστά,
+                 αλλά και γενικότερων αναλύσεων που αφορούν την υποδομή διαδικτύου σε μια περιοχή.  
+               
+                 <br>
+        
+
+        <div class="container">
+            <footer>
+                <p class="pull-right"> <a href="#"> Επιστροφή στην κορυφή </a> </p>
+            </footer>
+        </div> 
+
+        </div>
+       
+    </div>
    
-    <table class="main_frame">
-        <tr>
-            <th>
-                <table class="outer_frame">
-                    <tr>
-                        <th>
-                            <table class="inner_frame">
-                                <tr>
-                                    <th>
-                                        <table class="categories_frame">
-                                            <tr>
-                                                <th> 
-                                                    <table>
-                                                        <tr>
-                                                            <th>
-                                                                <table  class="logo_frame">
-                                                                    <tr>
-                                                                        <th>
-                                                                            <img src="https://media-exp1.licdn.com/dms/image/C560BAQHFiK3xdd_AwQ/company-logo_200_200/0/1588679357791?e=2159024400&v=beta&t=6EeGhyA9B187tOqDx9-BUocBYo49-QYE3LxcGOTTLm8" width=70% alt="logo_image">
-                                                                        </th>
-                                                                    </tr>
-                                                                </table>
-                                                            </th>
-                                                        </tr>
-                                                    </table>
-                                                    <table class="question-frame">
-                                                        <tr>
-                                                            <th>
-                                                                <table class="question">
-                                                                    <tr>
-                                                                        <th>
-                                                                            Don't you have an account? JOIN US
-                                                                            <a href="sign_up.php"> here</a>
-                                                                        </th>
-                                                                    </tr>
-                                                                </table>
-                                                            </th>
-                                                        </tr>
-                                                    </table>
-                                                </th>
-                                                <th>
-                                                    <table class="form">
-                                                        <tr>
-                                                            <th>
-                                                                <table class="tab-header-frame">
-                                                                    <tr>
-                                                                        <th>
-                                                                            <table class="tab-header">
-                                                                                <tr>
-                                                                                    <th>
-                                                                                        Log in
-                                                                                    </th>
-                                                                                </tr>
-                                                                            </table>
-                                                                        </th>
-                                                                    </tr>
-                                                                </table>
-                                                                <table class="tab-content-frame">
-                                                                    <tr>
-                                                                        <th>
-                                                                            <form action=""  method = "post">
-                                                                                <table class="tab-content">
-                                                                                    <tr>
-                                                                                        <th>
-                                                                                            <table class="form-element-frame">
-                                                                                                <tr>
-                                                                                                    <th>
-                                                                                                        <table>
-                                                                                                            <tr>
-                                                                                                                <th>
-                                                                                                                    <input type="text" placeholder="Username" name = "username" required>
-                                                                                                                </th>
-                                                                                                            </tr>
-                                                                                                        </table>
-                                                                                                        <table>
-                                                                                                            <tr>
-                                                                                                                <th>
-                                                                                                                    <?php echo "<p style='color:red; font-size: 10px;'>" . $wrong_user . "</p>"; ?>
-                                                                                                                </th>
-                                                                                                            </tr>
-                                                                                                        </table>
-                                                                                                    </th>
-                                                                                                </tr>
-                                                                                            </table>
-                                                                                            <table>
-                                                                                                <tr>
-                                                                                                    <th>
-                                                                                                        <table class="form-element">
-                                                                                                            <tr>
-                                                                                                                <th>
-                                                                                                                    <table class="wrapper">
-                                                                                                                        <tr>
-                                                                                                                            <th>
-                                                                                                                                <table>
-                                                                                                                                     <input class= "pswrd" type="Password" placeholder="Password" name = "password" required>
-                                                                                                                                </table>
-                                                                                                                                <table>
-                                                                                                                                    <span class="show">SHOW</span>
-                                                                                                                                </table>
-                                                                                                                            </th>
-                                                                                                                        </tr>
-                                                                                                                    </table>
-                                                                                                                    <table>
-                                                                                                                        <tr>
-                                                                                                                            <th>
-                                                                                                                                <?php echo "<p style='color:red; font-size: 10px;'>" . $wrong_pwd . "</p>"; ?>
-                                                                                                                            </th>
-                                                                                                                        </tr>
-                                                                                                                    </table>
-                                                                                                                </th>
-                                                                                                            </tr>
-                                                                                                        </table>
-                                                                                                    </th>
-                                                                                                </tr>
-                                                                                            </table>
-                                                                                            <table>
-                                                                                                <tr>
-                                                                                                    <th>
-                                                                                                        <input class="login" type="submit" name="submit" value="LOGIN" />
-                                                                                                    </th>
-                                                                                                </tr>
-                                                                                            </table>
-                                                                                            
-                                                                                        </th>
-                                                                                    </tr>
-                                                                                </table>
-                                                                            </form>
-                                                                        </th>
-                                                                    </tr>
-                                                                </table>
-                                                            </th>
-                                                        </tr>
-                                                    </table>
-                                                </th>
-                                            </tr>
-                                        </table>
-                                    </th>
-                                </tr>
-                            </table>
-                        </th>
-                    </tr>
-                </table>
-            </th>
-        </tr>
-    </table> 
-    
-    <script>
-        var input = document.querySelector('.pswrd');
-        var show = document.querySelector('.show');
-        show.addEventListener('click', active);
-        function active(){
-            if(input.type === "password"){
-            input.type = "text";
-            show.style.color = "#b80603";
-            show.textContent = "HIDE";
-            }else{
-            input.type = "password";
-            show.textContent = "SHOW";
-            show.style.color = "#4a4a4a";
-            }
-        }
-    </script>
-
-
-
 </body>
 
 </html>
