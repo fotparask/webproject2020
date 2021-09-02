@@ -23,7 +23,7 @@
 
     $servername = "localhost";
     $dbusername = "root";
-    $dbpassword = "vofogi62";
+    $dbpassword = "";
     $dbname = "webproject";
     
 
