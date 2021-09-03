@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-
-<html>
-
-<head>
-<meta charset="utf-8">
-<title>DatAnalysis Sign-up</title>
-<link rel="stylesheet" type="text/css" href="styling.css">
-</head>
-
-
 <?php
 
 $servername = "localhost";
@@ -94,168 +83,104 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 
 
-<body>
-   
-<table class="main_frame">
-    <tr>
-        <th>
-            <table class="outer_frame">
-                <tr>
-                    <th>
-                        <table class="inner_frame">
-                            <tr>
-                                <th>
-                                    <table class="categories_frame">
-                                        <tr>
-                                            <th> 
-                                                <table>
-                                                    <tr>
-                                                        <th>
-                                                            <table class="logo_frame">
-                                                                <tr>
-                                                                    <th>
-                                                                        <img src= "https://media-exp1.licdn.com/dms/image/C560BAQHFiK3xdd_AwQ/company-logo_200_200/0/1588679357791?e=2159024400&v=beta&t=6EeGhyA9B187tOqDx9-BUocBYo49-QYE3LxcGOTTLm8" width=70% alt="logo_image">
-                                                                    </th>
-                                                                </tr>
-                                                            </table>
-                                                        </th>
-                                                    </tr>
-                                                </table>
-                                                <table class="question-frame">
-                                                    <tr>
-                                                        <th>
-                                                            <table class="question">
-                                                                <tr>
-                                                                    <th>
-                                                                        Already have an account? Go and log in by
-                                                                        <a href="sign_in.php">clicking here</a>
-                                                                    </th>
-                                                                </tr>
-                                                            </table>
-                                                        </th>
-                                                    </tr>
-                                                </table>
-                                            </th>
-                                            <th>
-                                                <table class="form">
-                                                    <tr>
-                                                        <th>
-                                                            <form action = "" method = "post">
-                                                                <table class="tab-header-frame">
-                                                                    <tr>
-                                                                        <th>
-                                                                            <table class="tab-header">
-                                                                                <tr>
-                                                                                    <th>
-                                                                                        Sign Up
-                                                                                    </th>
-                                                                                </tr>
-                                                                            </table>
-                                                                        </th>
-                                                                    </tr>
-                                                                </table>
-                                                                <table class="tab-content-frame">
-                                                                    <tr>
-                                                                        <th>
-                                                                            <table class="tab-content">
-                                                                                <tr>
-                                                                                    <th>
-                                                                                        <table class="form-element-frame">
-                                                                                            <tr>
-                                                                                                <th>
-                                                                                                    <table class="form-element">
-                                                                                                        <tr>
-                                                                                                            <th>
-                                                                                                            <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email" required />
-                                                                                                            </th>
-                                                                                                        </tr>
-                                                                                                    </table>
-                                                                                                    <table>
-                                                                                                        <tr>
-                                                                                                            <th>
-                                                                                                                <?php echo "<p style='color:red; font-size: 10px;'>" . $email_exists . "</p>"; ?>
-                                                                                                            </th>
-                                                                                                        </tr>
-                                                                                                    </table>
-                                                                                                </th>
-                                                                                            </tr>
-                                                                                        </table>
-                                                                                        <table class="form-element-frame">
-                                                                                            <tr>
-                                                                                                <th>
-                                                                                                    <table class="form-element">
-                                                                                                        <tr>
-                                                                                                            <th>
-                                                                                                                <input type="text" placeholder="Username" name = "username">
-                                                                                                            </th>
-                                                                                                        </tr>
-                                                                                                    </table>
-                                                                                                    <table>
-                                                                                                        <tr>
-                                                                                                            <th>
-                                                                                                                <?php echo "<p style='color:red; font-size: 10px;'>" . $username_exists . "</p>"; ?>
-                                                                                                            </th>
-                                                                                                        </tr>
-                                                                                                    </table>
-                                                                                                </th>
-                                                                                            </tr>
-                                                                                        </table>
-                                                                                        <table class="form-element-frame">
-                                                                                            <tr>
-                                                                                                <th>
-                                                                                                    <table class="form-element">
-                                                                                                        <tr>
-                                                                                                            <th>
-                                                                                                            <input type="password" id="psw" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-                                                                                                            </th>
-                                                                                                        </tr>
-                                                                                                    </table>
-                                                                                                </th>
-                                                                                            </tr>
-                                                                                        </table>
-                                                                                        <table class="form-element-frame">
-                                                                                            <tr>
-                                                                                                <th>
-                                                                                                    <table class="form-element">
-                                                                                                        <tr>
-                                                                                                            <th>
-                                                                                                            <input type="password" id="psw" name="password" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-                                                                                                            </th>
-                                                                                                        </tr>
-                                                                                                    </table>
-                                                                                                </th>
-                                                                                            </tr>
-                                                                                        </table>
-                                                                                        <table>
-                                                                                            <tr>
-                                                                                                <th>
-                                                                                                    <input class="login" type="submit" name="submit" value = "Create Account" />
-                                                                                                </th>
-                                                                                            </tr>
-                                                                                        </table>
-                                                                                    </th>
-                                                                                </tr>
-                                                                            </table>
-                                                                        </th>
-                                                                    </tr>
-                                                                </table>
-                                                            </form>
-                                                        </th>
-                                                    </tr>
-                                                </table>
-                                            </th>
-                                        </tr>
-                                    </table>
-                                </th>
-                            </tr>
-                        </table>
-                    </th>
-                </tr>
-            </table>
-        </th>
-    </tr>
-</table>
+<html>
 
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>HARcules Register </title>
+    <link rel="stylesheet" href="styling.css">
+  </head>
+
+  <body>
+    <div class="logo_img">
+      <img src="HARcules Logo-01.png" width="400px">
+    </div>
+    <div class="center">
+      <h1>Register</h1>
+      <form method="post">
+        <div class="txt_field">
+          <input type="email" required>
+          <span></span>
+          <label>Email</label>
+        </div>
+        <div class="txt_field">
+          <input type="text" required>
+          <span></span>
+          <label>Όνομα Χρήστη</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" required>
+          <span></span>
+          <label>Κωδικός</label>
+        </div>
+        <div class="txt_field">
+            <input type="password" required>
+            <span></span>
+            <label>Επιβεβαίωση Κωδικού</label>
+        </div>
+        <input type="submit" value="Εγγραφή">
+        <div class="signup_info">
+        Όλα Τα πεδία με είναι υποχρεωτικά
+        </div>
+        <div class="signup_link">
+          Είσαι ήδη μέλος; <a href="index.html">Signin</a>
+        </div>
+      </form>
+    </div>
+
+  </body>
+
+
+  <script type="text/javascript">
+
+    function validateEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+
+    function validateUsername(username) {
+        const re = /^[a-zA-Z0-9-' ]*$/;
+        return re.test(String(username).toLowerCase());
+    }
+
+
+    function validatePassword(password) {
+        const re = /^[a-zA-Z0-9-' ]*$/;
+        return re.test(String(password).toLowerCase());
+    }
+
+    $(document).ready(function () {
+        $("#login").on('click',function() {
+            let email = $("#email").val();
+            let password = $("#password").val();
+            
+            if (!validateEmail(email)) {
+                alert('Please enter a valid email.');
+            }
+            else if(!validatePassword(password)) {
+                alert('Please enter a valid password.');
+            }
+            else{
+                $.ajax(
+                    {
+                        url: 'index.php',
+                        type: 'post',
+                        data: {
+                            login: 1,
+                            userEmail: email,
+                            userPassword: password
+                        },
+                        success: function (response) {
+                            console.log("Ajax call succeded");
+                        }
+                    }
+                );
+            }
+        })
+    });
+
+</script>
+
 
 </html>
