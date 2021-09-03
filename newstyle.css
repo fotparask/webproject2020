@@ -1,0 +1,221 @@
+:root{
+    --main-color:rgb(163, 3, 3);
+    --black:#13131a;
+    --bg: white;
+    --border:1.1rem solid rgba(97, 96, 96, 0.86);
+    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    
+    font-family: 'Roboto',sans-serif;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration:none;
+    
+    transition: 0.3s linear;
+    
+
+
+}
+
+html{
+    font-size: 72.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width:0.8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: white;
+    border-radius: 5rem;
+}
+
+body{
+    background: white;
+}
+
+.first_all{
+    background:  rgb(163, 3, 3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 7%;
+    border-bottom:var(--border);
+    position: fixed;
+    top:0; left: 0; right: 0;
+    z-index: 1000;
+}
+
+.first_all .im img{
+    height: 10rem;
+    width: 180px;
+}
+
+.first_all .the_navbar a{
+    margin:0 1rem;
+    font-size:  18.1px;
+    font-weight:bolder;
+    color: whitesmoke;
+    
+}
+
+.first_all .the_navbar a:hover{
+    color: white;
+    border-bottom: .1rem  solid white;
+    padding-bottom: .5rem;
+    border-width: medium;
+    
+}
+
+.first_all .navbar_icons div{
+    color: #13131a;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+    
+
+}
+
+.first_all .navbar_icons div:hover{
+    color: #13131a;
+}
+
+
+
+
+.ban{
+    display: flex;
+    margin-top: 8%;
+   
+}
+
+.lcolumn {
+    flex-basis: 80%;
+    margin: 10% 10%;
+    text-align: justify;
+}
+
+.lcolumn h3{
+    font-size: 30px;
+}
+
+.lcolumn h2{
+    font-size: 20px;
+}
+
+.text{
+    font-size: 14px;
+}
+
+span{
+    color: rgb(97, 96, 96);
+    
+}
+
+spanun{
+    
+    color:  rgb(163, 3, 3);
+}
+
+.lcolumn p{
+    font-size: 17px;
+    color:black;
+    
+    margin: 5% 7%;
+}
+
+
+.buttons button{
+    padding:7px 30px;
+    outline: none;
+    border: 0px solid rgb(158, 155, 155);
+    border-radius: 12px;
+    cursor: pointer;
+    color:black;
+    background: transparent;
+
+    margin: 10%;
+    top: 32%;
+    position: absolute;
+
+}
+
+.buttons .primier{
+    background: linear-gradient(rgb(163, 3, 3),rgb(163, 3, 3));
+   /* box-shadow: 0 2px 15px rgb(97, 96, 96) ;*/
+    color: rgb(221, 220, 220); 
+    font-size: 17px;
+
+    
+}
+
+.buttons{
+    margin-bottom: 7%;
+    
+}
+
+.buttons .primier:hover{
+    
+    color: white;
+    background: linear-gradient(rgba(163, 3, 3, 0.856),rgba(163, 3, 3, 0.856));
+}
+
+.buttons .primier:active{
+    
+    color: rgb(158, 155, 155);
+}
+
+.options{
+    font-size: 15px;
+    margin: 10%;
+    top: 47%;
+    position: absolute;
+
+}
+
+
+.labels{
+    font-size: 20px;
+    height: 140px ;
+    width: 250px;
+    float: left;
+    line-height: 40px;
+   /* background: rgb(158, 155, 155,0.8);*/
+}
+
+.inputs{
+    height: 140px ;
+    width: 150px;
+    float: left;
+    line-height: 39px;
+   /*background: rgb(158, 155, 155,0.8);*/
+   
+    
+}
+
+.form{
+    height: 180px ;
+    width: 400px;
+    margin:10px auto;
+    /*position: relative;*/
+    top: 100px;
+ 
+    float: left;
+    /*
+    background: rgb(158, 155, 155,0.8);
+    border: 1px solid;
+    border-radius: 10px;
+    */
+}
