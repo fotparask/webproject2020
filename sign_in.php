@@ -5,10 +5,10 @@
     $dbpassword = "";
     $dbname = "webproject";
 
-    if($_POST['userEmail']) {
+    if($_POST['login']) {
 
-        $email = $_POST['userEmail'];
-        $password = $_POST['userPassword'];
+        $email = $_POST['ajaxEmail'];
+        $password = $_POST['ajaxPassword'];
 
         //Create connection
         $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
@@ -59,7 +59,7 @@
     </div>
     <div class="center">
       <h1>Login</h1>
-      <form method="post">
+      <form method="post" action="sign_in.php">
         <div class="txt_field">
           <input type="email" name="email" id="email" required>
           <span></span>
@@ -71,7 +71,7 @@
           <label>Κωδικός</label>
         </div>
         <div class="pass">Ξέχασες τον κωδικό;</div>
-        <inputtype="button" value="Σύνδεση" name="login" id ="login">
+        <input type="button" value="Σύνδεση" name="login" id ="login">
         <div class="signup_link">
           Δεν είσαι μέλος; <a href="signup.html">Signup</a>
         </div>
@@ -115,8 +115,8 @@
                             type: 'post',
                             data: {
                                 login: 1,
-                                userEmail: email,
-                                userPassword: password
+                                ajaxEmail: email,
+                                ajaxPassword: password
                             },
                             success: function (response) {
                                 console.log("Ajax call succeded");

@@ -85,7 +85,7 @@
         <meta name="author" content="">
         <meta name="keywords" content="">
     
-        <link rel="stylesheet" href="newstyle.css">
+        <link rel="stylesheet" href="style.css">
     
     
     </head>
@@ -93,16 +93,16 @@
 
 <body>
     
-    <script src="main.js"> </script>
+    <script src="script.js"> </script>
     
     <header class="first_all">
-        <a href="newindex.html" class="im" > <img src="logo.png" alt="logo image"> </a>
+        <a href="index.html" class="im" > <img src="../images/logo.png" alt="logo image"> </a>
         
         <nav class="the_navbar">   
             
-            <a href="index2.html"> Upload Δεδομένων </a> 
+            <a href="uploadFiles.php"> Upload Δεδομένων </a> 
                         
-            <a href="index3.html"> Διαχείριση Προφίλ </a> 
+            <a href="editProfile.php"> Διαχείριση Προφίλ </a> 
                     
             <a href="#"> Οπτικοποίηση Δεδομένων </a> 
                          
@@ -112,7 +112,7 @@
            
             <div class="navbar_icons"> 
                     
-                    <div class= "menu" > <img src="menu.jpeg" alt="menu image" height= "21.5px" width="23px";></div>
+                    <div class= "menu" > <img src="../images/menu.jpeg" alt="menu image" height= "21.5px" width="23px";></div>
                 
             </div>
 

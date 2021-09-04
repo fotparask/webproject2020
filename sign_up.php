@@ -1,41 +1,17 @@
 <?php
 
-$servername = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$dbname = "webproject";
-
-$email = "";
-$username = "";
-$password = "";
-
-$email_exists = '';     //var to check if email aleady exists
-$username_exists = '';  //var to check if username aleady exists
+    $servername = "localhost";
+    $dbusername = "root";
+    $dbpassword = "";
+    $dbname = "webproject";
 
 
+    if ($_POST['register']){
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
-    if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-        echo "
-            <script>alert('You entered an invalid email!');</script>
-        ";
-    }
-    elseif(!preg_match("/^[a-zA-Z0-9-' ]*$/",$_POST["username"])) {
-        echo "
-            <script>alert('Please enter a valid username.');</script>
-        ";
-    }
-    elseif(!preg_match("/^[a-zA-Z0-9-' ]*$/",$_POST["password"])) {
-        echo "
-            <script>alert('Please enter a valid password.');</script>
-        ";
-    }
-    else{
-
-        $email = $_POST["email"];
-        $username = $_POST["username"];
-        $password = $_POST["password"];
+        $email = $_POST["ajaxEmail"];
+        $username = $_POST["ajaxUsername"];
+        $password = $_POST["ajaxPassword"];
         $hashed_pwd = password_hash($password, PASSWORD_DEFAULT);
 
 
@@ -53,10 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $result2 = $conn->query($sql);
 
         if ($result1->num_rows > 0) {
-            $email_exists = "Email already exists.";
+            echo("Email already exists.");
         }
         elseif($result2->num_rows > 0) {
-            $username_exists = "User already exists.";
+            echo("User already exists.");
         }
         else{
 
@@ -75,11 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         }
 
         $conn->close();
-
     }
-}
-
-
 ?>
 
 
@@ -97,28 +69,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>
     <div class="center">
       <h1>Register</h1>
-      <form method="post">
+      <form method="post" action="sign_up.php">
         <div class="txt_field">
-          <input type="email" required>
+          <input type="email" name="email" id="email" required>
           <span></span>
           <label>Email</label>
         </div>
         <div class="txt_field">
-          <input type="text" required>
+          <input type="text" name="username" id="username" required>
           <span></span>
           <label>Όνομα Χρήστη</label>
         </div>
         <div class="txt_field">
-          <input type="password" required>
+          <input type="password" name="password" id="password" required>
           <span></span>
           <label>Κωδικός</label>
         </div>
         <div class="txt_field">
-            <input type="password" required>
+            <input type="password" name="secondPassword" id="secondPassword" required>
             <span></span>
             <label>Επιβεβαίωση Κωδικού</label>
         </div>
-        <input type="submit" value="Εγγραφή">
+        <input type="button" value="Εγγραφή" name="register" id ="register">
         <div class="signup_info">
         Όλα Τα πεδία με είναι υποχρεωτικά
         </div>
@@ -151,25 +123,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     $(document).ready(function () {
-        $("#login").on('click',function() {
+        $("#register").on('click',function() {
             let email = $("#email").val();
+            let username = $("#username").val();
             let password = $("#password").val();
+            let secondPassword = $("#secondPassword").val();
             
             if (!validateEmail(email)) {
                 alert('Please enter a valid email.');
             }
+            else if(!validateUsername(username)) {
+                alert('Please enter a valid password.');
+            }
             else if(!validatePassword(password)) {
                 alert('Please enter a valid password.');
+            }
+            else if(secondPassword != password) {
+                alert('Password do not match.');
             }
             else{
                 $.ajax(
                     {
-                        url: 'index.php',
+                        url: 'sign_up.php',
                         type: 'post',
                         data: {
-                            login: 1,
-                            userEmail: email,
-                            userPassword: password
+                            register: 1,
+                            ajaxEmail: email,
+                            ajaxUsername: username,
+                            ajaxPassword: password
                         },
                         success: function (response) {
                             console.log("Ajax call succeded");
