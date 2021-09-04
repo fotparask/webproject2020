@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
   <body>
     <div class="logo_img">
-      <img src="HARcules Logo-01.png" width="400px">
+      <img src="C:\wamp64\www\webproject2020\webproject2020\images\HARcules Logo-01.png" width="400px">
     </div>
     <div class="center">
       <h1>Register</h1>
