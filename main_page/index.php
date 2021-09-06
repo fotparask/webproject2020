@@ -22,7 +22,7 @@
 <body>
     
 
-    <script src="main.js"> </script>
+    <script src="script.js"> </script>
     
     <header class="first_all">
         <a href="newindex.html" class="im" > <img src="..\images\logo.png" alt="logo image"> </a>
