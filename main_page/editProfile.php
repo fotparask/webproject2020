@@ -13,7 +13,7 @@
         <meta name="author" content="">
         <meta name="keywords" content="">
     
-        <link rel="stylesheet" href="newstyle.css">
+        <link rel="stylesheet" href="style-main.css">
     
     
     </head>

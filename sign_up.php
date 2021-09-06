@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
   <head>
     <meta charset="utf-8">
     <title>HARcules Register </title>
-    <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="style-form.css">
   </head>
 
   <body>

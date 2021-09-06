@@ -10,14 +10,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <link rel="stylesheet" href="newstyle.css">
+    <link rel="stylesheet" href="style-main.css">
 </head>
 <body>
     
     <script src="main.js"> </script>
     
     <header class="first_all">
-        <a href="admin.html" class="im" > <img src="logo.png" alt="logo image"> </a>
+        <a href="admin.html" class="im" > <img src="..\images\logo.png" alt="logo image"> </a>
         
         <nav class="the_navbar">   
             
@@ -36,7 +36,7 @@
         <div class="navbar_icons"> 
                     
                     <div class= "menu" id="menu-btn">
-                        <img src="menu.jpeg" alt="menu image" height= "21.5px" width="23px">
+                        <img src="..\images\menu.jpeg" alt="menu image" height= "21.5px" width="23px">
                     </div>
                 
             </div>
