@@ -80,7 +80,7 @@
     <meta name="keywords" content="">
     <meta name="viewport" content="">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-main.css">
 
     <!--    
         style at style.css
