@@ -50,7 +50,7 @@
   <head>
     <meta charset="utf-8">
     <title>HARcules Login</title>
-    <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="style-form.css">
   </head>
 
   <body>
@@ -73,7 +73,7 @@
         <div class="pass">Ξέχασες τον κωδικό;</div>
         <input type="button" value="Σύνδεση" name="login" id ="login">
         <div class="signup_link">
-          Δεν είσαι μέλος; <a href="signup.html">Signup</a>
+          Δεν είσαι μέλος; <a href="sign_up.html">Signup</a>
         </div>
       </form>
     </div>

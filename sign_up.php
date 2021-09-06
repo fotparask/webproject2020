@@ -60,12 +60,12 @@
   <head>
     <meta charset="utf-8">
     <title>HARcules Register </title>
-    <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="style-form.css">
   </head>
 
   <body>
     <div class="logo_img">
-      <img src="HARcules Logo-01.png" width="400px">
+      <img src="C:\wamp64\www\webproject2020\webproject2020\images\HARcules Logo-01.png" width="400px">
     </div>
     <div class="center">
       <h1>Register</h1>
