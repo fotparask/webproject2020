@@ -2,121 +2,91 @@
 <html lang="=el">
 
 <head>
-    <title>website</title>
+<title>website</title>
     <meta charshet="UTF-8">
-    <meta name="description" content="website">
-
+    
+    <meta name="viewport" content="width=devise-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <meta name="viewport" content="">
-
-    <link rel="stylesheet" href="style.css">
-
-    <!--    
-        style at style.css
-    -->
-
+    <link rel="stylesheet" href="newstyle.css">
 </head>
-
-
 <body>
-    <!--
-    <h1>  yes  </h1>
-    <h2 class="title"> no no </h2>
-    <br>
-    <p>  
-        <a href="test2.html" target="blank" > <strong> SIGN UP HERE </strong> </a> 
+    
+    <script src="main.js"> </script>
+    
+    <header class="first_all">
+        <a href="admin.html" class="im" > <img src="logo.png" alt="logo image"> </a>
+        
+        <nav class="the_navbar">   
+            
+            <a href="#"> Βασικές Πληροφορίες </a> 
+                        
+            <a href="#"> Χρόνων Απόκρισης Αιτήσεων </a> 
 
-        <img src="user2.png" alt="user image" width="30" height="30">
-        <img src="logout1.jpg" alt="logout image" width="37" height="50">
-    </p>
-    -->
-    <div class="first_all">
-        <div class="second_navbar">   
-            <a href="index_admin.html"  > <img src="datalysis1.png" alt="datalysis image" width="" height="" top=100px> </a>
-            <ul>
-                <li>    <a href="#"> Απεικόνιση Πληροφοριών </a> 
-                        <!--
-                        <div>
-                            <ul>
-                                <li> <a href="#"> Ανέβασμα HAR αρχείου στο Σύτημα</a> </li>
-                                <li> <a href="#"> Αποθήκευση επξεργασμένου αρχείου Τοπικά </a> </li>
-                               
-                            </ul>
-                        </div> 
-                        -->
-                </li>
-                <li>    <a href="#"> Ανάλυση Χρόνων </a> 
-                   
-                </li>
+            <a href="#"> Ανάλυση κεφαλίδων HTTP </a> 
+                    
+            <a href="#"> Οπτικοποίηση Δεδομένων </a> 
 
-                <li>    <a href="#"> Ανάλυση HTTP </a> 
-                         
-                </li>
+            <a href="#"> Αποσύνδεση </a> 
+            
+        </nav>
 
-                <li>    <a href="#"> Οπτικοποίηση Δεδομένων </a> 
-                         
-                </li>
-               
-            </ul>
-           
-            <div class="navbar_icons"> 
-                <ul>
-                <li> 
-                    <!--
-                    <img src="logout1.jpg" alt="logout image">
-                    -->
-                    <a href="#"> Αποσύνδεση </a>
-                
-                <!--
-                    <div>
-                        <ul>
-                            <li> <a href="#"> Όνομα Χρήστη</a> </li>
-                            <li> <a href="#"> Αποσύνδεση </a> </li>
-                            
-                           
-                        </ul>
+        <div class="navbar_icons"> 
+                    
+                    <div class= "menu" id="menu-btn">
+                        <img src="menu.jpeg" alt="menu image" height= "21.5px" width="23px">
                     </div>
-                -->
-                </li>
-                </ul>
+                
             </div>
-
-        </div>
+       
+    </header>
+   
         <div class="ban">
            
             <div class="lcolumn">  
-                <!--
-                <div class="search">
-                    <img src="search.png">
-                    <input type="text">
-                </div>-->
-                <br>
-                <br>
                 
-                <h3> <span> Καλώς ήλθατε </span> <small> στην </small> Ιστοσελίδα μας </h3>
-                <br>
-                <br>
-                <br>
-                <br>
-                <h2>ΣΚΟ<spanun>ΠΟΣ</spanun> μας είναι:</h2>
-                <p>
-                    Μέσω της συγκεκριμένης ιστοσελίδας η απεικόνιση ενός πλήρους συστήματος συλλογής, διαχείρισης και ανάλυσης πληθοποριστικής (crowdsourced) πληροφορίας, που αφορά δεδομένα κίνησης HTTP.
-                </p>
+                <h3> Admins Panel </h3>
+            </div>
+        </div>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor mattis euismod. Ut non ultricies diam. Quisque ipsum sem, molestie non lobortis nec, dignissim id velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum efficitur mattis. Nunc felis nisi, ultrices sed orci et, cursus vestibulum felis. Mauris fermentum ut elit non posuere. Suspendisse ut sagittis quam.
 
-               <h2>Σημαντικές πληροφορίες:</h2>
-               <br>
-                Η κίνηση στο διαδίκτυο μέσω HTTP, μπορεί να καταγραφεί από οποιονδήποτε πελάτη (client), 
-                ώστε τα δεδομένα αυτά να χρησιμοποιηθούν αργότερα για την ανάλυση της συμπεριφοράς ενός ιστοτόπου. 
-                Για το σκοπό αυτό, έχει δημιουργηθεί το πρότυπο HAR (HTTP ARchive), που ορίζει μια συγκεκριμένη δομή (σχήμα) JSON για την αποθήκευση αυτών των δεδομένων.
-                Αν και η ανάλυση των δεδομένων ενός υπολογιστή δεν έχει τόσο μεγάλο ενδιαφέρον, 
-                η ανάλυση HAR αρχείων από πολλούς υπολογιστές, που αφορούν πολλούς ιστότοπους και διαφορετικές ώρες πρόσβασης, 
-                έχει τη δυνατότητα να αποκαλύψει ιδιαίτερα ενδιαφέρουσες πτυχές της υποδομής του παγκόσμιου ιστού.
-                Έτσι λοιπόν, παρουσιάζουμε ένα σύστημα πληθοποριστικής συλλογής δεδομένων HAR με σκοπό την παροχή κάποιων βασικών αναλύσεων για κάθε χρήστη ξεχωριστά,
-                 αλλά και γενικότερων αναλύσεων που αφορούν την υποδομή διαδικτύου σε μια περιοχή.  
+                Donec tempus at metus et dapibus. Aliquam erat volutpat. Nam mollis lorem sed nisl facilisis euismod. Ut id hendrerit purus. Vivamus fringilla ullamcorper imperdiet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi a urna quis ante dignissim pulvinar et et nisi. Donec augue lectus, luctus eu iaculis a, lacinia nec justo. Mauris luctus enim tortor, et sagittis dui aliquam a. In hac habitasse platea dictumst. Proin bibendum commodo tristique. Etiam eleifend tellus quam, at ornare nisi blandit in. Quisque congue euismod sem, a blandit diam accumsan quis.
+                
+                Integer interdum ultrices tortor, eget pharetra arcu. Nullam molestie tortor neque, vitae commodo arcu pretium in. Pellentesque ultrices suscipit egestas. Suspendisse justo enim, semper quis efficitur ut, interdum ac neque. Curabitur ut tincidunt dui. Duis ultrices magna in metus fringilla hendrerit. Maecenas id odio non sem varius vestibulum quis in velit.
+                
+                Sed sit amet faucibus mauris. Cras lacus erat, gravida vitae rhoncus ac, tempor ut lorem. Proin vulputate enim eget justo rutrum viverra. Sed massa lorem, ultricies non sem in, suscipit rutrum justo. Cras vel eleifend dui. Vivamus sit amet feugiat eros, ac blandit nisl. Quisque commodo faucibus maximus.
+                
+                Mauris consectetur tempor leo. Sed iaculis, risus et fringilla mattis, sapien dui tempus turpis, eu maximus orci dolor sit amet nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus sit amet nisi placerat, vulputate justo vel, porttitor lacus. Integer id turpis augue. Quisque placerat laoreet tristique. Phasellus justo lorem, eleifend a semper quis, eleifend a tortor. Donec egestas, neque a finibus placerat, justo risus condimentum lorem, non tristique massa ipsum viverra diam. Donec vel leo non lacus volutpat semper ut eu turpis. Nam magna ex, laoreet non facilisis sed, mattis quis turpis.
+                
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor mattis euismod. Ut non ultricies diam. Quisque ipsum sem, molestie non lobortis nec, dignissim id velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum efficitur mattis. Nunc felis nisi, ultrices sed orci et, cursus vestibulum felis. Mauris fermentum ut elit non posuere. Suspendisse ut sagittis quam.
+
+                Donec tempus at metus et dapibus. Aliquam erat volutpat. Nam mollis lorem sed nisl facilisis euismod. Ut id hendrerit purus. Vivamus fringilla ullamcorper imperdiet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi a urna quis ante dignissim pulvinar et et nisi. Donec augue lectus, luctus eu iaculis a, lacinia nec justo. Mauris luctus enim tortor, et sagittis dui aliquam a. In hac habitasse platea dictumst. Proin bibendum commodo tristique. Etiam eleifend tellus quam, at ornare nisi blandit in. Quisque congue euismod sem, a blandit diam accumsan quis.
+
+                Integer interdum ultrices tortor, eget pharetra arcu. Nullam molestie tortor neque, vitae commodo arcu pretium in. Pellentesque ultrices suscipit egestas. Suspendisse justo enim, semper quis efficitur ut, interdum ac neque. Curabitur ut tincidunt dui. Duis ultrices magna in metus fringilla hendrerit. Maecenas id odio non sem varius vestibulum quis in velit.
+
+                Sed sit amet faucibus mauris. Cras lacus erat, gravida vitae rhoncus ac, tempor ut lorem. Proin vulputate enim eget justo rutrum viverra. Sed massa lorem, ultricies non sem in, suscipit rutrum justo. Cras vel eleifend dui. Vivamus sit amet feugiat eros, ac blandit nisl. Quisque commodo faucibus maximus.
+
+                Mauris consectetur tempor leo. Sed iaculis, risus et fringilla mattis, sapien dui tempus turpis, eu maximus orci dolor sit amet nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus sit amet nisi placerat, vulputate justo vel, porttitor lacus. Integer id turpis augue. Quisque placerat laoreet tristique. Phasellus justo lorem, eleifend a semper quis, eleifend a tortor. Donec egestas, neque a finibus placerat, justo risus condimentum lorem, non tristique massa ipsum viverra diam. Donec vel leo non lacus volutpat semper ut eu turpis. Nam magna ex, laoreet non facilisis sed, mattis quis turpis.
+
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor mattis euismod. Ut non ultricies diam. Quisque ipsum sem, molestie non lobortis nec, dignissim id velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum efficitur mattis. Nunc felis nisi, ultrices sed orci et, cursus vestibulum felis. Mauris fermentum ut elit non posuere. Suspendisse ut sagittis quam.
+
+                Donec tempus at metus et dapibus. Aliquam erat volutpat. Nam mollis lorem sed nisl facilisis euismod. Ut id hendrerit purus. Vivamus fringilla ullamcorper imperdiet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi a urna quis ante dignissim pulvinar et et nisi. Donec augue lectus, luctus eu iaculis a, lacinia nec justo. Mauris luctus enim tortor, et sagittis dui aliquam a. In hac habitasse platea dictumst. Proin bibendum commodo tristique. Etiam eleifend tellus quam, at ornare nisi blandit in. Quisque congue euismod sem, a blandit diam accumsan quis.
+
+                Integer interdum ultrices tortor, eget pharetra arcu. Nullam molestie tortor neque, vitae commodo arcu pretium in. Pellentesque ultrices suscipit egestas. Suspendisse justo enim, semper quis efficitur ut, interdum ac neque. Curabitur ut tincidunt dui. Duis ultrices magna in metus fringilla hendrerit. Maecenas id odio non sem varius vestibulum quis in velit.
+
+                Sed sit amet faucibus mauris. Cras lacus erat, gravida vitae rhoncus ac, tempor ut lorem. Proin vulputate enim eget justo rutrum viverra. Sed massa lorem, ultricies non sem in, suscipit rutrum justo. Cras vel eleifend dui. Vivamus sit amet feugiat eros, ac blandit nisl. Quisque commodo faucibus maximus.
+
+                Mauris consectetur tempor leo. Sed iaculis, risus et fringilla mattis, sapien dui tempus turpis, eu maximus orci dolor sit amet nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus sit amet nisi placerat, vulputate justo vel, porttitor lacus. Integer id turpis augue. Quisque placerat laoreet tristique. Phasellus justo lorem, eleifend a semper quis, eleifend a tortor. Donec egestas, neque a finibus placerat, justo risus condimentum lorem, non tristique massa ipsum viverra diam. Donec vel leo non lacus volutpat semper ut eu turpis. Nam magna ex, laoreet non facilisis sed, mattis quis turpis.
+            </p>
+        </div>
                
-                 <br>
+    
+   
+</body>
         
 
         <div class="container">
