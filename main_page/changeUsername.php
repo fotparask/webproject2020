@@ -82,39 +82,34 @@
 
     <link rel="stylesheet" href="style-main.css">
 
-    <!--    
-        style at style.css
-    -->
-
 </head>
 
 
 <body>
-    <!--
-    <p>  
-        <a href="test2.html" target="blank" > <strong> SIGN UP HERE </strong> </a> 
-        <img src="user2.png" alt="user image" width="30" height="30">
-        <img src="logout1.jpg" alt="logout image" width="37" height="50">
-    </p>
-    -->
-    <div class="first_all">
-        <div class="second_navbar">   
-            <a href="index.html"  > <img src="datalysis1.png" alt="datalysis image" width="" height=""> </a>
-            <ul>
-                <li> <a href="index2.html"> Upload Δεδομένων </a> </li>
-                <li> <a href="index3.html"> Διαχείριση Προφίλ </a> </li>
-                <li> <a href="#"> Οπτικοποίηση Δεδομένων </a> </li>         
-            </ul>
-           
-            <div class="navbar_icons"> 
-                <ul>
-                    <li>
-                        <a href="#"> Αποσύνδεση </a>
-                    </li>
-                </ul>
-            </div>
 
-        </div>
+    <div class="first_all">
+
+        <header class="first_all">
+            <a href="index.html" class="im" > <img src="../images/logo.png" alt="logo image"> </a>
+            
+            <nav class="the_navbar">   
+                
+                <a href="uploadFiles.php"> Upload Δεδομένων </a> 
+                            
+                <a href="editProfile.php"> Διαχείριση Προφίλ </a> 
+                        
+                <a href="#"> Οπτικοποίηση Δεδομένων </a> 
+                            
+                <a href="#"> Αποσύνδεση </a>
+                
+            </nav>
+            
+                <div class="navbar_icons">                        
+                        <div class= "menu" > <img src="../images/menu.jpeg" alt="menu image" height= "21.5px" width="23px";></div>    
+                </div>
+        </header>
+
+
         <div class="ban">
          
             <div class="lcolumn">  

@@ -13,7 +13,9 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
 
+
     <link rel="stylesheet" href="style-main.css">
+
 
 
 </head>
@@ -25,13 +27,14 @@
     <script src="script.js"> </script>
     
     <header class="first_all">
-        <a href="newindex.html" class="im" > <img src="..\images\logo.png" alt="logo image"> </a>
+
+        <a href="index.html" class="im" > <img src="../images/logo.png" alt="logo image"> </a>
         
         <nav class="the_navbar">   
             
-            <a href="index2.html"> Upload Δεδομένων </a> 
+            <a href="uploadFiles.php"> Upload Δεδομένων </a> 
                         
-            <a href="index3.html"> Διαχείριση Προφίλ </a> 
+            <a href="editProfile.php"> Διαχείριση Προφίλ </a> 
                     
             <a href="#"> Οπτικοποίηση Δεδομένων </a> 
                          
@@ -40,17 +43,14 @@
         </nav>
            
             <div class="navbar_icons"> 
-                    
-                    <div class= "menu" id="menu-btn">
-                        <img src="..\images\menu.jpeg" alt="menu image" height= "21.5px" width="23px">
-                    </div>
+
+            <div class= "menu" id="menu-btn">
+                <img src="..\images\menu.jpeg" alt="menu image" height= "21.5px" width="23px">
+            </div>
                 
             </div>
 
     </header>
-
-
-
 
     <div class="ban" id="ban">
            
@@ -69,6 +69,7 @@
            <br>
           
            <div class="text"> 
+
             Η κίνηση στο διαδίκτυο μέσω HTTP, μπορεί να καταγραφεί από οποιονδήποτε πελάτη (client), 
             ώστε τα δεδομένα αυτά να χρησιμοποιηθούν αργότερα για την ανάλυση της συμπεριφοράς ενός ιστοτόπου. 
             Για το σκοπό αυτό, έχει δημιουργηθεί το πρότυπο HAR (HTTP ARchive), που ορίζει μια συγκεκριμένη δομή (σχήμα) JSON για την αποθήκευση αυτών των δεδομένων.
@@ -81,7 +82,7 @@
             <br>
             Έτσι λοιπόν, παρουσιάζουμε ένα σύστημα πληθοποριστικής συλλογής δεδομένων HAR με σκοπό την παροχή κάποιων βασικών αναλύσεων για κάθε χρήστη ξεχωριστά,
             αλλά και γενικότερων αναλύσεων που αφορούν την υποδομή διαδικτύου σε μια περιοχή.  
-
+             
             </div>
             
              <br>
@@ -89,17 +90,6 @@
         </div>
 
     </div>
-
-
-       
-
-        <!--  
-            <div class="container">
-                <footer>
-                    <p class="pull-right"> <a href="#"> Επιστροφή στην κορυφή </a> </p>
-                </footer>
-            </div>
-        -->
 
     
    
