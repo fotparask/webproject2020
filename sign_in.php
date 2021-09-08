@@ -1,22 +1,11 @@
 <?php
 
-    $servername = "localhost";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "webproject";
-
     if($_POST['login']) {
 
         $email = $_POST['ajaxEmail'];
         $password = $_POST['ajaxPassword'];
 
-        //Create connection
-        $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-        //Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        include "database_config.php";
 
         $sql = "SELECT * FROM users WHERE email='$email'";
         $result = $conn->query($sql);
@@ -51,6 +40,7 @@
     <meta charset="utf-8">
     <title>HARcules Login</title>
     <link rel="stylesheet" href="style-form.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
 
   <body>
