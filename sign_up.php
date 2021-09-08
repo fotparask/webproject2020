@@ -90,7 +90,7 @@
             <span></span>
             <label>Επιβεβαίωση Κωδικού</label>
         </div>
-        <input type="button" value="Εγγραφή" name="register" id ="register">
+        <input type="submit" value="Εγγραφή" name="register" id ="register">
         <div class="signup_info">
         Όλα Τα πεδία με είναι υποχρεωτικά
         </div>

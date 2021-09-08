@@ -71,7 +71,7 @@
           <label>Κωδικός</label>
         </div>
         <div class="pass">Ξέχασες τον κωδικό;</div>
-        <input type="button" value="Σύνδεση" name="login" id ="login">
+        <input type="submit" value="Σύνδεση" name="login" id ="login">
         <div class="signup_link">
           Δεν είσαι μέλος; <a href="sign_up.php">Signup</a>
         </div>
