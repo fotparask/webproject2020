@@ -1,5 +1,11 @@
 <?php
 
+    $servername = "localhost";
+    $dbusername = "root";
+    $dbpassword = "";
+    $dbname = "webproject";
+
+
     if ($_POST['register']){
 
 
@@ -9,7 +15,13 @@
         $hashed_pwd = password_hash($password, PASSWORD_DEFAULT);
 
 
-        include "database_config.php";
+        //Create connection
+        $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+
+        //Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
         $sql = "SELECT email FROM users WHERE email='$email'";
         $result1 = $conn->query($sql);
@@ -49,12 +61,11 @@
     <meta charset="utf-8">
     <title>HARcules Register </title>
     <link rel="stylesheet" href="style-form.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
 
   <body>
     <div class="logo_img">
-      <img src="images/Logo-01.png" width="400px">
+      <img src="images\HARcules Logo-01.png" width="400px">
     </div>
     <div class="center">
       <h1>Register</h1>
