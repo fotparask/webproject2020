@@ -11,11 +11,6 @@
     $password_changed = "";
 
 
-    $servername = "localhost";
-    $dbusername = "root";
-    $dbpassword = "vofogi62";
-    $dbname = "webproject";
-
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -31,13 +26,7 @@
             $new_password = $_POST["new_password"];
             $hashed_pwd = "";
 
-            //Create connection
-            $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-            //Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+            include "../database_config.php";
 
 
             $sql = "SELECT * FROM users WHERE username='$username'";
@@ -97,7 +86,8 @@
     <script src="script.js"> </script>
     
     <header class="first_all">
-        <a href="index.html" class="im" > <img src="../images/logo.png" alt="logo image"> </a>
+        <a href="index.php" class="im" > <img src="../images/logo.png" alt="logo image"> </a>
+
         
         <nav class="the_navbar">   
             

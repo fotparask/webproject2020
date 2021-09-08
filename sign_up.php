@@ -1,11 +1,5 @@
 <?php
 
-    $servername = "localhost";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "webproject";
-
-
     if ($_POST['register']){
 
 
@@ -15,13 +9,7 @@
         $hashed_pwd = password_hash($password, PASSWORD_DEFAULT);
 
 
-        //Create connection
-        $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-        //Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        include "database_config.php";
 
         $sql = "SELECT email FROM users WHERE email='$email'";
         $result1 = $conn->query($sql);
@@ -61,11 +49,12 @@
     <meta charset="utf-8">
     <title>HARcules Register </title>
     <link rel="stylesheet" href="style-form.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
 
   <body>
     <div class="logo_img">
-      <img src="C:\wamp64\www\webproject2020\webproject2020\images\HARcules Logo-01.png" width="400px">
+      <img src="images/Logo-01.png" width="400px">
     </div>
     <div class="center">
       <h1>Register</h1>
@@ -95,7 +84,7 @@
         Όλα Τα πεδία με είναι υποχρεωτικά
         </div>
         <div class="signup_link">
-          Είσαι ήδη μέλος; <a href="index.html">Signin</a>
+          Είσαι ήδη μέλος; <a href="sign_in.php">Signin</a>
         </div>
       </form>
     </div>

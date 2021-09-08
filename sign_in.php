@@ -1,22 +1,11 @@
 <?php
 
-    $servername = "localhost";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "webproject";
-
     if($_POST['login']) {
 
         $email = $_POST['ajaxEmail'];
         $password = $_POST['ajaxPassword'];
 
-        //Create connection
-        $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-        //Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        include "database_config.php";
 
         $sql = "SELECT * FROM users WHERE email='$email'";
         $result = $conn->query($sql);
@@ -51,11 +40,12 @@
     <meta charset="utf-8">
     <title>HARcules Login</title>
     <link rel="stylesheet" href="style-form.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
 
   <body>
     <div class="logo_img">
-      <img src="HARcules Logo-01.png" width="400px">
+      <img src="images/HARcules Logo-01.png" width="400px">
     </div>
     <div class="center">
       <h1>Login</h1>
@@ -66,14 +56,14 @@
           <label>Email</label>
         </div>
         <div class="txt_field">
-          <input type="password" placeholder="Password" name="password" id ="password" required>
+          <input type="password" name="password" id ="password" required>
           <span></span>
           <label>Κωδικός</label>
         </div>
         <div class="pass">Ξέχασες τον κωδικό;</div>
         <input type="button" value="Σύνδεση" name="login" id ="login">
         <div class="signup_link">
-          Δεν είσαι μέλος; <a href="sign_up.html">Signup</a>
+          Δεν είσαι μέλος; <a href="sign_up.php">Signup</a>
         </div>
       </form>
     </div>

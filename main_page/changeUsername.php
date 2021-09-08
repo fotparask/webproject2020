@@ -9,11 +9,6 @@
     $user_changed = ""; 
 
 
-    $servername = "localhost";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "webproject";
-
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -30,13 +25,7 @@
             $hashed_pwd = "";
             
 
-            //Create connection
-            $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-            //Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+            include "../database_config.php";
 
 
             $sql = "SELECT * FROM users WHERE username='$old_username'";
@@ -90,7 +79,7 @@
     <div class="first_all">
 
         <header class="first_all">
-            <a href="index.html" class="im" > <img src="../images/logo.png" alt="logo image"> </a>
+            <a href="index.php" class="im" > <img src="../images/logo.png" alt="logo image"> </a>
             
             <nav class="the_navbar">   
                 
