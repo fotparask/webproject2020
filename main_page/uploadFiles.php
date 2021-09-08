@@ -24,7 +24,7 @@
     
     <header class="first_all">
 
-        <a href="index.html" class="im" > <img src="../images/logo.png" alt="logo image"> </a>
+        <a href="index.php" class="im" > <img src="../images/logo.png" alt="logo image"> </a>
         
         <nav class="the_navbar">        
 

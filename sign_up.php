@@ -54,7 +54,7 @@
 
   <body>
     <div class="logo_img">
-      <img src="C:\wamp64\www\webproject2020\webproject2020\images\HARcules Logo-01.png" width="400px">
+      <img src="images/Logo-01.png" width="400px">
     </div>
     <div class="center">
       <h1>Register</h1>
@@ -84,7 +84,7 @@
         Όλα Τα πεδία με είναι υποχρεωτικά
         </div>
         <div class="signup_link">
-          Είσαι ήδη μέλος; <a href="index.html">Signin</a>
+          Είσαι ήδη μέλος; <a href="sign_in.php">Signin</a>
         </div>
       </form>
     </div>
