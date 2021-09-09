@@ -17,6 +17,7 @@
 }
 
 html{
+    font-size: 72.5%;
     overflow-x: hidden;
     scroll-padding-top: 9rem;
     scroll-behavior: smooth;
@@ -37,15 +38,13 @@ html::-webkit-scrollbar-thumb{
 
 body{
     background: white;
-    width: 90%;
-    margin: 0 auto;
 }
 
 .first_all{
     background:  rgb(163, 3, 3);
     display: flex;
-    white-space: nowrap;
     align-items: center;
+    justify-content: space-between;
     padding: 1.5rem 7%;
     border-bottom:var(--border);
     position: fixed;
@@ -58,15 +57,16 @@ body{
 }
 
 .first_all .the_navbar a{
-    padding: 1%;
-    font-size:  15px;
+    margin:0rem 2rem;
+    font-size:  17.5px;
     font-weight:bolder;
     color: whitesmoke;
 }
 
 .first_all .the_navbar a:hover{
+    color: white;
     border-bottom: .1rem  solid white;
-    padding-bottom: .2rem;
+    padding-bottom: .5rem;
     border-width: medium;
 }
 
@@ -88,15 +88,15 @@ body{
 .ban{
     display: flex;
     margin-top: 8%;
-    min-height: 100vh;
-    align-items: center;
+    /*min-height: 200vh;*/
+    /*align-items: center;*/
 }
 
 .ban .lcolumn {
     flex-basis: 80%;
     margin: 10% 10%;
     text-align: justify;
-    max-width: 90%;
+    /*max-width: 80%;*/
 }
 
 .lcolumn h3{
@@ -119,12 +119,10 @@ spanun{
     color:  rgb(163, 3, 3);
 }
 
-.lcolumn p{
-    font-size: 17px;
+.lcolumn .hope{
+    font-size: 19px;
     color:black;
-    margin: 5% 7%;
 }
-
 
 .buttons button{
     padding:7px 30px;
@@ -161,7 +159,7 @@ spanun{
 }
 
 .options{
-    font-size: 15px;
+    font-size: 16px;
     margin: 10%;
     top: 47%;
     position: absolute;
@@ -266,17 +264,31 @@ spanun{
 }
 
 table, tr, td {
-    border: 1px solid black;
+    border: 0px solid black;
     border-collapse: collapse;
     border-spacing: 2%;
-    
+    width: 100%;
+    vertical-align: middle;
+    padding: 2%;
+}
+
+th {
+    text-align: left;
+}
+
+th,tr {
+    text-align: center;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    border-bottom: 1px solid #ddd;
 }
 
 .show-info {
-    width: 50%;;
+    width: 50%;
+    float: left;
     display: table;
     font-size: 20px;
-    padding: 10px;
+    padding-left: 150px;
 
 }
 
@@ -289,3 +301,15 @@ table, tr, td {
     font-weight: bold;
 }
 
+tr:hover {
+    background-color: #ddd;
+}
+
+/*tr:nth-child(even) {background-color: #f2f2f2;}*/
+
+canvas {
+    width: 50%;
+    margin-left: 50%;
+    margin-right: 10%;
+    
+}
