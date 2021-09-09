@@ -10,6 +10,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style-main.css">
 </head>
 <body>
@@ -43,76 +45,114 @@
        
     </header>
    
-    
-</body>
-<div class="ban">
-        
-    <div class="lcolumn">  
-        <h3> Βασικές Πληροφορίες </h3>
-    </div>
-</div>
-
-<div class="show-info">
-    <table>
-        <tr>
-            <td class="col1">
-                Eγγεγραμμένοι χρήστες
-            </td>
-            <td class="col2">
-                5
-            </td>
-        </tr>
-        <tr>
-            <td class="col1">
-                Εγγραφές ανά τύπο αίτησης
-            </td>
-            <td class="col2">
-                50
-            </td>
-        </tr>
-        <tr>
-            <td class="col1">
-                Εγγραφές ανά κωδικό απόκρισης
-            </td>
-            <td class="col2">
-                34
-            </td>
-        </tr>
-        <tr>
-            <td class="col1">
-                Μοναδικά domains
-            </td>
-            <td class="col2">
-                3
-            </td>
-        </tr>
-        <tr>
-            <td class="col1">
-                Μοναδικοί παρόχοι συνδεσιμότητας 
-            </td>
-            <td class="col2">
-                6
-            </td>
-        </tr>
-        <tr>
-            <td class="col1">
-                Μέση ηλικία ιστοαντικειμένων
-            </td>
-            <td class="col2">
-                25
-            </td>
-        </tr>
-    </table>
-</div>   
-        <div class="container">
-            <footer>
-                <p class="pull-right"> <a href="#"> Επιστροφή στην κορυφή </a> </p>
-            </footer>
-        </div> 
-
+    <div class="ban">
+            
+        <div class="lcolumn">  
+            <h3> Βασικές Πληροφορίες </h3>
         </div>
-       
     </div>
+
+    <div class="show-info">
+        <table>
+            <tr>
+                <th>
+                    Κατηγορία
+                </th>
+                <th class="col2">
+                    Ποσότητα
+                </th>
+            </tr>
+            <tr>
+                <td class="col1">
+                    Eγγεγραμμένοι χρήστες
+                </td>
+                <td class="col2">
+                    5
+                </td>
+            </tr>
+            <tr>
+                <td class="col1">
+                    Εγγραφές ανά τύπο αίτησης
+                </td>
+                <td class="col2">
+                    50
+                </td>
+            </tr>
+            <tr>
+                <td class="col1">
+                    Εγγραφές ανά κωδικό απόκρισης
+                </td>
+                <td class="col2">
+                    34
+                </td>
+            </tr>
+            <tr>
+                <td class="col1">
+                    Μοναδικά domains
+                </td>
+                <td class="col2">
+                    3
+                </td>
+            </tr>
+            <tr>
+                <td class="col1">
+                    Μοναδικοί παρόχοι συνδεσιμότητας 
+                </td>
+                <td class="col2">
+                    6
+                </td>
+            </tr>
+            <tr>
+                <td class="col1">
+                    Μέση ηλικία ιστοαντικειμένων
+                </td>
+                <td class="col2">
+                    25
+                </td>
+            </tr>
+        </table>
+    </div>   
+    <div class="chart">
+        <canvas id="infoChart" width="250" height="150"></canvas>
+    </div>
+    <script>
+        let myChart = document.getElementById("infoChart").getContext("2d");
+
+        let massPopChart = new Chart(infoChart, {
+            type:'bar', //bar, horizontalBar, pie, line, doughnut, radar, polarArea
+            data:{
+                labels: ['Eγγεγραμμένοι χρήστες', 'Εγγραφές ανά τύπο αίτησης', 'Εγγραφές ανά κωδικό απόκρισης', 'Μοναδικά domains', 'Μοναδικοί παρόχοι συνδεσιμότητας', 'Μέση ηλικία ιστοαντικειμένων'],
+                datasets: [{
+                    label: 'Ποσότητα',
+                    data: [5, 50, 34, 3, 6, 25],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+         }
+});
+    </script>
    
 </body>
 
