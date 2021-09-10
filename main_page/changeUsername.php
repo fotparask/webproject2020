@@ -69,15 +69,18 @@
 
 <html lang="=el">
 
+
+  
 <head>
     <title>website</title>
     <meta charshet="UTF-8">
-    <meta name="description" content="website">
+    <meta name="viewport" content="width=devise-width, initial-scale=1.0">
+    <title>website</title> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <meta name="viewport" content="">
 
     <link rel="stylesheet" href="style-main.css">
 
@@ -85,24 +88,24 @@
 
 
 <body>
-
-    <div class="first_all">
-
+        
+        <script src="script.js"> </script>
+  
         <header class="first_all">
             <a href="index.php" class="im" > <img src="../images/logo.png" alt="logo image"> </a>
-            
+
             <nav class="the_navbar">   
-                
+
                 <a href="uploadFiles.php"> Upload Δεδομένων </a> 
-                            
+
                 <a href="editProfile.php"> Διαχείριση Προφίλ </a> 
-                        
+
                 <a href="#"> Οπτικοποίηση Δεδομένων </a> 
-                            
+
                 <a href="../logout.php"> Αποσύνδεση </a>
-                
+
             </nav>
-            
+
                 <div class="navbar_icons">                        
                         <div class= "menu" > <img src="../images/menu.jpeg" alt="menu image" height= "21.5px" width="23px";></div>    
                 </div>
@@ -112,12 +115,7 @@
         <div class="ban">
          
             <div class="lcolumn">  
-                <!--
-                <div class="search">
-                    <img src="search.png">
-                    <input type="text">
-                </div>
-                -->
+               
                 <br>
                 <h3>Αλλαγή <span>Ονόματος Χρήστη</span></h3>
 
@@ -142,51 +140,37 @@
                     </div>
 
                 
-               <!--
-               Ή αλλάξτε όνομα χρήστη μέσω:
-                <div class="social">
-                    <br>
-                   
-                            <a href="https://www.facebook.com/" target="blank" >    <img src="facebook2.png" > </a> 
-                        
-                            <a href="https://accounts.google.com/ServiceLogin/signinchooser?passive=1209600&continue=https%3A%2F%2Faccounts.google.com%2Fb%2F0%2FAddMailService&followup=https%3A%2F%2Faccounts.google.com%2Fb%2F0%2FAddMailService&flowName=GlifWebSignIn&flowEntry=ServiceLogin/" target="blank" >    <img src="gmail2.jpg" width="33px" > </a>
-                        
-                    
-                    <br>
-                    <br>
-                    <br>
-                </div>
-                -->
 
             </div>
 
 
-            <div class="rcolumn">  </div>
 
 
-            <input type="checkbox"> Θυμήσου με 
+            <div class= "remember">
+                <input type="checkbox"> Θυμήσου με 
+            </div>
 
                 <br>
                 <!--
                 <a href="index3.html" target="blank" >  Ξεχάσατε τον κωδικό; </a>
                 -->
                 <br>
-                <br>
+                
+                <div class= "newbutton">
                 <div class="buttons">
                     <button type="button" class="primier"> Αλλαγή Ονόματος Χρήστη </button> 
                 </div>
-
-                <!--  
-                <div class="container">
-                    <footer>
-                    <p class="pull-right"> <a href="#"> Επιστροφή στην κορυφή </a> </p>
-                    </footer>
                 </div>
-                -->
+
+                
         </div>
 
         
-    </div> 
+        <div class="footer">
+            <footer>
+                <p> &copy; HARcules Copyright 2021</p>
+            </footer>
+        </div> 
                     
        
 </body>
