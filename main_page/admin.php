@@ -2,7 +2,7 @@
 <html lang="=el">
 
 <head>
-<title>website</title>
+<title>HARcules Admins</title>
     <meta charshet="UTF-8">
     
     <meta name="viewport" content="width=devise-width, initial-scale=1.0">
@@ -17,20 +17,21 @@
     <script src="script.js"> </script>
     
     <header class="first_all">
-        <a href="index.php" class="im" > <img src="../images/logo.png" alt="logo image"> </a>
+
+        <a href="admin.php" class="im" > <img src="..\images\logo.png" alt="logo image"> </a>
 
         
         <nav class="the_navbar">   
             
-            <a href="#"> Βασικές Πληροφορίες </a> 
+            <a href="admin_info.php"> Απεικόνιση Πληροφορίων </a> 
                         
-            <a href="#"> Χρόνων Απόκρισης Αιτήσεων </a> 
+            <a href="admin_times.php"> Ανάλυση Χρόνων </a> 
 
-            <a href="#"> Ανάλυση κεφαλίδων HTTP </a> 
+            <a href="admin_HTTP.php"> Ανάλυση HTTP </a> 
                     
-            <a href="#"> Οπτικοποίηση Δεδομένων </a> 
+            <a href="admin_heatmap.php"> Οπτικοποίηση Δεδομένων </a> 
 
-            <a href="#"> Αποσύνδεση </a> 
+            <a href="firstindex.php"> Αποσύνδεση </a> 
             
         </nav>
 
@@ -44,62 +45,45 @@
        
     </header>
    
-        <div class="ban">
+    <section class="ban" id="ban">
            
-            <div class="lcolumn">  
-                
-                <h3> Admins Panel </h3>
-            </div>
-        </div>
-        <div>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor mattis euismod. Ut non ultricies diam. Quisque ipsum sem, molestie non lobortis nec, dignissim id velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum efficitur mattis. Nunc felis nisi, ultrices sed orci et, cursus vestibulum felis. Mauris fermentum ut elit non posuere. Suspendisse ut sagittis quam.
-
-                Donec tempus at metus et dapibus. Aliquam erat volutpat. Nam mollis lorem sed nisl facilisis euismod. Ut id hendrerit purus. Vivamus fringilla ullamcorper imperdiet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi a urna quis ante dignissim pulvinar et et nisi. Donec augue lectus, luctus eu iaculis a, lacinia nec justo. Mauris luctus enim tortor, et sagittis dui aliquam a. In hac habitasse platea dictumst. Proin bibendum commodo tristique. Etiam eleifend tellus quam, at ornare nisi blandit in. Quisque congue euismod sem, a blandit diam accumsan quis.
-                
-                Integer interdum ultrices tortor, eget pharetra arcu. Nullam molestie tortor neque, vitae commodo arcu pretium in. Pellentesque ultrices suscipit egestas. Suspendisse justo enim, semper quis efficitur ut, interdum ac neque. Curabitur ut tincidunt dui. Duis ultrices magna in metus fringilla hendrerit. Maecenas id odio non sem varius vestibulum quis in velit.
-                
-                Sed sit amet faucibus mauris. Cras lacus erat, gravida vitae rhoncus ac, tempor ut lorem. Proin vulputate enim eget justo rutrum viverra. Sed massa lorem, ultricies non sem in, suscipit rutrum justo. Cras vel eleifend dui. Vivamus sit amet feugiat eros, ac blandit nisl. Quisque commodo faucibus maximus.
-                
-                Mauris consectetur tempor leo. Sed iaculis, risus et fringilla mattis, sapien dui tempus turpis, eu maximus orci dolor sit amet nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus sit amet nisi placerat, vulputate justo vel, porttitor lacus. Integer id turpis augue. Quisque placerat laoreet tristique. Phasellus justo lorem, eleifend a semper quis, eleifend a tortor. Donec egestas, neque a finibus placerat, justo risus condimentum lorem, non tristique massa ipsum viverra diam. Donec vel leo non lacus volutpat semper ut eu turpis. Nam magna ex, laoreet non facilisis sed, mattis quis turpis.
-                
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor mattis euismod. Ut non ultricies diam. Quisque ipsum sem, molestie non lobortis nec, dignissim id velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum efficitur mattis. Nunc felis nisi, ultrices sed orci et, cursus vestibulum felis. Mauris fermentum ut elit non posuere. Suspendisse ut sagittis quam.
-
-                Donec tempus at metus et dapibus. Aliquam erat volutpat. Nam mollis lorem sed nisl facilisis euismod. Ut id hendrerit purus. Vivamus fringilla ullamcorper imperdiet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi a urna quis ante dignissim pulvinar et et nisi. Donec augue lectus, luctus eu iaculis a, lacinia nec justo. Mauris luctus enim tortor, et sagittis dui aliquam a. In hac habitasse platea dictumst. Proin bibendum commodo tristique. Etiam eleifend tellus quam, at ornare nisi blandit in. Quisque congue euismod sem, a blandit diam accumsan quis.
-
-                Integer interdum ultrices tortor, eget pharetra arcu. Nullam molestie tortor neque, vitae commodo arcu pretium in. Pellentesque ultrices suscipit egestas. Suspendisse justo enim, semper quis efficitur ut, interdum ac neque. Curabitur ut tincidunt dui. Duis ultrices magna in metus fringilla hendrerit. Maecenas id odio non sem varius vestibulum quis in velit.
-
-                Sed sit amet faucibus mauris. Cras lacus erat, gravida vitae rhoncus ac, tempor ut lorem. Proin vulputate enim eget justo rutrum viverra. Sed massa lorem, ultricies non sem in, suscipit rutrum justo. Cras vel eleifend dui. Vivamus sit amet feugiat eros, ac blandit nisl. Quisque commodo faucibus maximus.
-
-                Mauris consectetur tempor leo. Sed iaculis, risus et fringilla mattis, sapien dui tempus turpis, eu maximus orci dolor sit amet nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus sit amet nisi placerat, vulputate justo vel, porttitor lacus. Integer id turpis augue. Quisque placerat laoreet tristique. Phasellus justo lorem, eleifend a semper quis, eleifend a tortor. Donec egestas, neque a finibus placerat, justo risus condimentum lorem, non tristique massa ipsum viverra diam. Donec vel leo non lacus volutpat semper ut eu turpis. Nam magna ex, laoreet non facilisis sed, mattis quis turpis.
-
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor mattis euismod. Ut non ultricies diam. Quisque ipsum sem, molestie non lobortis nec, dignissim id velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum efficitur mattis. Nunc felis nisi, ultrices sed orci et, cursus vestibulum felis. Mauris fermentum ut elit non posuere. Suspendisse ut sagittis quam.
-
-                Donec tempus at metus et dapibus. Aliquam erat volutpat. Nam mollis lorem sed nisl facilisis euismod. Ut id hendrerit purus. Vivamus fringilla ullamcorper imperdiet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi a urna quis ante dignissim pulvinar et et nisi. Donec augue lectus, luctus eu iaculis a, lacinia nec justo. Mauris luctus enim tortor, et sagittis dui aliquam a. In hac habitasse platea dictumst. Proin bibendum commodo tristique. Etiam eleifend tellus quam, at ornare nisi blandit in. Quisque congue euismod sem, a blandit diam accumsan quis.
-
-                Integer interdum ultrices tortor, eget pharetra arcu. Nullam molestie tortor neque, vitae commodo arcu pretium in. Pellentesque ultrices suscipit egestas. Suspendisse justo enim, semper quis efficitur ut, interdum ac neque. Curabitur ut tincidunt dui. Duis ultrices magna in metus fringilla hendrerit. Maecenas id odio non sem varius vestibulum quis in velit.
-
-                Sed sit amet faucibus mauris. Cras lacus erat, gravida vitae rhoncus ac, tempor ut lorem. Proin vulputate enim eget justo rutrum viverra. Sed massa lorem, ultricies non sem in, suscipit rutrum justo. Cras vel eleifend dui. Vivamus sit amet feugiat eros, ac blandit nisl. Quisque commodo faucibus maximus.
-
-                Mauris consectetur tempor leo. Sed iaculis, risus et fringilla mattis, sapien dui tempus turpis, eu maximus orci dolor sit amet nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus sit amet nisi placerat, vulputate justo vel, porttitor lacus. Integer id turpis augue. Quisque placerat laoreet tristique. Phasellus justo lorem, eleifend a semper quis, eleifend a tortor. Donec egestas, neque a finibus placerat, justo risus condimentum lorem, non tristique massa ipsum viverra diam. Donec vel leo non lacus volutpat semper ut eu turpis. Nam magna ex, laoreet non facilisis sed, mattis quis turpis.
-            </p>
-        </div>
+           <div class="lcolumn">  
+               <h2><!--<p style="text-decoration: underline;"> -->Διαχειρηστής </h2>
+               <br>
+               <br>
+               <br>
+               <br>
                
-    
+               <h3> <span> Καλώς </span> ήλθατε </h3>
+               <br>
+               <br>
+               <br>
+               <br>
+               <h2>ΔΥΝΑΤ<spanun>ΟΤΗΤΕΣ</spanun> :</h2>
+               <div class="hope">
+               <br>
+               <br>
+               Μέσω της συγκεκριμένης ιστοσελίδας ως διαχειριστής έχετε παραπάνω δυνατότητες σε σχέση με έναν απλό χρήστη που έχει μειωμένες δυνατότητες και μπορεί να υλοποιήσει λιγότερες ενέργειες, σε σχέση με έναν διαχειρηστή που έχει τις παραπάνω δυνατότητες.
+               
+               
+               <br>
+               <br>
+               <br>
+               <br>
+               </div>
    
-</body>
-        
+   
+               <br>
+   
+           </div>
+   
+       </section>
 
-        <div class="container">
+        <div class="footer">
             <footer>
-                <p class="pull-right"> <a href="#"> Επιστροφή στην κορυφή </a> </p>
+                <p class="pull-right"> &copy; HARcules Copyright 2021</p>
             </footer>
-        </div> 
-
-        </div>
-       
-    </div>
-   
+        </div>        
 </body>
 
 </html>

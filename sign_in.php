@@ -52,7 +52,7 @@
 
   <body>
     <div class="logo_img">
-      <img src="images\HARcules Logo-01.png" width="400px">
+      <a href="index.html" class="im" > <img src="images\HARcules Logo-01.png" width="400px"> </a>
     </div>
     <div class="center">
       <h1>Login</h1>
@@ -70,7 +70,7 @@
         <div class="pass">Ξέχασες τον κωδικό;</div>
         <input type="submit" value="Σύνδεση" name="login" id ="login">
         <div class="signup_link">
-          Δεν είσαι μέλος; <a href="sign_up.php">Signup</a>
+          Δεν είσαι μέλος; <a href="sign_up.php">Εγγραφή</a>
         </div>
       </form>
     </div>

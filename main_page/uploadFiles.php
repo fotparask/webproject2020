@@ -2,11 +2,10 @@
 <html lang="=el">
 
     <head>
-        <title>website</title>
+        <title>HARcules</title>
         <meta charshet="UTF-8">
         
         <meta name="viewport" content="width=devise-width, initial-scale=1.0">
-        <title>website</title> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
         <meta name="description" content="">
@@ -18,8 +17,9 @@
     </head>
 
 
-<body>
+    <body>
 
+      
     <script src="script.js"> </script>
     
     <header class="first_all">
@@ -45,29 +45,39 @@
 
 
     <div class="ban">
+       
         <div class="lcolumn">  
-            <br><br>
+            <br>
+            <br>
             <h3>Επιλέξτε <span> ένα Αρχείο HAR από τον υπολογιστή σας</span></h3>
-            <br><br>
+            <br>
+            <br>
+          
         </div>
-    </div>
-    
-    <input type="file" onchange="readFile(this)">
-    <div class="buttons">
-        <button type="button" class="primier" id="addHarFile"> Προσθήκη Αρχείου </button>
-    </div>
+        </div>
+  
+        <input type="file" onchange="readFile(this)">
+        <div class="buttons">
+            <button type="button" class="primier" id="addHarFile"> Προσθήκη Αρχείου </button>
+        </div>
 
 
-    <div class="options"> 
+        <div class="options"> 
+
         <h3>Επιθυμείτε:</h3>
-        <br><br>
+        <br>
+        <br>
         <input type="checkbox"> Να ανέβει το αρχείο στο σύστημα 
-        <br><br>
-
+        <br>
+        <br>
         <input type="checkbox"> Να αποθηκευτεί το επεξεργασμένο αρχείο τοπικά
-        <br><br><br>
-    </div>
+        <br>
+        <br>
+        <br>
 
+        </div>
+        
+    </div>
 
   
     <script defer type="text/javascript">
@@ -79,6 +89,11 @@
     </script>
 
 
+    <div class="footer">
+        <footer>
+            <p> &copy; HARcules Copyright 2021</p>
+        </footer>
+    </div> 
 
 </body>
 

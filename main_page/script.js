@@ -1,6 +1,6 @@
 let the_navbar = document.querySelector('.the_navbar');
 
-document.querySelector('#menu-btn').onclick= () =>{
+document.querySelector('.first_all .navbar_icons .menu').onclick= () =>{
     the_navbar.classList.toggle('active');
 }
 

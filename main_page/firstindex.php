@@ -2,19 +2,18 @@
 <html lang="=el">
 
 <head>
-    <title>HARcules</title>
+    <title>website</title>
     <meta charshet="UTF-8">
     
-    <meta name="viewport" content="width=devise-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=devise-width, initial-scale=1.0">
+    <title>website</title> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
 
-
     <link rel="stylesheet" href="style-main.css">
-
 
 
 </head>
@@ -26,37 +25,28 @@
     <script src="script.js"> </script>
     
     <header class="first_all">
-
-
-        <a href="index.php" class="im" > <img src="../images/logo.png" alt="logo image"> </a>
+        <a href="firstindex.html" class="im" > <img src="logo.png" alt="logo image"> </a>
         
-        <nav class="the_navbar">   
+        <nav class="the_navbar">      
             
-            <a href="uploadFiles.php"> Upload Δεδομένων </a> 
-                        
-            <a href="editProfile.php"> Διαχείριση Προφίλ </a> 
-                    
-            <a href="#"> Οπτικοποίηση Δεδομένων </a> 
-                        
-            <a href="../logout.php"> Αποσύνδεση </a>
+            
+            <div class="firstbutton">
+                <a href="sign_in.html"> <button type="button" class="firstprimier"> Σύνδεση </button> </a>
+            </div>
+            
             
         </nav>
            
-        <div class="navbar_icons"> 
-              
-            <div class= "menu" id="menu-btn">
-                <img src="..\images\menu.jpeg" alt="menu image" height= "21.5px" width="23px">
-            </div>
-                
-        </div>
+        
 
     </header>
 
 
+
+
     <section class="ban" id="ban">
            
-        <div class="lcolumn"> 
-
+        <div class="lcolumn">  
            
             <br>
             <br>
@@ -82,7 +72,6 @@
            <br>
           
            <div class="text"> 
-
             Η κίνηση στο διαδίκτυο μέσω HTTP, μπορεί να καταγραφεί από οποιονδήποτε πελάτη (client), 
             ώστε τα δεδομένα αυτά να χρησιμοποιηθούν αργότερα για την ανάλυση της συμπεριφοράς ενός ιστοτόπου. 
             Για το σκοπό αυτό, έχει δημιουργηθεί το πρότυπο HAR (HTTP ARchive), που ορίζει μια συγκεκριμένη δομή (σχήμα) JSON για την αποθήκευση αυτών των δεδομένων.
@@ -95,7 +84,7 @@
             <br>
             Έτσι λοιπόν, παρουσιάζουμε ένα σύστημα πληθοποριστικής συλλογής δεδομένων HAR με σκοπό την παροχή κάποιων βασικών αναλύσεων για κάθε χρήστη ξεχωριστά,
             αλλά και γενικότερων αναλύσεων που αφορούν την υποδομή διαδικτύου σε μια περιοχή.  
-             
+
             </div>
             
              <br>
@@ -104,12 +93,23 @@
 
     </section>
 
-    
+
+       
+
+        <!--  
+            <div class="container">
+                <footer>
+                    <p class="pull-right"> <a href="#"> Επιστροφή στην κορυφή </a> </p>
+                </footer>
+            </div>
+        -->
+
         <div class="footer">
             <footer>
                 <p> &copy; HARcules Copyright 2021</p>
             </footer>
         </div> 
+   
 </body>
 
 </html>

@@ -58,7 +58,7 @@
 
   <body>
     <div class="logo_img">
-      <img src="images\HARcules Logo-01.png" width="400px">
+      <a href="index.html" class="im" > <img src="images\HARcules Logo-01.png" width="400px"> </a>
     </div>
     <div class="center">
       <h1>Register</h1>
@@ -85,10 +85,10 @@
         </div>
         <input type="submit" value="Εγγραφή" name="register" id ="register">
         <div class="signup_info">
-        Όλα Τα πεδία με είναι υποχρεωτικά
+        Όλα τα πεδία είναι υποχρεωτικά
         </div>
         <div class="signup_link">
-          Είσαι ήδη μέλος; <a href="sign_in.php">Signin</a>
+          Είσαι ήδη μέλος; <a href="sign_in.php">Σύνδεση</a>
         </div>
       </form>
     </div>
