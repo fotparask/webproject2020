@@ -22,7 +22,7 @@
             <button type="button" id="but">Test Ajax!</button>
 
             <script defer src="upload-file.js" charset="utf-8"></script>
-            <script defer type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script defer type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
             <script defer type="text/javascript">
                 $(document).ready(function () {

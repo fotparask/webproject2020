@@ -31,7 +31,7 @@
             <a href="uploadFiles.php"> Upload Δεδομένων </a>                        
             <a href="editProfile.php"> Διαχείριση Προφίλ </a>                     
             <a href="#"> Οπτικοποίηση Δεδομένων </a>                      
-            <a href="#"> Αποσύνδεση </a>   
+            <a href="../logout.php"> Αποσύνδεση </a>   
 
         </nav>
            

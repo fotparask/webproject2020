@@ -1,27 +1,14 @@
 <?php
 
-    $servername = "localhost";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "webproject";
-
-
     if ($_POST['register']){
 
-
-        $email = $_POST["ajaxEmail"];
-        $username = $_POST["ajaxUsername"];
-        $password = $_POST["ajaxPassword"];
+        $email = $_POST["email"];
+        $username = $_POST["username"];
+        $password = $_POST["password"];
         $hashed_pwd = password_hash($password, PASSWORD_DEFAULT);
 
 
-        //Create connection
-        $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-        //Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        include "database_config.php";
 
         $sql = "SELECT email FROM users WHERE email='$email'";
         $result1 = $conn->query($sql);
@@ -29,10 +16,14 @@
         $result2 = $conn->query($sql);
 
         if ($result1->num_rows > 0) {
-            echo("Email already exists.");
+            echo "
+                    <script>alert('Email already exists.');</script>
+                ";
         }
         elseif($result2->num_rows > 0) {
-            echo("User already exists.");
+            echo "
+                    <script>alert('User already exists.');</script>
+                ";
         }
         else{
 
@@ -44,6 +35,7 @@
                 echo "
                     <script>alert('New user created successfully');</script>
                 ";
+                header("sign_in.php");
             }
             else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
@@ -61,6 +53,7 @@
     <meta charset="utf-8">
     <title>HARcules Register </title>
     <link rel="stylesheet" href="style-form.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
 
   <body>
@@ -69,7 +62,7 @@
     </div>
     <div class="center">
       <h1>Register</h1>
-      <form method="post" action="sign_up.php">
+      <form method="post" name='registerForm' onsubmit="javascript: startAjax(); return false;">
         <div class="txt_field">
           <input type="email" name="email" id="email" required>
           <span></span>
@@ -123,11 +116,12 @@
     }
 
     $(document).ready(function () {
-        $("#register").on('click',function() {
+        function startAjax(){
             let email = $("#email").val();
             let username = $("#username").val();
             let password = $("#password").val();
             let secondPassword = $("#secondPassword").val();
+
             
             if (!validateEmail(email)) {
                 alert('Please enter a valid email.');
@@ -144,8 +138,8 @@
             else{
                 $.ajax(
                     {
-                        url: 'sign_up.php',
-                        type: 'post',
+                        url:'sign_up.php',
+                        method: 'POST',
                         data: {
                             register: 1,
                             ajaxEmail: email,
@@ -154,11 +148,12 @@
                         },
                         success: function (response) {
                             console.log("Ajax call succeded");
+                            document.registerForm.submit();
                         }
                     }
                 );
             }
-        })
+        }
     });
 
 </script>
