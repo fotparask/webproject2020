@@ -4,7 +4,7 @@
     $servername = "localhost";
         $dbusername = "root";
         $dbpassword = "";
-        $dbname = "webproject";
+        $dbname = "harCules";
 
     //Create connection
     $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);

@@ -21,6 +21,7 @@
               session_start();
               $_SESSION["username"] = $row['username'];
               $_SESSION["email"] = $row['email'];
+              $_SESSION["is_admin"] = $row['is_admin'];
               header("Location: main_page/index.php");
               exit;
             }

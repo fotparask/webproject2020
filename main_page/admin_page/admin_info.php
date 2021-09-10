@@ -1,4 +1,18 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+
+    if(!isset($_SESSION['username'])) {
+        header("Location: ../../index.html");
+        exit();
+    }
+    
+    if($_SESSION['is_admin'] == 0) {
+        header("Location: ../../index.html");
+        exit();
+    }
+    $username = $_SESSION['username'];
+?>
+
 <html lang="=el">
 
 <head>

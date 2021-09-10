@@ -1,4 +1,18 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+
+    if(!isset($_SESSION['username'])) {
+        header("Location: ../../index.html");
+        exit();
+    }
+    
+    if($_SESSION['is_admin'] == 0) {
+        header("Location: ../../index.html");
+        exit();
+    }
+    $username = $_SESSION['username'];
+?>
+
 <html lang="=el">
 
 <head>
@@ -14,6 +28,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style-main.css">
 </head>
+
 <body>
     
     <script src="script.js"> </script>
