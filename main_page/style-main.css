@@ -3,17 +3,23 @@
     --black:#13131a;
     --bg: white;
     --border:1.1rem solid rgba(97, 96, 96, 0.86);
+    
 }
 
 *{
     margin: 0;
     padding: 0;
+    
     font-family: 'Roboto',sans-serif;
     box-sizing: border-box;
     outline: none;
     border: none;
     text-decoration:none;
+    
     transition: 0.3s linear;
+    
+
+
 }
 
 html{
@@ -40,6 +46,11 @@ body{
     background: white;
 }
 
+/*
+section{
+    padding: 2rem 7%;
+}
+*/
 .first_all{
     background:  rgb(163, 3, 3);
     display: flex;
@@ -53,14 +64,16 @@ body{
 }
 
 .first_all .im img{
-        width: 180px;
+    width: 180px;
 }
 
 .first_all .the_navbar a{
     margin:0rem 2rem;
     font-size:  17px;
+
     font-weight:bolder;
     color: whitesmoke;
+    
 }
 
 .first_all .the_navbar a:hover{
@@ -68,6 +81,7 @@ body{
     border-bottom: .1rem  solid white;
     padding-bottom: .5rem;
     border-width: medium;
+    
 }
 
 .first_all .navbar_icons div{
@@ -112,10 +126,12 @@ body{
 }
 
 span{
-    color: rgb(97, 96, 96);   
+    color: rgb(97, 96, 96);
+    
 }
 
 spanun{
+    
     color:  rgb(163, 3, 3);
 }
 
@@ -143,6 +159,8 @@ spanun{
     background: linear-gradient(white,white);
 }
 
+
+
 .buttons button{
     padding:7px 30px;
     outline: none;
@@ -151,6 +169,7 @@ spanun{
     cursor: pointer;
     color:black;
     background: transparent;
+
     margin: 10%;
     top: 32%;
     position: absolute;
@@ -169,11 +188,13 @@ spanun{
 }
 
 .buttons .primier:hover{
+    
     color: white;
     background: linear-gradient(rgba(163, 3, 3, 0.856),rgba(163, 3, 3, 0.856));
 }
 
 .buttons .primier:active{
+    
     color: rgb(158, 155, 155);
 }
 
@@ -200,6 +221,8 @@ spanun{
     float: left;
     line-height: 39px;
    /*background: rgb(158, 155, 155,0.8);*/
+   
+    
 }
 
 .form{
@@ -208,6 +231,7 @@ spanun{
     margin:10px auto;
     /*position: relative;*/
     top: 100px;
+    
     float: left;
     /*
     background: rgb(158, 155, 155,0.8);
@@ -216,7 +240,14 @@ spanun{
     */
 }
 
+
+
+
+
+
+
 .buttons .primier button{
+
     margin: 10%;
     top: 82%;
     position: absolute;
@@ -237,14 +268,17 @@ spanun{
     position: absolute;
 }
 
+
+
+
 @media(max-width:1250px){
 
     html{
-        font-size: 82.5%;
+        font-size: 55%;
     }
 
     .first_all{
-        padding: 0.5rem 2rem;
+        padding: 1.5rem 2rem;
     }
 
     section{
@@ -260,9 +294,9 @@ spanun{
 
     .first_all .the_navbar{
             position: absolute;
-            top: 110%; right: -100%;
+            top: 108%; right: -100%;
             background:rgba(163, 3, 3);
-            width: 33rem;
+            width: 95rem; /*click*/
             height: calc(100vh - 9.5rem);
     }
 
@@ -276,11 +310,10 @@ spanun{
         display: block;
         margin: 3rem;
         padding: 0.5rem;
-        font-size: 20px;
-        
-        
+        font-size: 20px;       
     }
 }
+
 
 footer {
     position: fixed;
@@ -341,5 +374,4 @@ canvas {
     width: 50%;
     margin-left: 50%;
     margin-right: 10%;
-    
 }

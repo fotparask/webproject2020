@@ -1,37 +1,6 @@
 <?php
 
-$servername = "localhost";
-$dbusername = "root";
-$dbpassword = "";
-$dbname = "webproject";
-
-$email = "";
-$username = "";
-$password = "";
-
-$email_exists = '';     //var to check if email aleady exists
-$username_exists = '';  //var to check if username aleady exists
-
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
-    if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-        echo "
-            <script>alert('You entered an invalid email!');</script>
-        ";
-    }
-    elseif(!preg_match("/^[a-zA-Z0-9-' ]*$/",$_POST["username"])) {
-        echo "
-            <script>alert('Please enter a valid username.');</script>
-        ";
-    }
-    elseif(!preg_match("/^[a-zA-Z0-9-' ]*$/",$_POST["password"])) {
-        echo "
-            <script>alert('Please enter a valid password.');</script>
-        ";
-    }
-    else{
+    if ($_POST['register']){
 
         $email = $_POST["email"];
         $username = $_POST["username"];
@@ -39,13 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $hashed_pwd = password_hash($password, PASSWORD_DEFAULT);
 
 
-        //Create connection
-        $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-        //Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        include "database_config.php";
 
         $sql = "SELECT email FROM users WHERE email='$email'";
         $result1 = $conn->query($sql);
@@ -53,10 +16,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $result2 = $conn->query($sql);
 
         if ($result1->num_rows > 0) {
-            $email_exists = "Email already exists.";
+            echo "
+                    <script>alert('Email already exists.');</script>
+                ";
         }
         elseif($result2->num_rows > 0) {
-            $username_exists = "User already exists.";
+            echo "
+                    <script>alert('User already exists.');</script>
+                ";
         }
         else{
 
@@ -68,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo "
                     <script>alert('New user created successfully');</script>
                 ";
+                header("sign_in.php");
             }
             else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
@@ -75,11 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         }
 
         $conn->close();
-
     }
-}
-
-
 ?>
 
 
@@ -89,15 +53,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="utf-8">
     <title>HARcules Register </title>
     <link rel="stylesheet" href="style-form.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
 
   <body>
     <div class="logo_img">
-        <a href="firstindex.php" class="im" > <img src="HARcules Logo-01.png" width="400px"> </a>
+      <a href="index.html" class="im" > <img src="images\HARcules Logo-01.png" width="400px"> </a>
     </div>
     <div class="center">
-      <h1>Εγγραφή</h1>
-      <form method="post" action="sign_up.php">
+      <h1>Register</h1>
+      <form method="post" name='registerForm' onsubmit="javascript: startAjax(); return false;">
         <div class="txt_field">
           <input type="email" name="email" id="email" required>
           <span></span>
@@ -151,33 +116,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     $(document).ready(function () {
-        $("#login").on('click',function() {
+        function startAjax(){
             let email = $("#email").val();
+            let username = $("#username").val();
             let password = $("#password").val();
+            let secondPassword = $("#secondPassword").val();
+
             
             if (!validateEmail(email)) {
                 alert('Please enter a valid email.');
             }
+            else if(!validateUsername(username)) {
+                alert('Please enter a valid password.');
+            }
             else if(!validatePassword(password)) {
                 alert('Please enter a valid password.');
+            }
+            else if(secondPassword != password) {
+                alert('Password do not match.');
             }
             else{
                 $.ajax(
                     {
-                        url: 'index.php',
-                        type: 'post',
+                        url:'sign_up.php',
+                        method: 'POST',
                         data: {
-                            login: 1,
-                            userEmail: email,
-                            userPassword: password
+                            register: 1,
+                            ajaxEmail: email,
+                            ajaxUsername: username,
+                            ajaxPassword: password
                         },
                         success: function (response) {
                             console.log("Ajax call succeded");
+                            document.registerForm.submit();
                         }
                     }
                 );
             }
-        })
+        }
     });
 
 </script>

@@ -17,7 +17,9 @@
     <script src="script.js"> </script>
     
     <header class="first_all">
+
         <a href="admin.php" class="im" > <img src="..\images\logo.png" alt="logo image"> </a>
+
         
         <nav class="the_navbar">   
             

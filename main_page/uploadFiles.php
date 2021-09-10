@@ -13,39 +13,35 @@
         <meta name="keywords" content="">
     
         <link rel="stylesheet" href="style-main.css">
-    
-    
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
 
 
     <body>
 
-<script src="script.js"> </script>
-
-<header class="first_all">
-    <a href="index.html" class="im" > <img src="logo.png" alt="logo image"> </a>
+      
+    <script src="script.js"> </script>
     
-    <nav class="the_navbar">   
-            
-            <a href="uploadFiles.php"> Upload Δεδομένων </a> 
-                        
-            <a href="editProfile.php"> Διαχείριση Προφίλ </a> 
-                    
-            <a href="#"> Οπτικοποίηση Δεδομένων </a> 
-                         
-            <a href="firstindex.php"> Αποσύνδεση </a>
-            
+    <header class="first_all">
+
+        <a href="index.php" class="im" > <img src="../images/logo.png" alt="logo image"> </a>
+        
+        <nav class="the_navbar">        
+
+            <a href="uploadFiles.php"> Upload Δεδομένων </a>                        
+            <a href="editProfile.php"> Διαχείριση Προφίλ </a>                     
+            <a href="#"> Οπτικοποίηση Δεδομένων </a>                      
+            <a href="../logout.php"> Αποσύνδεση </a>   
+
         </nav>
-       
-        <div class="navbar_icons"> 
-                
-                <div class= "menu" > <img src="menu.jpeg" alt="menu image" height= "21.5px" width="23px";></div>
-            
+           
+        <div class="navbar_icons">                     
+            <div class= "menu" > 
+                <img src="../images/menu.jpeg" alt="menu image" height= "21.5px" width="23px";>
+            </div>  
         </div>
 
-</header>
-
-
+    </header>
 
 
     <div class="ban">
@@ -60,8 +56,9 @@
         </div>
         </div>
   
+        <input type="file" onchange="readFile(this)">
         <div class="buttons">
-            <button type="button" class="primier"> Προσθήκη Αρχείου </button>
+            <button type="button" class="primier" id="addHarFile"> Προσθήκη Αρχείου </button>
         </div>
 
 
@@ -81,6 +78,15 @@
         </div>
         
     </div>
+
+  
+    <script defer type="text/javascript">
+        $(document).ready(function () {
+            $('#addHarFile').click(function() {
+                <script defer src="harfiles/har_collection.js" charset="utf-8"></script>                       
+            });
+        });
+    </script>
 
 
     <div class="footer">

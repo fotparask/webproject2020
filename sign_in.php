@@ -1,22 +1,12 @@
 <?php
 
-    $servername = "localhost";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "webproject";
+    if($_POST['login']) {
 
-    if($_POST['userEmail']) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-        $email = $_POST['userEmail'];
-        $password = $_POST['userPassword'];
+        include "database_config.php";
 
-        //Create connection
-        $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-        //Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
 
         $sql = "SELECT * FROM users WHERE email='$email'";
         $result = $conn->query($sql);
@@ -26,18 +16,24 @@
             $hashed_pwd = $row['password'];
             
             if(password_verify($password ,$hashed_pwd)){
-                $conn->close();
-                // session_start();
-                // $_SESSION["username"] = $row['username'];
-                // $_SESSION["email"] = $row['email'];
-                echo("Login succeded.");
+              $conn->close();
+              echo("Login succeded.");
+              session_start();
+              $_SESSION["username"] = $row['username'];
+              $_SESSION["email"] = $row['email'];
+              header("Location: main_page/index.php");
+              exit;
             }
             else{
-                echo("The password is incorect.");
+              echo "
+              <script>alert('Password is incorrect.');</script>
+          ";
             }  
         }
         else {
-            echo("User does not exist");
+          echo "
+          <script>alert('Email does not exist.');</script>
+      ";
         }
         
         $conn->close();
@@ -51,15 +47,16 @@
     <meta charset="utf-8">
     <title>HARcules Login</title>
     <link rel="stylesheet" href="style-form.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
 
   <body>
     <div class="logo_img">
-      <a href="firstindex.php" class="im" > <img src="HARcules Logo-01.png" width="400px"> </a>
+      <a href="index.html" class="im" > <img src="images\HARcules Logo-01.png" width="400px"> </a>
     </div>
     <div class="center">
-      <h1>Σύνδεση</h1>
-      <form method="post" action="sign_in.php">
+      <h1>Login</h1>
+      <form method='post' name='loginForm' onsubmit="javascript: startAjax(); return false;">
         <div class="txt_field">
           <input type="email" name="email" id="email" required>
           <span></span>
@@ -97,35 +94,36 @@
 			return re.test(String(password).toLowerCase());
 		}
 
-        $(document).ready(function () {
-            $("#login").on('click',function() {
-                let email = $("#email").val();
-                let password = $("#password").val();
-                
-                if (!validateEmail(email)) {
-                    alert('Please enter a valid email.');
-                }
-                else if(!validatePassword(password)) {
-                     alert('Please enter a valid password.');
-                }
-                else{
-                    $.ajax(
-                        {
-                            url: 'index.php',
-                            type: 'post',
-                            data: {
-                                login: 1,
-                                userEmail: email,
-                                userPassword: password
-                            },
-                            success: function (response) {
-                                console.log("Ajax call succeded");
-                            }
+
+
+    $(document).ready(function () {
+      function startAjax(){
+            
+            if (!validateEmail(email)) {
+                alert('Please enter a valid email.');
+            }
+            else if(!validatePassword(password)) {
+                  alert('Please enter a valid password.');
+            }
+            else{
+                $.ajax(
+                    {
+                        url: 'sign_in.php',
+                        method: 'POST',
+                        data: {
+                            login: 1,
+                            ajaxEmail: $("#email").val(),
+                            ajaxPassword: $("#password").val()
+                        },
+                        success: function (response) {
+                            console.log("Ajax call succeded");
+                            document.loginForm.submit();
                         }
-                    );
-                }
-            })
-        });
+                    }
+                );
+            }
+      }
+    });
 
     </script>
    

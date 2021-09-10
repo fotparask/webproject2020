@@ -18,27 +18,29 @@
 
     <body>
 
-<script src="script.js"> </script>
 
-<header class="first_all">
-    <a href="index.html" class="im" > <img src="logo.png" alt="logo image"> </a>
+    <script src="script.js"> </script>
     
-    <nav class="the_navbar">   
+    <header class="first_all">
+        <a href="index.php" class="im" > <img src="../images/logo.png" alt="logo image"> </a>
+        
+        <nav class="the_navbar">   
+
             
             <a href="uploadFiles.php"> Upload Δεδομένων </a> 
                         
             <a href="editProfile.php"> Διαχείριση Προφίλ </a> 
                     
             <a href="#"> Οπτικοποίηση Δεδομένων </a> 
-                         
-            <a href="firstindex.php"> Αποσύνδεση </a>
+                        
+            <a href="../logout.php"> Αποσύνδεση </a>
             
         </nav>
-       
+           
         <div class="navbar_icons"> 
-                
-                <div class= "menu" > <img src="menu.jpeg" alt="menu image" height= "21.5px" width="23px";></div>
-            
+                    
+            <div class= "menu" > <img src="../images/menu.jpeg" alt="menu image" height= "21.5px" width="23px";></div>
+     
         </div>
 
 </header>
@@ -50,10 +52,12 @@
         <div class="lcolumn">  
             <br>
             <br>
+
             <h3>Δείτε <span> Βασικά Στατιστικά για τα δεδομένα που έχετε ανεβάσει</span></h3>
             <br>
             <br>
             
+
             </div>
         
           
