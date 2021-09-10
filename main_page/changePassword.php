@@ -7,65 +7,52 @@
         exit();
     }
 
-    $username = $_SESSION['username'];
-
-    
-    $real_pwd_hash = "";
-    $old_password = "";
-    $new_password = "";
-    $confirm_password = "";
-    $username = "";
-    $wrong_pwd = "";
-    $wrong_user = "";
-    $user_changed = ""; 
+    $sessionUsername = $_SESSION['username'];
 
 
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        $username = $_POST['username'];
+        $old_password = $_POST['oldPassword'];
+        $new_password = $_POST['newPassword'];
+        $hashed_pwd = "";
+        
 
-        if ($_POST["new_username"] !== $_POST["confirm_username"]){
-            echo "
-                <script>alert('Usernames do not match.');</script>
-            ";
-        }
-        else{
+        include "../database_config.php";
 
-            $old_username = $_POST["old_username"];
-            $new_username = $_POST["new_username"];
-            $password = $_POST["password"];
-            $hashed_pwd = "";
+
+        $sql = "SELECT * FROM users WHERE username='$username'";
+        $result = $conn->query($sql);
             
+        if ($result->num_rows > 0) {
 
-            include "../database_config.php";
-
-
-            $sql = "SELECT * FROM users WHERE username='$old_username'";
-            $result = $conn->query($sql);
-                
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                $hashed_pwd = $row['password'];
-                
-                if(password_verify($password ,$hashed_pwd)){
-                    $sql = "UPDATE users SET username='$new_username' WHERE username='$old_username';";
-                    if ($conn->query($sql) === TRUE) {
-                        $user_changed = "You have successfully changed your username.";
-                    }
-                    $conn->close();
+            $row = $result->fetch_assoc();
+            $hashed_pwd = $row['password'];
+            
+            if(password_verify($password ,$hashed_pwd)){
+                $sql = "UPDATE users SET password='$new_password' WHERE username='$username';";
+                if ($conn->query($sql) === TRUE) {
+                    echo "
+                    <script>alert('Password changed successfuly');</script>
+                    ";
                 }
-                else{
-                    $wrong_pwd = "The password is incorect.";
-                    $conn->close();
-                }  
             }
-            else {
-                $wrong_user = "User" . $old_username . "does not exist";
-                $conn->close();
-            }
-            
-            
+            else{
+                echo "
+                    <script>alert('You entered a wrong password.');</script>
+                    ";
+            }  
+
         }
-    }
+        else {
+            echo "
+              <script>alert('User does not exist.');</script>
+              ";
+        }
+
+        $conn->close();
+    }  
+    
 ?>
 
 <html lang="=el">
@@ -82,9 +69,7 @@
         <meta name="keywords" content="">
     
         <link rel="stylesheet" href="style-main.css">
-
-    
-    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
 
 
@@ -99,7 +84,7 @@
 
     <nav class="the_navbar">   
 
-        <a href="uploadFiles.php"> Upload Δεδομένων </a> 
+        <a href="harFiles/uploadFiles.php"> Upload Δεδομένων </a> 
 
         <a href="editProfile.php"> Διαχείριση Προφίλ </a> 
 
@@ -120,54 +105,57 @@
 
 
         <div class="ban">
+            <form method='post' name='changePassForm' onsubmit="javascript: startAjax(); return false;">
            
-            <div class="lcolumn">  
-                
-                <br>
-                <h3>Αλλαγή <span>Κωδικού</span></h3>
-
-                <h3>
+                <div class="lcolumn">  
+                    
                     <br>
-                    <div class= "form">
-                        <div class= "labels">
-                        <label for="username"> Όνομα χρήστη:</label> <br>
-                        <label for="password"> Παλιός κωδικός:</label> <br>
-                        <label for="password"> Νέος κωδικός:</label> <br>
-                        <label for="password"> Νέος κωδικός:</label> <br>
+                    <h3>Αλλαγή <span>Κωδικού</span></h3>
+
+                    <h3>
+                        <br>
+                        <div class= "form">
+                            <div class= "labels">
+                            <label for="username"> Όνομα χρήστη:</label> <br>
+                            <label for="password"> Παλιός κωδικός:</label> <br>
+                            <label for="password"> Νέος κωδικός:</label> <br>
+                            <label for="password"> Νέος κωδικός:</label> <br>
+                            </div>
+
+                            
+                            <div class= "inputs">
+                                <input type="text" placeholder="Όνομα χρήστη" name="username" id="username"> <br>
+                            
+                                <input type="password" placeholder="Παλιός κωδικός" name="oldPassword" id="oldPassword"> <br>
+                            
+                                <input type="password" placeholder="Νέος κωδικός" name="newPassword" id="newPassword"> <br>
+                            
+                                <input type="password" placeholder="Νέος κωδικός" name="confirmPassword" id="confirmPassword"> <br>
+                            
+                            </div>
                         </div>
+                    </h3>
+                        
+                </div>
+
+                
+                <div class= "remember">
+                    <input type="checkbox"> Θυμήσου με 
+                </div>
+
+                <br>
+                <!--
+                <a href="index3.html" target="blank" >  Ξεχάσατε τον παλιό κωδικό; </a>
+                -->
+                <br>
         
-                        <div class= "inputs">
-                            <input type="text" placeholder="Όνομα χρήστη" name="username"> <br>
-                        
-                            <input type="password" placeholder="Παλιός κωδικός" name="password"> <br>
-                        
-                            <input type="password" placeholder="Νέος κωδικός" name="password"> <br>
-                        
-                            <input type="password" placeholder="Νέος κωδικός" name="password"> <br>
-                        
-                        </div>
-                </h3>
-                    </div>
-            
-              
-            </div>
+                <div class= "newbutton">
+                <div class="buttons">
+                    <button type="submit" class="primier" name="changePass" id ="changePass"> Αλλαγή Κωδικού </button>
+                </div>
+                </div>
 
-            
-            <div class= "remember">
-                <input type="checkbox"> Θυμήσου με 
-            </div>
-
-            <br>
-            <!--
-            <a href="index3.html" target="blank" >  Ξεχάσατε τον παλιό κωδικό; </a>
-            -->
-            <br>
-      
-            <div class= "newbutton">
-            <div class="buttons">
-                <button type="button" class="primier"> Αλλαγή Κωδικού </button>
-            </div>
-            </div>
+            </form>
 
         </div>
    
@@ -177,7 +165,61 @@
         <footer>
             <p> &copy; HARcules Copyright 2021</p>
         </footer>
-    </div>            
+    </div>   
+    
+
+    <script type="text/javascript">
+
+    function validateUsername(username) {
+        const re = /^[a-zA-Z0-9-' ]*$/;
+        return re.test(String(username).toLowerCase());
+    }
+
+    function validatePassword(password) {
+        const re = /^[a-zA-Z0-9-' ]*$/;
+        return re.test(String(password).toLowerCase());
+    }
+
+
+    $(document).ready(function () {
+        function startAjax(){
+             
+
+            let username = $("#username").val();
+            let oldPassword = $("#oldPassword").val();
+            let newPassword = $("#newPassword").val();
+            let confirmPassword = $("#confirmPassword").val();
+
+            if (!validateUsername(username)) {
+                alert('Please enter a valid username.');
+            }
+            else if(!validatePassword(password)) {
+                alert('Please enter a valid password.');
+            }
+            else if(newPassword != confirmPassword){
+                alert('Passwords do not match.');
+            }
+            else{
+                $.ajax(
+                    {
+                        url: 'changePassword.php',
+                        method: 'POST',
+                        data: {
+                            login: 1,
+                            ajaxPassword: $("#password").val(),
+                            ajaxUsername: $("#username").val()
+                        },
+                        success: function (response) {
+                            console.log("Ajax call succeded");
+                            document.changePassForm.submit();
+                        }
+                    }
+                );
+            }
+       }
+    });
+
+    </script>
        
 </body>
 

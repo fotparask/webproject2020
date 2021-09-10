@@ -7,7 +7,7 @@
         exit();
     }
 
-    $username = $_SESSION['username'];
+    $sessionUsername = $_SESSION['username'];
 
 ?>
 
@@ -39,7 +39,7 @@
         <nav class="the_navbar">   
 
             
-            <a href="uploadFiles.php"> Upload Δεδομένων </a> 
+            <a href="harFiles/uploadFiles.php"> Upload Δεδομένων </a> 
                         
             <a href="editProfile.php"> Διαχείριση Προφίλ </a> 
                     
@@ -86,13 +86,13 @@
    
         <br>
         <br>
-        <a href="changeUsername.html" > <h3>  Να αλλάξετε όνομα χρήστη </h3> </a> 
+        <a href="changeUsername.php" > <h3>  Να αλλάξετε όνομα χρήστη </h3> </a> 
    
            
 
         <br>
         <br>
-        <a href="changePassword.html" > <h3> Να αλλάξετε κωδικό πρόσβασης </h3> </a> 
+        <a href="changePassword.php" > <h3> Να αλλάξετε κωδικό πρόσβασης </h3> </a> 
         <br>
         <br>
         <br>

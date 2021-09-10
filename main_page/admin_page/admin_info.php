@@ -10,7 +10,7 @@
         header("Location: ../../index.html");
         exit();
     }
-    $username = $_SESSION['username'];
+    $sessionUsername = $_SESSION['username'];
 ?>
 
 <html lang="=el">

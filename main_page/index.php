@@ -7,7 +7,7 @@
         exit();
     }
 
-    $username = $_SESSION['username'];
+    $sessionUsername = $_SESSION['username'];
 
 ?>
 
@@ -45,7 +45,7 @@
         
         <nav class="the_navbar">   
             
-            <a href="uploadFiles.php"> Upload Δεδομένων </a> 
+            <a href="harFiles/uploadFiles.php"> Upload Δεδομένων </a> 
                         
             <a href="editProfile.php"> Διαχείριση Προφίλ </a> 
                     
