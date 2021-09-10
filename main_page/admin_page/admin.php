@@ -31,7 +31,7 @@
                     
             <a href="admin_heatmap.php"> Οπτικοποίηση Δεδομένων </a> 
 
-            <a href="firstindex.php"> Αποσύνδεση </a> 
+            <a href="../../logout.php"> Αποσύνδεση </a> 
             
         </nav>
 

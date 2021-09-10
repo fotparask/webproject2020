@@ -2,7 +2,7 @@
 <html lang="=el">
 
 <head>
-<title>HARcules Basic Info</title>
+<title>HARcules HTTP</title>
     <meta charshet="UTF-8">
     
     <meta name="viewport" content="width=devise-width, initial-scale=1.0">
@@ -19,19 +19,19 @@
     <script src="script.js"> </script>
     
     <header class="first_all">
-        <a href="admin.html" class="im" > <img src="..\images\logo.png" alt="logo image"> </a>
+        <a href="admin.php" class="im" > <img src="..\images\logo.png" alt="logo image"> </a>
         
         <nav class="the_navbar">   
             
-            <a href="admin_info.html"> Απεικόνιση Πληροφορίων </a> 
+            <a href="admin_info.php"> Απεικόνιση Πληροφορίων </a> 
                         
-            <a href="admin_times.html"> Ανάλυση Χρόνων </a> 
+            <a href="admin_times.php"> Ανάλυση Χρόνων </a> 
 
-            <a href="admin_HTTP.html"> Ανάλυση HTTP </a> 
+            <a href="admin_HTTP.php"> Ανάλυση HTTP </a> 
                     
-            <a href="admin_heatmap.html"> Οπτικοποίηση Δεδομένων </a> 
+            <a href="admin_heatmap.php"> Οπτικοποίηση Δεδομένων </a> 
 
-            <a href="#"> Αποσύνδεση </a> 
+            <a href="../../logout.php"> Αποσύνδεση </a> 
             
         </nav>
 
@@ -48,67 +48,12 @@
     <div class="ban">
             
         <div class="lcolumn">  
-            <h3>Βασικές Πληροφορίες</h3>
+            <h3> Ανάλυση Κεφαλιδών HTTP </h3>
         </div>
     </div>
 
     <div class="show-info">
-        <table class="table" id="dataTable">
-           <thead>
-                <th>Κατηγορία</th>
-                <th>Ποσότητα</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="col1">
-                        Eγγεγραμμένοι χρήστες
-                    </td>
-                    <td class="col2">
-                        5
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        Εγγραφές ανά τύπο αίτησης
-                    </td>
-                    <td class="col2">
-                        50
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        Εγγραφές ανά κωδικό απόκρισης
-                    </td>
-                    <td class="col2">
-                        34
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        Μοναδικά domains
-                    </td>
-                    <td class="col2">
-                        3
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        Μοναδικοί παρόχοι συνδεσιμότητας 
-                    </td>
-                    <td class="col2">
-                        6
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        Μέση ηλικία ιστοαντικειμένων
-                    </td>
-                    <td class="col2">
-                        25
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        
     </div>   
 
     <div class="chart">
@@ -118,7 +63,7 @@
         <footer>
             <p>&copy; HARcules Copyright 2021</p>
         </footer>
-    </div>        
+    </div>         
     <script>
     function BuildChart(labels, values, chartTitle) {
         var ctx = document.getElementById("infoChart").getContext('2d');
@@ -151,12 +96,6 @@
             options: {
                 responsive: true, // Instruct chart js to respond nicely.
                 maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
-                scales: {
-                    y: {
-                        suggestedMin: 0,
-                        suggestedMax: 100
-                    }
-                }
             }
         });
         return myChart;

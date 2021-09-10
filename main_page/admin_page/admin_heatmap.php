@@ -19,19 +19,19 @@
     <script src="script.js"> </script>
     
     <header class="first_all">
-        <a href="admin.html" class="im" > <img src="..\images\logo.png" alt="logo image"> </a>
+        <a href="admin.php" class="im" > <img src="..\images\logo.png" alt="logo image"> </a>
         
         <nav class="the_navbar">   
             
-            <a href="admin_info.html"> Απεικόνιση Πληροφορίων </a> 
+            <a href="admin_info.php"> Απεικόνιση Πληροφορίων </a> 
                         
-            <a href="admin_times.html"> Ανάλυση Χρόνων </a> 
+            <a href="admin_times.php"> Ανάλυση Χρόνων </a> 
 
-            <a href="admin_HTTP.html"> Ανάλυση HTTP </a> 
+            <a href="admin_HTTP.php"> Ανάλυση HTTP </a> 
                     
-            <a href="admin_heatmap.html"> Οπτικοποίηση Δεδομένων </a> 
+            <a href="admin_heatmap.php"> Οπτικοποίηση Δεδομένων </a> 
 
-            <a href="#"> Αποσύνδεση </a> 
+            <a href="../../logout.php"> Αποσύνδεση </a> 
             
         </nav>
 
