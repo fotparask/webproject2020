@@ -1,4 +1,17 @@
-<!DOCTYPE html>
+<?php
+
+    session_start();
+
+    if(!isset($_SESSION['username'])) {
+        header("Location: ../index.html");
+        exit();
+    }
+
+    $username = $_SESSION['username'];
+
+?>
+
+
 <html lang="=el">
 
 <head>
@@ -63,6 +76,7 @@
             <p>
                 Μέσω της συγκεκριμένης ιστοσελίδας η απεικόνιση ενός πλήρους συστήματος συλλογής, διαχείρισης και
                 ανάλυσης πληθοποριστικής (crowdsourced) πληροφορίας, που αφορά δεδομένα κίνησης HTTP.
+                <?php echo($_SESSION['username']); ?>
             </p>
 
            <h2>Σημαντικές πληροφορίες:</h2>
