@@ -58,7 +58,7 @@ body{
 
 .first_all .the_navbar a{
     margin:0rem 2rem;
-    font-size:  17.5px;
+    font-size:  17px;
     font-weight:bolder;
     color: whitesmoke;
 }
@@ -74,7 +74,7 @@ body{
     color: #13131a;
     cursor: pointer;
     font-size: 2.5rem;
-    margin-left: 2rem;
+    margin-left: 1.5rem;
 }
 
 .first_all .navbar_icons div:hover{
@@ -100,15 +100,15 @@ body{
 }
 
 .lcolumn h3{
-    font-size: 30px;
+    font-size: 33px;
 }
 
 .lcolumn h2{
-    font-size: 20px;
+    font-size: 23px;
 }
 
 .text{
-    font-size: 14px;
+    font-size: 16px;
 }
 
 span{
@@ -122,6 +122,25 @@ spanun{
 .lcolumn .hope{
     font-size: 19px;
     color:black;
+}
+
+.firstbutton button{
+    padding:7px 30px;
+    outline: none;
+    border: 0px solid rgb(158, 155, 155);
+    border-radius: 12px;
+    cursor: pointer;
+    color:black;
+    background: transparent;
+    right: 10%;
+    top: 40%;
+    position: absolute;
+}
+
+.firstbutton .firstprimier:hover{
+    
+    color: rgba(163, 3, 3);
+    background: linear-gradient(white,white);
 }
 
 .buttons button{
@@ -142,7 +161,7 @@ spanun{
     background: linear-gradient(rgb(163, 3, 3),rgb(163, 3, 3));
    /* box-shadow: 0 2px 15px rgb(97, 96, 96) ;*/
     color: rgb(221, 220, 220); 
-    font-size: 17px;  
+    font-size: 17px;
 }
 
 .buttons{
@@ -268,7 +287,7 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 30px;
+    height: 40px;
     background-color: rgba(163, 3, 3);
     color: white;
     text-align: center;

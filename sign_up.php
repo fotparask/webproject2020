@@ -93,37 +93,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
   <body>
     <div class="logo_img">
-      <img src="C:\wamp64\www\webproject2020\webproject2020\images\HARcules Logo-01.png" width="400px">
+        <a href="firstindex.php" class="im" > <img src="HARcules Logo-01.png" width="400px"> </a>
     </div>
     <div class="center">
-      <h1>Register</h1>
-      <form method="post">
+      <h1>Εγγραφή</h1>
+      <form method="post" action="sign_up.php">
         <div class="txt_field">
-          <input type="email" required>
+          <input type="email" name="email" id="email" required>
           <span></span>
           <label>Email</label>
         </div>
         <div class="txt_field">
-          <input type="text" required>
+          <input type="text" name="username" id="username" required>
           <span></span>
           <label>Όνομα Χρήστη</label>
         </div>
         <div class="txt_field">
-          <input type="password" required>
+          <input type="password" name="password" id="password" required>
           <span></span>
           <label>Κωδικός</label>
         </div>
         <div class="txt_field">
-            <input type="password" required>
+            <input type="password" name="secondPassword" id="secondPassword" required>
             <span></span>
             <label>Επιβεβαίωση Κωδικού</label>
         </div>
-        <input type="submit" value="Εγγραφή">
+        <input type="submit" value="Εγγραφή" name="register" id ="register">
         <div class="signup_info">
-        Όλα Τα πεδία με είναι υποχρεωτικά
+        Όλα τα πεδία είναι υποχρεωτικά
         </div>
         <div class="signup_link">
-          Είσαι ήδη μέλος; <a href="index.html">Signin</a>
+          Είσαι ήδη μέλος; <a href="sign_in.php">Σύνδεση</a>
         </div>
       </form>
     </div>

@@ -61,9 +61,9 @@
     </div>
     <div class="footer">
         <footer>
-            <p class="pull-right"> &copy; HARcules Copyright 2021</p>
+            <p>&copy; HARcules Copyright 2021</p>
         </footer>
-    </div>      
+    </div>         
     <script>
     function BuildChart(labels, values, chartTitle) {
         var ctx = document.getElementById("infoChart").getContext('2d');

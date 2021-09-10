@@ -58,7 +58,7 @@
 
     <div class="footer">
         <footer>
-            <p class="pull-right"> &copy; HARcules Copyright 2021</p>
+            <p>&copy; HARcules Copyright 2021</p>
         </footer>
     </div>      
    

@@ -48,67 +48,12 @@
     <div class="ban">
             
         <div class="lcolumn">  
-            <h3> Βασικές Πληροφορίες </h3>
+            <h3> Ανάλυση Χρόνων Απόκρισης </h3>
         </div>
     </div>
 
     <div class="show-info">
-        <table class="table" id="dataTable">
-           <thead>
-                <th>Κατηγορία</th>
-                <th>Ποσότητα</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="col1">
-                        Eγγεγραμμένοι χρήστες
-                    </td>
-                    <td class="col2">
-                        5
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        Εγγραφές ανά τύπο αίτησης
-                    </td>
-                    <td class="col2">
-                        50
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        Εγγραφές ανά κωδικό απόκρισης
-                    </td>
-                    <td class="col2">
-                        34
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        Μοναδικά domains
-                    </td>
-                    <td class="col2">
-                        3
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        Μοναδικοί παρόχοι συνδεσιμότητας 
-                    </td>
-                    <td class="col2">
-                        6
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col1">
-                        Μέση ηλικία ιστοαντικειμένων
-                    </td>
-                    <td class="col2">
-                        25
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+       
     </div>   
 
     <div class="chart">
@@ -116,7 +61,7 @@
     </div>
     <div class="footer">
         <footer>
-            <p class="pull-right"> &copy; HARcules Copyright 2021</p>
+            <p> &copy; HARcules Copyright 2021</p>
         </footer>
     </div>      
     <script>
@@ -151,12 +96,6 @@
             options: {
                 responsive: true, // Instruct chart js to respond nicely.
                 maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
-                scales: {
-                    y: {
-                        suggestedMin: 0,
-                        suggestedMax: 100
-                    }
-                }
             }
         });
         return myChart;

@@ -1,35 +1,34 @@
-
 <?php
 
-    $real_pwd_hash = "";
-    $old_password = "";
-    $new_password = "";
-    $confirm_password = "";
-    $username = "";
+    $old_username = "";
+    $new_username = "";
+    $confirm_username = "";
+    $password = "";
     $wrong_pwd = "";
     $wrong_user = "";
-    $password_changed = "";
+    $user_changed = ""; 
 
 
     $servername = "localhost";
     $dbusername = "root";
-    $dbpassword = "vofogi62";
+    $dbpassword = "";
     $dbname = "webproject";
 
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
-        if ($_POST["new_password"] !== $_POST["confirm_password"]){
+        if ($_POST["new_username"] !== $_POST["confirm_username"]){
             echo "
-                <script>alert('Passwords do not match.');</script>
+                <script>alert('Usernames do not match.');</script>
             ";
         }
         else{
 
-            $username = $_POST["username"];
-            $old_password = $_POST["old_password"];
-            $new_password = $_POST["new_password"];
+            $old_username = $_POST["old_username"];
+            $new_username = $_POST["new_username"];
+            $password = $_POST["password"];
             $hashed_pwd = "";
+            
 
             //Create connection
             $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
@@ -40,18 +39,17 @@
             }
 
 
-            $sql = "SELECT * FROM users WHERE username='$username'";
+            $sql = "SELECT * FROM users WHERE username='$old_username'";
             $result = $conn->query($sql);
                 
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
                 $hashed_pwd = $row['password'];
                 
-                if(password_verify($old_password ,$hashed_pwd)){
-                    $hashed_pwd = password_hash($new_password, PASSWORD_DEFAULT);
-                    $sql = "UPDATE users SET password='$hashed_pwd' WHERE username='$username';";
+                if(password_verify($password ,$hashed_pwd)){
+                    $sql = "UPDATE users SET username='$new_username' WHERE username='$old_username';";
                     if ($conn->query($sql) === TRUE) {
-                        $password_changed = "You have successfully changed the password.";
+                        $user_changed = "You have successfully changed your username.";
                     }
                     $conn->close();
                 }
@@ -61,7 +59,7 @@
                 }  
             }
             else {
-                $wrong_user = "User " . $username . " does not exist";
+                $wrong_user = "User" . $old_username . "does not exist";
                 $conn->close();
             }
             
@@ -70,15 +68,13 @@
     }
 ?>
 
-
 <html lang="=el">
 
     <head>
-        <title>website</title>
+        <title>HARcules</title>
         <meta charshet="UTF-8">
         
         <meta name="viewport" content="width=devise-width, initial-scale=1.0">
-        <title>website</title> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
         <meta name="description" content="">
@@ -93,20 +89,20 @@
 
 <body>
     
-    <script src="main.js"> </script>
+    <script src="script.js"> </script>
     
     <header class="first_all">
-        <a href="newindex.html" class="im" > <img src="logo.png" alt="logo image"> </a>
+        <a href="index.html" class="im" > <img src="logo.png" alt="logo image"> </a>
         
         <nav class="the_navbar">   
             
-            <a href="index2.html"> Upload Δεδομένων </a> 
+            <a href="uploadFiles.html"> Upload Δεδομένων </a> 
                         
-            <a href="index3.html"> Διαχείριση Προφίλ </a> 
+            <a href="editProfile.html"> Διαχείριση Προφίλ </a> 
                     
             <a href="#"> Οπτικοποίηση Δεδομένων </a> 
                          
-            <a href="#"> Αποσύνδεση </a>
+            <a href="firstindex.html"> Αποσύνδεση </a>
             
         </nav>
            
@@ -137,12 +133,15 @@
                         </div>
         
                         <div class= "inputs">
-                        <input type="text" placeholder="Όνομα χρήστη" name="username"> <br>
-                        <input type="password" placeholder="Παλιός κωδικός" name="password"> <br>
-                        <input type="password" placeholder="Νέος κωδικός" name="password"> <br>
-                        <input type="password" placeholder="Νέος κωδικός" name="password"> 
-                        </div>
+                            <input type="text" placeholder="Όνομα χρήστη" name="username"> <br>
                         
+                            <input type="password" placeholder="Παλιός κωδικός" name="password"> <br>
+                        
+                            <input type="password" placeholder="Νέος κωδικός" name="password"> <br>
+                        
+                            <input type="password" placeholder="Νέος κωδικός" name="password"> <br>
+                        
+                        </div>
                 </h3>
                     </div>
             
@@ -150,25 +149,31 @@
             </div>
 
             
- 
-            <input type="checkbox"> Θυμήσου με 
-        
+            <div class= "remember">
+                <input type="checkbox"> Θυμήσου με 
+            </div>
+
             <br>
             <!--
             <a href="index3.html" target="blank" >  Ξεχάσατε τον παλιό κωδικό; </a>
             -->
             <br>
       
+            <div class= "newbutton">
             <div class="buttons">
                 <button type="button" class="primier"> Αλλαγή Κωδικού </button>
             </div>
+            </div>
 
-           
         </div>
    
 
-     
-                    
+    </div>
+    <div class="footer">
+        <footer>
+            <p> &copy; HARcules Copyright 2021</p>
+        </footer>
+    </div>            
        
 </body>
 

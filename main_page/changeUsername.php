@@ -70,60 +70,58 @@
 
 <html lang="=el">
 
-<head>
-    <title>website</title>
-    <meta charshet="UTF-8">
-    <meta name="description" content="website">
-
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="keywords" content="">
-    <meta name="viewport" content="">
-
-    <link rel="stylesheet" href="style-main.css">
-
-    <!--    
-        style at style.css
-    -->
-
-</head>
+    <head>
+        <title>website</title>
+        <meta charshet="UTF-8">
+        
+        <meta name="viewport" content="width=devise-width, initial-scale=1.0">
+        <title>website</title> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="keywords" content="">
+    
+        <link rel="stylesheet" href="style-main.css">
+    
+    
+    </head>
 
 
 <body>
-    <!--
-    <p>  
-        <a href="test2.html" target="blank" > <strong> SIGN UP HERE </strong> </a> 
-        <img src="user2.png" alt="user image" width="30" height="30">
-        <img src="logout1.jpg" alt="logout image" width="37" height="50">
-    </p>
-    -->
-    <div class="first_all">
-        <div class="second_navbar">   
-            <a href="index.html"  > <img src="datalysis1.png" alt="datalysis image" width="" height=""> </a>
-            <ul>
-                <li> <a href="index2.html"> Upload Δεδομένων </a> </li>
-                <li> <a href="index3.html"> Διαχείριση Προφίλ </a> </li>
-                <li> <a href="#"> Οπτικοποίηση Δεδομένων </a> </li>         
-            </ul>
+    
+
+    <script src="script.js"> </script>
+    
+    <header class="first_all">
+        <a href="index.html" class="im" > <img src="logo.png" alt="logo image"> </a>
+        
+        <nav class="the_navbar">   
+            
+            <a href="uploadFiles.php"> Upload Δεδομένων </a> 
+                        
+            <a href="editProfile.php"> Διαχείριση Προφίλ </a> 
+                    
+            <a href="#"> Οπτικοποίηση Δεδομένων </a> 
+                         
+            <a href="firstindex.php"> Αποσύνδεση </a>
+            
+        </nav>
            
             <div class="navbar_icons"> 
-                <ul>
-                    <li>
-                        <a href="#"> Αποσύνδεση </a>
-                    </li>
-                </ul>
+                    
+                    <div class= "menu" > <img src="menu.jpeg" alt="menu image" height= "21.5px" width="23px";></div>
+                
             </div>
 
-        </div>
+
+    </header>
+
+
         <div class="ban">
          
             <div class="lcolumn">  
-                <!--
-                <div class="search">
-                    <img src="search.png">
-                    <input type="text">
-                </div>
-                -->
+               
                 <br>
                 <h3>Αλλαγή <span>Ονόματος Χρήστη</span></h3>
 
@@ -148,51 +146,37 @@
                     </div>
 
                 
-               <!--
-               Ή αλλάξτε όνομα χρήστη μέσω:
-                <div class="social">
-                    <br>
-                   
-                            <a href="https://www.facebook.com/" target="blank" >    <img src="facebook2.png" > </a> 
-                        
-                            <a href="https://accounts.google.com/ServiceLogin/signinchooser?passive=1209600&continue=https%3A%2F%2Faccounts.google.com%2Fb%2F0%2FAddMailService&followup=https%3A%2F%2Faccounts.google.com%2Fb%2F0%2FAddMailService&flowName=GlifWebSignIn&flowEntry=ServiceLogin/" target="blank" >    <img src="gmail2.jpg" width="33px" > </a>
-                        
-                    
-                    <br>
-                    <br>
-                    <br>
-                </div>
-                -->
 
             </div>
 
 
-            <div class="rcolumn">  </div>
 
 
-            <input type="checkbox"> Θυμήσου με 
+            <div class= "remember">
+                <input type="checkbox"> Θυμήσου με 
+            </div>
 
                 <br>
                 <!--
                 <a href="index3.html" target="blank" >  Ξεχάσατε τον κωδικό; </a>
                 -->
                 <br>
-                <br>
+                
+                <div class= "newbutton">
                 <div class="buttons">
                     <button type="button" class="primier"> Αλλαγή Ονόματος Χρήστη </button> 
                 </div>
-
-                <!--  
-                <div class="container">
-                    <footer>
-                    <p class="pull-right"> <a href="#"> Επιστροφή στην κορυφή </a> </p>
-                    </footer>
                 </div>
-                -->
+
+                
         </div>
 
         
-    </div> 
+        <div class="footer">
+            <footer>
+                <p> &copy; HARcules Copyright 2021</p>
+            </footer>
+        </div> 
                     
        
 </body>
