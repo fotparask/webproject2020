@@ -1,4 +1,17 @@
-<!DOCTYPE html>
+<?php
+
+    session_start();
+
+    if(!isset($_SESSION['username'])) {
+        header("Location: ../index.html");
+        exit();
+    }
+
+    $username = $_SESSION['username'];
+
+?>
+
+
 <html lang="=el">
 
 <head>
@@ -77,6 +90,7 @@
             <br>
             <br>
             </div>
+
 
            <h2>Σημαντικές πληροφορίες:</h2>
            <br>

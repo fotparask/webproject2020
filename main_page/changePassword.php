@@ -1,9 +1,21 @@
 <?php
 
-    $old_username = "";
-    $new_username = "";
-    $confirm_username = "";
-    $password = "";
+
+    session_start();
+
+    if(!isset($_SESSION['username'])) {
+        header("Location: ../index.html");
+        exit();
+    }
+
+    $username = $_SESSION['username'];
+
+    
+    $real_pwd_hash = "";
+    $old_password = "";
+    $new_password = "";
+    $confirm_password = "";
+    $username = "";
     $wrong_pwd = "";
     $wrong_user = "";
     $user_changed = ""; 

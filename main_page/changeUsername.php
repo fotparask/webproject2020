@@ -1,5 +1,15 @@
 <?php
 
+    session_start();
+
+    if(!isset($_SESSION['username'])) {
+        header("Location: ../index.html");
+        exit();
+    }
+
+    $username = $_SESSION['username'];
+
+
     $old_username = "";
     $new_username = "";
     $confirm_username = "";
