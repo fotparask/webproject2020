@@ -1,145 +1,65 @@
-DROP DATABASE IF EXISTS db_project;
-CREATE DATABASE db_project; 
-USE db_project;
+DROP DATABASE IF EXISTS harcules_database;
+CREATE DATABASE IF NOT EXISTS harcules_database; 
+USE harcules_database;
 
-
-CREATE TABLE IF NOT EXISTS newspaper (
-	paper_name VARCHAR(255) NOT NULL,
-    paper_frequency ENUM('daily','weekly','monthly'),
-    paper_owner VARCHAR(255) NOT NULL,
-    PRIMARY KEY (paper_name)
+CREATE TABLE IF NOT EXISTS users (
+    userid INT(255) NOT NULL AUTO_INCREMENT,
+    email VARCHAR(100) NOT NULL,
+    username VARCHAR(50) NOT NULL,
+    user_password VARCHAR(100) NOT NULL,
+    is_admin TINYINT(1) NOT NULL,
+    PRIMARY KEY (userid) 
 );
 
-CREATE TABLE IF NOT EXISTS paper_issue (
-	issue_name VARCHAR(255) NOT NULL,
-    issue_num INT NOT NULL AUTO_INCREMENT,
-    issue_pages INT DEFAULT 30 NOT NULL,
-    issue_date DATE NOT NULL,
-    issue_space ENUM('Yes', 'No'),
-    PRIMARY KEY (issue_num),
-    CONSTRAINT ISINNEWSPAPER
-    FOREIGN KEY(issue_name) REFERENCES newspaper(paper_name)
-	ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS har_files ( 
+	harID INT(255) NOT NULL AUTO_INCREMENT,
+    harUserID INT(255) NOT NULL,
+	harUploadDate DATE NOT NULL,
+	numEntries INT(255) NOT NULL,
+	PRIMARY KEY(harID),
+    FOREIGN KEY (harUserID) REFERENCES users(userid) 
 );
 
-CREATE TABLE IF NOT EXISTS category (
-	cat_id INT NOT NULL AUTO_INCREMENT,
-    cat_name VARCHAR(255) NOT NULL,
-    cat_desc TINYTEXT,
-    cat_isparental ENUM('yes', 'no'),
-    PRIMARY KEY(cat_id)
+CREATE TABLE IF NOT EXISTS entries (
+	entryID INT(255) NOT NULL AUTO_INCREMENT,
+    harID INT(255) NOT NULL, 
+    serverIPAddress VARCHAR(255) NOT NULL, 
+    timings_wait DATETIME NOT NULL, 
+    startedDateTime DATE NOT NULL,
+    PRIMARY KEY(entryID),
+    FOREIGN KEY (harID) REFERENCES har_files(harID)
 );
 
-CREATE TABLE IF NOT EXISTS article (
-	ar_path VARCHAR(255) NOT NULL,
-    ar_title VARCHAR(255) NOT NULL,
-	ar_preview TEXT NOT NULL,
-    ar_issue_num INT NOT NULL,
-    ar_cat_id INT,
-    ar_check ENUM ('yes', 'no'),
-    ar_pages INT NOT NULL,
-    PRIMARY KEY (ar_path),
-    CONSTRAINT INCATEGORY
-    FOREIGN KEY(ar_cat_id) REFERENCES category(cat_id)
-    ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT ISINPAPER
-    FOREIGN KEY(ar_issue_num) REFERENCES paper_issue(issue_num)
-    ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS request (
+	requestID INT(255) NOT NULL AUTO_INCREMENT,
+    harID INT(255) NOT NULL,
+    method VARCHAR(255) NOT NULL,
+    url VARCHAR(255) NOT NULL,
+    headers VARCHAR(255) NOT NULL,
+    PRIMARY KEY(requestID),
+    FOREIGN KEY (harID) REFERENCES har_files(harID)
 );
 
-CREATE TABLE IF NOT EXISTS ar_key_word (
-	key_path VARCHAR(255) DEFAULT 'unkown' NOT NULL,
-    key_word VARCHAR(255) DEFAULT 'unknown' NOT NULL,
-    FOREIGN KEY (key_path) REFERENCES article(ar_path)
-    ON DELETE CASCADE ON UPDATE CASCADE    
+CREATE TABLE IF NOT EXISTS response (
+	responseID INT(255) NOT NULL AUTO_INCREMENT,
+    harID INT(255) NOT NULL,
+    res_status VARCHAR(255) NOT NULL,
+    statusText VARCHAR(255) NOT NULL,
+    headers VARCHAR(255) NOT NULL,
+    PRIMARY KEY(responseID),
+    FOREIGN KEY (harID) REFERENCES har_files(harID)
 );
 
-
-CREATE TABLE IF NOT EXISTS worker (
-    wr_first_name VARCHAR(255) NOT NULL,
-    wr_last_name VARCHAR(255) NOT NULL,
-    wr_email VARCHAR(255) NOT NULL,
-    wr_hire_date DATE NOT NULL,
-    wr_papername VARCHAR(255) NOT NULL,
-    wr_salary INT NULL,
-    PRIMARY KEY(wr_email),
-    CONSTRAINT WORKSINEWSPAPER
-    FOREIGN KEY(wr_papername) REFERENCES newspaper(paper_name)
-    ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS headers (
+	headerID INT(255) NOT NULL AUTO_INCREMENT,
+    harID INT(255) NOT NULL,
+    content_type VARCHAR(255) NOT NULL,
+	cache_control VARCHAR(255) NOT NULL, 
+	pragma VARCHAR(255) NOT NULL, 
+	expires DATE NOT NULL,
+	age DATE NOT NULL,
+	last_modified DATE NOT NULL,
+	head_host VARCHAR(255) NOT NULL,
+    PRIMARY KEY(headerID),
+    FOREIGN KEY (hardID) REFERENCES har_files(hardID)
 );
-
-CREATE TABLE IF NOT EXISTS administrator ( 
-	ad_mail VARCHAR(255) NOT NULL,
-    ad_resp ENUM('Secretary', 'Logistics'),
-    ad_adress_city VARCHAR(255) NOT NULL,
-    ad_adress_street VARCHAR(255) NOT NULL,
-    ad_adress_number SMALLINT NOT NULL,
-    PRIMARY KEY(ad_mail),
-    CONSTRAINT 
-    FOREIGN KEY(ad_mail) REFERENCES worker(wr_email)
-    ON DELETE CASCADE ON UPDATE CASCADE    
-);
-
-CREATE TABLE IF NOT EXISTS phones (
-	ph_mail VARCHAR(255) NOT NULL,
-    ph_number BIGINT,
-    PRIMARY KEY(ph_number, ph_mail),
-    CONSTRAINT ADMINPHONE
-    FOREIGN KEY (ph_mail) REFERENCES administrator(ad_mail)
-    ON DELETE CASCADE ON UPDATE CASCADE    
-);
-
-CREATE TABLE IF NOT EXISTS reporter (
-	rep_mail VARCHAR(255) NOT NULL,
-    rep_experience INT NOT NULL,
-    rep_bio TEXT NOT NULL,
-    PRIMARY KEY(rep_mail),
-    FOREIGN KEY(rep_mail) REFERENCES worker(wr_email)
-    ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS submit (
-	sub_rep_mail VARCHAR(255) NOT NULL,
-    sub_ar_path VARCHAR(255) NOT NULL,
-    sub_date DATE NOT NULL,
-    PRIMARY KEY(sub_ar_path),
-    CONSTRAINT SUBMITARTICLE
-    FOREIGN KEY(sub_ar_path) REFERENCES article(ar_path)
-    ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT MAILOFSUBER
-    FOREIGN KEY(sub_rep_mail) REFERENCES reporter(rep_mail)
-    ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS publisher(
-	pub_mail VARCHAR(255) NOT NULL,
-    pub_papername VARCHAR(255) NOT NULL,
-    PRIMARY KEY (pub_mail),
-    FOREIGN KEY (pub_mail) REFERENCES worker(wr_email)
-    ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY(pub_papername) REFERENCES newspaper(paper_name)
-    ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS chiefeditor(
-	chief_mail VARCHAR(255) NOT NULL,
-    chief_ar_path VARCHAR(255) NOT NULL,
-    PRIMARY KEY(chief_mail),
-    FOREIGN KEY(chief_mail) REFERENCES worker(wr_email)
-    ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT CHECKSARTICLE
-    FOREIGN KEY(chief_ar_path) REFERENCES article(ar_path)
-    ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS chiefeditordecision(
-	decision_type ENUM('approved', 'declined') NOT NULL,
-    dec_ar_position TINYTEXT NULL,
-    dec_ar_path VARCHAR(255) NOT NULL,
-    dec_chief_mail VARCHAR(255) NOT NULL,
-    FOREIGN KEY (dec_chief_mail) REFERENCES chiefeditor(chief_mail)
-    ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (dec_ar_path) REFERENCES article(ar_path)
-    ON DELETE CASCADE ON UPDATE CASCADE
-);
-
