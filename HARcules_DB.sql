@@ -61,5 +61,5 @@ CREATE TABLE IF NOT EXISTS headers (
 	last_modified DATE NOT NULL,
 	head_host VARCHAR(255) NOT NULL,
     PRIMARY KEY(headerID),
-    FOREIGN KEY (hardID) REFERENCES har_files(hardID)
+    FOREIGN KEY (harID) REFERENCES har_files(hardID)
 );
