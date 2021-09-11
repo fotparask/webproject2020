@@ -147,16 +147,19 @@ spanun{
     border-radius: 12px;
     cursor: pointer;
     color:black;
-    background: transparent;
+    background: white;
     right: 10%;
     top: 40%;
     position: absolute;
+    font-weight:bold;
 }
 
 .firstbutton .firstprimier:hover{
     
     color: rgba(163, 3, 3);
-    background: linear-gradient(white,white);
+    border-color: white;
+    border: 2px solid white;
+    
 }
 
 
@@ -240,14 +243,7 @@ spanun{
     */
 }
 
-
-
-
-
-
-
 .buttons .primier button{
-
     margin: 10%;
     top: 82%;
     position: absolute;
