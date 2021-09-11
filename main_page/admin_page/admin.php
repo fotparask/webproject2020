@@ -33,7 +33,7 @@
     
     <header class="first_all">
 
-        <a href="admin.php" class="im" > <img src="..\images\logo.png" alt="logo image"> </a>
+        <a href="admin.php" class="im" > <img src="..\..\images\logo.png" alt="logo image"> </a>
 
         
         <nav class="the_navbar">   
@@ -53,7 +53,7 @@
         <div class="navbar_icons"> 
                     
                     <div class= "menu" id="menu-btn">
-                        <img src="..\images\menu.jpeg" alt="menu image" height= "21.5px" width="23px">
+                        <img src="..\..\images\menu.jpeg" alt="menu image" height= "21.5px" width="23px">
                     </div>
                 
             </div>
