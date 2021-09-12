@@ -8,6 +8,7 @@
     }
 
     $sessionUsername = $_SESSION['username'];
+    $sessionUserId = $_SESSION['user_id'];
 
 ?>
 
@@ -103,6 +104,7 @@
     <script type="text/javascript">
         const fileSelector = document.getElementById('harFileInput');
         const buttonId = document.getElementById('upload');
+        let seesionUserId = parseInt('<?php echo $sessionUserId; ?>');
         let har_entries;
 
         fileSelector.addEventListener('change', (event) => {
@@ -112,6 +114,7 @@
             reader.onload = function () {
                 let har_file_data = JSON.parse(reader.result);
                 har_entries = readHarFile(har_file_data);
+                har_entries.userID = seesionUserId;
                 console.log(har_entries);
             }
             reader.onerror = function (evt) {
@@ -126,7 +129,8 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: string
+                    body: 
+                        string
                 })
             }
         });

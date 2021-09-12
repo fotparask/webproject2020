@@ -1,16 +1,15 @@
 <?php
 
     //session code.
-    // session_start();
+    //session_start();
 
     // if(!isset($_SESSION['username'])) {
     //     header("Location: ../index.html");
     //     exit();
     // }
 
-    // $sessionUsername = $_SESSION['username'];
-    
-    $userID = $_POST()
+    //$userID = $_SESSION['user_id'];
+
 
 
     header('Content-Type: application/json');
@@ -35,15 +34,17 @@
     include "../../database_config.php";
 
     $entriesLenght = count($harData["entries"]);
-
+    settype($userID, "int");
+    $userID = $harData["userID"];
     echo ($content);
 
-    $testNumber = 1;
-
     $sql = "INSERT INTO har_files (harUserID, numEntries)
-            VALUES ('$testNumber', '$entriesLenght');";
-
+            VALUES ('$userID', '$entriesLenght');";
     $result1 = $conn->query($sql);
+
+    $sql = "INSERT INTO entries (harID, serverIPAddress, timings_wait, startedDateTime)
+            VALUES ();";
+    //$result1 = $conn->query($sql);
 
     echo '{"Database connected"}';
     

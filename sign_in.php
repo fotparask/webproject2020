@@ -22,6 +22,7 @@
               $_SESSION["username"] = $row['username'];
               $_SESSION["email"] = $row['email'];
               $_SESSION["is_admin"] = $row['is_admin'];
+              $_SESSION["user_id"] = $row['userid'];
               header("Location: main_page/index.php");
               exit;
             }

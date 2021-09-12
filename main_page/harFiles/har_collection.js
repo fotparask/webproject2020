@@ -1,7 +1,8 @@
 function readHarFile(input) {
 
     const har_entries = {
-        "entries": []
+        "entries": [],
+        "userID": 0
     }
 
     for (data_object of input.log.entries) {
