@@ -57,7 +57,7 @@
 
 </header>
 
-
+<div id="page-container">
 
     <div class="ban">
        
@@ -110,7 +110,7 @@
             <p> &copy; HARcules Copyright 2021</p>
         </footer>
     </div> 
-
+</div>
 
 
 </body>

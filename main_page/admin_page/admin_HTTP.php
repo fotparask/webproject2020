@@ -13,7 +13,7 @@
     $sessionUsername = $_SESSION['username'];
 ?>
 
-
+<!DOCTYPE html>
 <html lang="=el">
 
 <head>
@@ -27,7 +27,7 @@
     <meta name="keywords" content="">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style-main.css">
+    <link rel="stylesheet" href="..\style-main.css">
 </head>
 <body>
     
@@ -44,7 +44,7 @@
 
             <a href="admin_HTTP.php"> Ανάλυση HTTP </a> 
                     
-            <a href="admin_heatmap.php"> Οπτικοποίηση Δεδομένων </a> 
+            <a href="admin_heatmap.php"> Οπτικοποίηση Δεδομένων </a>
 
             <a href="../../logout.php"> Αποσύνδεση </a> 
             
@@ -59,26 +59,28 @@
             </div>
        
     </header>
-   
-    <div class="ban">
+    <div id="page-container">
+        <div class="ban">
             
-        <div class="lcolumn">  
-            <h3> Ανάλυση Κεφαλιδών HTTP </h3>
+            <div class="lcolumn">  
+                <h3> Ανάλυση Κεφαλιδών HTTP </h3>
+            </div>
         </div>
+    
+        <div class="show-info">
+            
+        </div>   
+    
+        <div class="chart">
+            <canvas id="infoChart" width="220" height="160"></canvas>
+        </div>
+        <div class="footer">
+            <footer>
+                <p>&copy; HARcules Copyright 2021</p>
+            </footer>
+        </div>         
     </div>
-
-    <div class="show-info">
-        
-    </div>   
-
-    <div class="chart">
-        <canvas id="infoChart" width="220" height="160"></canvas>
-    </div>
-    <div class="footer">
-        <footer>
-            <p>&copy; HARcules Copyright 2021</p>
-        </footer>
-    </div>         
+    
     <script>
     function BuildChart(labels, values, chartTitle) {
         var ctx = document.getElementById("infoChart").getContext('2d');

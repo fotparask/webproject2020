@@ -13,6 +13,7 @@
     $sessionUsername = $_SESSION['username'];
 ?>
 
+<!DOCTYPE html>
 <html lang="=el">
 
 <head>
@@ -25,8 +26,7 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style-main.css">
+    <link rel="stylesheet" href="..\style-main.css">
 </head>
 <body>
     
@@ -43,7 +43,9 @@
 
             <a href="admin_HTTP.php"> Ανάλυση HTTP </a> 
                     
-            <a href="admin_heatmap.php"> Οπτικοποίηση Δεδομένων </a> 
+            <a href="admin_heatmap.php"> HEAT Map </a>
+
+            <a href="#"> Χρήστης </a> 
 
             <a href="../../logout.php"> Αποσύνδεση </a> 
             
@@ -58,11 +60,11 @@
             </div>
        
     </header>
-   
+   <div id="page-container">
     <div class="ban">
             
         <div class="lcolumn">  
-            <h3>Βασικές Πληροφορίες</h3>
+            <h3>Απεικόνιση <span>Βασικών Πληροφορίών</span></h3>
         </div>
     </div>
 
@@ -113,26 +115,48 @@
                         6
                     </td>
                 </tr>
-                <tr>
+                <tr height="80">
                     <td class="col1">
                         Μέση ηλικία ιστοαντικειμένων
                     </td>
                     <td class="col2">
-                        25
+                       
+                        <table class="table1" id="dataTable1" >
+                            <tr>
+                                <th>Chrome</th>
+                                <th>Explorer</th>
+                                <th>Firefox</th>
+                                <th>Safari</th>
+                                <th>Opera</th>
+                                
+                            </tr>
+                            <tr>
+                                <td>#</td>
+                                <td>#</td>
+                                <td>#</td>
+                                <td>#</td>
+                                <td>#</td>
+                            </tr>
+                        </table>
+                        
                     </td>
+                    
                 </tr>
             </tbody>
         </table>
     </div>   
 
     <div class="chart">
-        <canvas id="infoChart" width="220" height="160"></canvas>
+        <canvas id="infoChart" width="220" height="1"></canvas>
     </div>
+
     <div class="footer">
         <footer>
             <p>&copy; HARcules Copyright 2021</p>
         </footer>
     </div>        
+   </div>
+    
     <script>
     function BuildChart(labels, values, chartTitle) {
         var ctx = document.getElementById("infoChart").getContext('2d');
@@ -166,10 +190,17 @@
                 responsive: true, // Instruct chart js to respond nicely.
                 maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
                 scales: {
+                    xAxes: [{
+                        ticks: {
+                         fontSize: 10
+                         }
+                     }],
+
                     y: {
                         suggestedMin: 0,
                         suggestedMax: 100
-                    }
+                    },
+                   
                 }
             }
         });
