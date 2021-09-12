@@ -39,14 +39,16 @@
         <nav class="the_navbar">   
             
             <a href="admin_info.php"> Απεικόνιση Πληροφορίων </a> 
-                        
+                            
             <a href="admin_times.php"> Ανάλυση Χρόνων </a> 
 
             <a href="admin_HTTP.php"> Ανάλυση HTTP </a> 
                     
-            <a href="admin_heatmap.php"> Οπτικοποίηση Δεδομένων </a> 
+            <a href="admin_heatmap.php"> HEAT Map </a> 
 
-            <a href="../../logout.php"> Αποσύνδεση </a> 
+            <a href="#"> Χρήστης </a> 
+
+            <a href="../../logout.php"> Αποσύνδεση </a>  
             
         </nav>
 
@@ -59,46 +61,47 @@
             </div>
        
     </header>
-   
-    <section class="ban" id="ban">
-           
-           <div class="lcolumn">  
-               <h2><!--<p style="text-decoration: underline;"> -->Διαχειρηστής </h2>
-               <br>
-               <br>
-               <br>
-               <br>
-               
-               <h3> <span> Καλώς </span> ήλθατε </h3>
-               <br>
-               <br>
-               <br>
-               <br>
-               <h2>ΔΥΝΑΤ<spanun>ΟΤΗΤΕΣ</spanun> :</h2>
-               <div class="hope">
-               <br>
-               <br>
-               Μέσω της συγκεκριμένης ιστοσελίδας ως διαχειριστής έχετε παραπάνω δυνατότητες σε σχέση με έναν απλό χρήστη που έχει μειωμένες δυνατότητες και μπορεί να υλοποιήσει λιγότερες ενέργειες, σε σχέση με έναν διαχειρηστή που έχει τις παραπάνω δυνατότητες.
-               
-               
-               <br>
-               <br>
-               <br>
-               <br>
-               </div>
-   
-   
-               <br>
-   
-           </div>
-   
-       </section>
+    <div id="page-container">
+        <section class="ban" id="ban">
+            
+            <div class="lcolumn">  
+                <h2><!--<p style="text-decoration: underline;"> -->Διαχειρηστής </h2>
+                <br>
+                <br>
+                <br>
+                <br>
+                
+                <h3> <span> Καλώς </span> ήλθατε </h3>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h2>ΔΥΝΑΤ<spanun>ΟΤΗΤΕΣ</spanun> :</h2>
+                <div class="hope">
+                <br>
+                <br>
+                Μέσω της συγκεκριμένης ιστοσελίδας ως διαχειριστής έχετε παραπάνω δυνατότητες σε σχέση με έναν απλό χρήστη που έχει μειωμένες δυνατότητες και μπορεί να υλοποιήσει λιγότερες ενέργειες, σε σχέση με έναν διαχειρηστή που έχει τις παραπάνω δυνατότητες.
+                
+                
+                <br>
+                <br>
+                <br>
+                <br>
+                </div>
+    
+    
+                <br>
+    
+            </div>
+    
+        </section>
 
-        <div class="footer">
-            <footer>
-                <p class="pull-right"> &copy; HARcules Copyright 2021</p>
-            </footer>
-        </div>        
+            <div class="footer">
+                <footer>
+                    <p class="pull-right"> &copy; HARcules Copyright 2021</p>
+                </footer>
+            </div>        
+    </div>
 </body>
 
 </html>

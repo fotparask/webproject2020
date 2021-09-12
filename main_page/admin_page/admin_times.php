@@ -12,10 +12,9 @@
     }
 
     $sessionUsername = $_SESSION['username'];
-
-
 ?>
 
+<!DOCTYPE html>
 <html lang="=el">
 
 <head>
@@ -46,7 +45,9 @@
 
             <a href="admin_HTTP.php"> Ανάλυση HTTP </a> 
                     
-            <a href="admin_heatmap.php"> Οπτικοποίηση Δεδομένων </a> 
+            <a href="admin_heatmap.php"> HEAT Map </a> 
+
+            <a href="#"> Χρήστης </a> 
 
             <a href="../../logout.php"> Αποσύνδεση </a> 
             
@@ -57,25 +58,25 @@
                     <div class= "menu" id="menu-btn">
                         <img src="..\..\images\menu.jpeg" alt="menu image" height= "21.5px" width="23px">
                     </div>
-                
             </div>
        
     </header>
-   
-    <div class="ban">
-            
-        <div class="lcolumn">  
-            <h3> Ανάλυση Χρόνων Απόκρισης </h3>
-            
+    <div id="page-container">
+        <div class="ban">
+                
+            <div class="lcolumn">  
+                <h3> Ανάλυση Χρόνων Απόκρισης </h3>
+                
+            </div>
         </div>
-    </div>
 
-    <div class="timechart">
-       <canvas id="timesChart" width="60" height="100"></canvas>
-    </div>
+        <div class="timechart">
+        <canvas id="timesChart" width="60" height="100"></canvas>
+        </div>
 
-    <!-- getting the data from the database -->
-    <?php 
+
+        <!-- getting the data from the database -->
+        <?php 
           $timings = "SELECT * FROM entries ";
           $result_q1 = mysqli_query($link, $timings) or die(mysql_error());
           
@@ -88,39 +89,42 @@
             array_push($hours_array,date("H",strtotime($row["startedDateTime"])));
 
           }
-          ?>
+          
+        ?>
 
-    <div class="footer">
-        <footer>
-            <p> &copy; HARcules Copyright 2021</p>
-        </footer>
-    </div>      
+        <div class="footer">
+            <footer>
+                <p> &copy; HARcules Copyright 2021</p>
+            </footer>
+        </div>      
+
+    </div>
     <script>
-        //getting the arrays from php
-        var timings_all = <?php echo json_encode($timings_array); ?>;
-        var hours_all = <?php echo json_encode($hours_array); ?>;
 
-        //calculating the average response time for each hour
-        const hours_sum = []; //24 slots - one for each hr of the day
-        const counter = []; //24 slots - one for each hr of the day
+          //get arrays with php
+          var timings_all = <?php echo json_encode($timings_array); ?>;
+          var hours_all = <?php echo json_encode($hours_array); ?>;
 
-        for (let i=0; i<24; i++){
-        hours_sum[i]=0;
-        counter[i]=0;
-        }
+          //calculate average response time for each hour
+          const hours_sum = []; //24 slots - one for each hr of the day
+          const counter = []; //24 slots - one for each hr of the day
 
-        for (let i = 0; i < timings_all.length; i++) {
-        hours_sum[hours_all[i]] += parseFloat(timings_all[i]);
-        counter[hours_all[i]] +=1;
-        }
+          for (let i=0; i<24; i++){
+            hours_sum[i]=0;
+            counter[i]=0;
+          }
 
-        const yaxis = [];
-        for (let i=0; i<24; i++){
-        yaxis[i] = hours_sum[i] / counter[i];
-        }
+          for (let i = 0; i < timings_all.length; i++) {
+            hours_sum[hours_all[i]] += parseFloat(timings_all[i]);
+            counter[hours_all[i]] +=1;
+          }
 
-        BuildChart();
+          const data = [];
+          for (let i=0; i<24; i++){
+            data[i] = hours_sum[i] / counter[i];
+          }
 
+          BuildChart();
 
         function BuildChart() {
             var ctx = document.getElementById("timesChart").getContext('2d');
@@ -130,7 +134,7 @@
                         labels: ["1h", "2h", "3h", "4h", "5h", "6h", "7h", "8h", "9h", "10h", "11h", "12h", "13h", "14h", "15h", "16h", "17h", "18h", "19h", "20h", "21h", "22h", "23h"],
                         datasets: [{
                         label: "Average Response Time During the Day",
-                        data: ["12", "43", "74", "66", "89", "57", "43", "24", "98", "23"],
+                        data: data,
                         backgroundColor: [ // Specify custom colors
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -150,20 +154,19 @@
                         borderWidth: 1 // Specify bar border width
                     }]
                 },
+
                 options: {
                     responsive: true, // Instruct chart js to respond nicely.
                     maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
                     scales: {
                         y: {
-                            suggestedMin: 0,
-                            suggestedMax: 100
+                            beginAtZero: true
                         }
                     }
                 }
             });
         }
-        var chart = BuildChart();
-        </script>
+    </script>
     
 </body>
 

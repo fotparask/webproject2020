@@ -39,13 +39,13 @@
         
         <nav class="the_navbar">   
             
-            <a href="admin_info.html"> Απεικόνιση Πληροφορίων </a> 
-                        
-            <a href="admin_times.html"> Ανάλυση Χρόνων </a> 
+            <a href="admin_info.php"> Απεικόνιση Πληροφορίων </a> 
+                            
+            <a href="admin_times.php"> Ανάλυση Χρόνων </a> 
 
-            <a href="admin_HTTP.html"> Ανάλυση HTTP </a> 
+            <a href="admin_HTTP.php"> Ανάλυση HTTP </a> 
                     
-            <a href="admin_heatmap.html"> Οπτικοποίηση Δεδομένων </a>
+            <a href="admin_heatmap.php"> Οπτικοποίηση Δεδομένων </a>
 
             <a href="../../logout.php"> Αποσύνδεση </a> 
             
@@ -60,23 +60,25 @@
             </div>
        
     </header>
-   
-    <div class="ban">
+    <div id="page-container">
+        <div class="ban">
             
-        <div class="lcolumn">  
-            <h3> HEAT Map </h3>
+            <div class="lcolumn">  
+                <h3> HEAT Map </h3>
+            </div>
         </div>
+    
+        <div class="show-info">
+            
+        </div>   
+    
+        <div class="footer">
+            <footer>
+                <p>&copy; HARcules Copyright 2021</p>
+            </footer>
+        </div>      
     </div>
-
-    <div class="show-info">
-        
-    </div>   
-
-    <div class="footer">
-        <footer>
-            <p>&copy; HARcules Copyright 2021</p>
-        </footer>
-    </div>      
+    
    
 </body>
 

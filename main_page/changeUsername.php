@@ -101,7 +101,7 @@
         </div>
     </header>
 
-
+<div id="page-container">
     <div class="ban">
         <form method='post' name='changePassForm' onsubmit="javascript: startAjax(); return false;">
 
@@ -158,6 +158,7 @@
             <p> &copy; HARcules Copyright 2021</p>
         </footer>
     </div> 
+</div>
              
     
     <script type="text/javascript">
