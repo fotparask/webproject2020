@@ -13,7 +13,7 @@
             
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            $hashed_pwd = $row['password'];
+            $hashed_pwd = $row['user_password'];
             
             if(password_verify($password ,$hashed_pwd)){
               $conn->close();

@@ -126,7 +126,7 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({har_string: string})
+                    body: string
                 })
             }
         });
