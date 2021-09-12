@@ -13,7 +13,7 @@
             
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            $hashed_pwd = $row['password'];
+            $hashed_pwd = $row['user_password'];
             
             if(password_verify($password ,$hashed_pwd)){
               $conn->close();
@@ -22,6 +22,7 @@
               $_SESSION["username"] = $row['username'];
               $_SESSION["email"] = $row['email'];
               $_SESSION["is_admin"] = $row['is_admin'];
+              $_SESSION["user_id"] = $row['userid'];
               header("Location: main_page/index.php");
               exit;
             }

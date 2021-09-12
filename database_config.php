@@ -4,7 +4,7 @@
     $servername = "localhost";
         $dbusername = "root";
         $dbpassword = "";
-        $dbname = "harCules";
+        $dbname = "harcules_database";
 
     //Create connection
     $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);

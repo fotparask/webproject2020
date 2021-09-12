@@ -27,7 +27,7 @@
         }
         else{
 
-            $sql = "INSERT INTO users (email, username, password)
+            $sql = "INSERT INTO users (email, username, user_password)
             VALUES ('$email', '$username', '$hashed_pwd');";
 
             if ($conn->query($sql) === TRUE) {

@@ -8,6 +8,7 @@
     }
 
     $sessionUsername = $_SESSION['username'];
+    $sessionUserId = $_SESSION['user_id'];
 
 ?>
 
@@ -25,7 +26,7 @@
         <meta name="author" content="">
         <meta name="keywords" content="">
     
-        <link rel="stylesheet" href="style-main.css">
+        <link rel="stylesheet" href="../style-main.css">
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
 
@@ -33,24 +34,24 @@
     <body>
 
       
-    <script src="script.js"> </script>
+    <script src="../script.js"> </script>
     
     <header class="first_all">
 
-        <a href="index.php" class="im" > <img src="../images/logo.png" alt="logo image"> </a>
+        <a href="../index.php" class="im" > <img src="../../images/logo.png" alt="logo image"> </a>
         
         <nav class="the_navbar">        
 
-            <a href="uploadFiles.php"> Upload Δεδομένων </a>                        
-            <a href="editProfile.php"> Διαχείριση Προφίλ </a>                     
+            <a href="../uploadFiles.php"> Upload Δεδομένων </a>                        
+            <a href="../editProfile.php"> Διαχείριση Προφίλ </a>                     
             <a href="#"> Οπτικοποίηση Δεδομένων </a>                      
-            <a href="../logout.php"> Αποσύνδεση </a>   
+            <a href="../../logout.php"> Αποσύνδεση </a>   
 
         </nav>
            
         <div class="navbar_icons">                     
             <div class= "menu" > 
-                <img src="../images/menu.jpeg" alt="menu image" height= "21.5px" width="23px";>
+                <img src="../../images/menu.jpeg" alt="menu image" height= "21.5px" width="23px";>
             </div>  
         </div>
 
@@ -68,11 +69,10 @@
           
         </div>
         </div>
-  
-        <input type="file" onchange="readFile(this)">
-        <div class="buttons">
-            <button type="button" class="primier" id="addHarFile"> Προσθήκη Αρχείου </button>
-        </div>
+
+       
+        <input type="file" id="harFileInput" name="files">
+       
 
 
         <div class="options"> 
@@ -92,15 +92,49 @@
         
     </div>
 
+    
   
-    <script defer type="text/javascript">
-        $(document).ready(function () {
-            $('#addHarFile').click(function() {
-                <script defer src="harfiles/har_collection.js" charset="utf-8"></script>                       
-            });
+    <script defer src="har_collection.js" charset="utf-8"></script>
+
+    <button type="button" id="upload" name="upload">Upload</button>
+
+
+    
+
+    <script type="text/javascript">
+        const fileSelector = document.getElementById('harFileInput');
+        const buttonId = document.getElementById('upload');
+        let seesionUserId = parseInt('<?php echo $sessionUserId; ?>');
+        let har_entries;
+
+        fileSelector.addEventListener('change', (event) => {
+            console.log(fileSelector.files[0]);
+            var reader = new FileReader();
+            reader.readAsText(fileSelector.files[0]);
+            reader.onload = function () {
+                let har_file_data = JSON.parse(reader.result);
+                har_entries = readHarFile(har_file_data);
+                har_entries.userID = seesionUserId;
+                console.log(har_entries);
+            }
+            reader.onerror = function (evt) {
+                document.getElementById("fileContents").innerHTML = "error reading file";
+            }
+            reader.onloadend = function () {
+
+                let string = JSON.stringify(har_entries);
+                //sending cleaned har file to php
+                fetch("upload_to_database.php", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: 
+                        string
+                })
+            }
         });
     </script>
-
 
     <div class="footer">
         <footer>

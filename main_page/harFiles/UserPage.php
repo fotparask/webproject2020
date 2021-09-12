@@ -17,7 +17,7 @@
     <body>
         <!-- Upload File -->
         <div>
-            <input type="file" onchange="readFile(this)">
+            <input type="file" onchange="javascript: startAjax();">
             
             <button type="button" id="but">Test Ajax!</button>
 
@@ -25,7 +25,7 @@
             <script defer type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
             <script defer type="text/javascript">
-                $(document).ready(function () {
+                startAjax() {
                     $('#but').click(function() {
                         const temp = 'Hi, I am a temp variable!'
                         $.ajax({
@@ -42,25 +42,9 @@
                             }
                         });                        
                     });
-                });
+                };
             </script>
         </div>
-        
-        <!-- MAP -->
-        <!-- <div id="mapid">
-            <script> 
-                var mymap = L.map('mapid').setView([38.28509022492599, 21.788589359299], 15);
-
-                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                    maxZoom: 18,
-                    id: 'mapbox/streets-v11',
-                    tileSize: 512,
-                    zoomOffset: -1,
-                    accessToken: 'pk.eyJ1IjoiZ2VvcmdlZ2xhcmFraXMiLCJhIjoiY2tqd3A2a2VqMGt1NzJ2bGNrNWlmaG9qeSJ9.kSXtiqa4ESBL81E-tUmpXg'
-                }).addTo(mymap);
-            </script>
-     
         </div> -->
     </body>
 </html>
