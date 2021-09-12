@@ -1,4 +1,4 @@
-<!--<?php
+<?php
     session_start();
 
     if(!isset($_SESSION['username'])) {
@@ -12,9 +12,10 @@
     }
 
     $sessionUsername = $_SESSION['username'];
+
+
 ?>
--->
-<!DOCTYPE html>
+
 <html lang="=el">
 
 <head>
@@ -39,13 +40,13 @@
         
         <nav class="the_navbar">   
             
-            <a href="admin_info.html"> Απεικόνιση Πληροφορίων </a> 
+            <a href="admin_info.php"> Απεικόνιση Πληροφορίων </a> 
                         
-            <a href="admin_times.html"> Ανάλυση Χρόνων </a> 
+            <a href="admin_times.php"> Ανάλυση Χρόνων </a> 
 
-            <a href="admin_HTTP.html"> Ανάλυση HTTP </a> 
+            <a href="admin_HTTP.php"> Ανάλυση HTTP </a> 
                     
-            <a href="admin_heatmap.html"> Οπτικοποίηση Δεδομένων </a> 
+            <a href="admin_heatmap.php"> Οπτικοποίηση Δεδομένων </a> 
 
             <a href="../../logout.php"> Αποσύνδεση </a> 
             
@@ -72,7 +73,22 @@
     <div class="timechart">
        <canvas id="timesChart" width="60" height="100"></canvas>
     </div>
-    
+
+    <!-- getting the data from the database -->
+    <?php 
+          $timings = "SELECT * FROM entries ";
+          $result_q1 = mysqli_query($link, $timings) or die(mysql_error());
+          
+          $timings_array = array();
+          $hours_array = array();
+          while($row = mysqli_fetch_assoc($result_q1)){
+
+            // add each row returned into an array
+            array_push($timings_array,$row["timings_wait"]);
+            array_push($hours_array,date("H",strtotime($row["startedDateTime"])));
+
+          }
+          ?>
 
     <div class="footer">
         <footer>
@@ -80,6 +96,32 @@
         </footer>
     </div>      
     <script>
+        //getting the arrays from php
+        var timings_all = <?php echo json_encode($timings_array); ?>;
+        var hours_all = <?php echo json_encode($hours_array); ?>;
+
+        //calculating the average response time for each hour
+        const hours_sum = []; //24 slots - one for each hr of the day
+        const counter = []; //24 slots - one for each hr of the day
+
+        for (let i=0; i<24; i++){
+        hours_sum[i]=0;
+        counter[i]=0;
+        }
+
+        for (let i = 0; i < timings_all.length; i++) {
+        hours_sum[hours_all[i]] += parseFloat(timings_all[i]);
+        counter[hours_all[i]] +=1;
+        }
+
+        const yaxis = [];
+        for (let i=0; i<24; i++){
+        yaxis[i] = hours_sum[i] / counter[i];
+        }
+
+        BuildChart();
+
+
         function BuildChart() {
             var ctx = document.getElementById("timesChart").getContext('2d');
             var myChart = new Chart(ctx, {
