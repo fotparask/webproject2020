@@ -27,20 +27,23 @@
         if ($result->num_rows > 0) {
 
             $row = $result->fetch_assoc();
-            $hashed_pwd = $row['password'];
+            $hashed_pwd = $row['user_password'];
             
-            if(password_verify($password ,$hashed_pwd)){
-                $sql = "UPDATE users SET password='$new_password' WHERE username='$username';";
+            if(password_verify($old_password ,$hashed_pwd)){
+                $hashed_pwd = password_hash($new_password, PASSWORD_DEFAULT);
+                $sql = "UPDATE users SET user_password='$hashed_pwd' WHERE username='$username';";
                 if ($conn->query($sql) === TRUE) {
                     echo "
                     <script>alert('Password changed successfuly');</script>
                     ";
+                    $conn->close();
                 }
             }
             else{
                 echo "
                     <script>alert('You entered a wrong password.');</script>
                     ";
+                $conn->close();
             }  
 
         }
@@ -48,13 +51,14 @@
             echo "
               <script>alert('User does not exist.');</script>
               ";
+              $conn->close();
         }
 
         $conn->close();
     }  
     
 ?>
-
+<!DOCTYPE html>
 <html lang="=el">
 
     <head>
@@ -102,15 +106,13 @@
             </div>
 
     </header>
-
-    <div id="page-container">
         <div class="ban">
             <form method='post' name='changePassForm' onsubmit="javascript: startAjax(); return false;">
            
                 <div class="lcolumn">  
                     
                     <br>
-                    <h3>Αλλαγή <span>Κωδικού</span></h3>
+                    <h5>Αλλαγή <span>Κωδικού</span></h5>
 
                     <h3>
                         <br>
@@ -133,15 +135,11 @@
                                 <input type="password" placeholder="Νέος κωδικός" name="confirmPassword" id="confirmPassword"> <br>
                             
                             </div>
-                        </div>
-                    </h3>
                         
+                    </h3>
+                    </div> 
                 </div>
 
-                
-                <div class= "remember">
-                    <input type="checkbox"> Θυμήσου με 
-                </div>
 
                 <br>
                 <!--
@@ -166,7 +164,7 @@
             <p> &copy; HARcules Copyright 2021</p>
         </footer>
     </div>   
-</div>
+
 
     <script type="text/javascript">
 
@@ -181,43 +179,43 @@
     }
 
 
-    $(document).ready(function () {
-        function startAjax(){
-             
+    
+    function startAjax(){
+            
 
-            let username = $("#username").val();
-            let oldPassword = $("#oldPassword").val();
-            let newPassword = $("#newPassword").val();
-            let confirmPassword = $("#confirmPassword").val();
+        let username = $("#username").val();
+        let oldPassword = $("#oldPassword").val();
+        let newPassword = $("#newPassword").val();
+        let confirmPassword = $("#confirmPassword").val();
 
-            if (!validateUsername(username)) {
-                alert('Please enter a valid username.');
-            }
-            else if(!validatePassword(password)) {
-                alert('Please enter a valid password.');
-            }
-            else if(newPassword != confirmPassword){
-                alert('Passwords do not match.');
-            }
-            else{
-                $.ajax(
-                    {
-                        url: 'changePassword.php',
-                        method: 'POST',
-                        data: {
-                            login: 1,
-                            ajaxPassword: $("#password").val(),
-                            ajaxUsername: $("#username").val()
-                        },
-                        success: function (response) {
-                            console.log("Ajax call succeded");
-                            document.changePassForm.submit();
-                        }
+        if (!validateUsername(username)) {
+            alert('Please enter a valid username.');
+        }
+        else if(!validatePassword(password)) {
+            alert('Please enter a valid password.');
+        }
+        else if(newPassword != confirmPassword){
+            alert('Passwords do not match.');
+        }
+        else{
+            document.changePassForm.submit();
+            $.ajax(
+                {
+                    url: 'changePassword.php',
+                    method: 'POST',
+                    data: {
+                        login: 1,
+                        ajaxPassword: $("#password").val(),
+                        ajaxUsername: $("#username").val()
+                    },
+                    success: function (response) {
+                        console.log("Ajax call succeded");
+                        document.changePassForm.submit();
                     }
-                );
-            }
-       }
-    });
+                }
+            );
+        }
+    }
 
     </script>
        

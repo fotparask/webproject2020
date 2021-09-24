@@ -58,7 +58,6 @@
             </div>
        
     </header>
-   <div id="page-container">
     <div class="ban">
             
         <div class="lcolumn">  
@@ -67,7 +66,7 @@
     </div>
 
     <div class="show-info">
-        <table class="table" id="dataTable">
+        <table class="table" id="dataTable" >
            <thead>
                 <th>Κατηγορία</th>
                 <th>Ποσότητα</th>
@@ -148,11 +147,6 @@
         <canvas id="infoChart" width="220" height="1"></canvas>
     </div>
 
-    <div class="footer">
-        <footer>
-            <p>&copy; HARcules Copyright 2021</p>
-        </footer>
-    </div>        
    </div>
     
     <script>

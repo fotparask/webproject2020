@@ -14,7 +14,6 @@
     $sessionUsername = $_SESSION['username'];
 ?>
 
-<!DOCTYPE html>
 <html lang="=el">
 
 <head>
@@ -47,7 +46,7 @@
 
             <a href="../index.php"> Χρήστης </a> 
 
-            <a href="../logout.php" onclick="return confirm('ΕΙΣΤΕ ΣΙΓΟΥΡΟΣ;');"> Αποσύνδεση </a> 
+            <a href="../../logout.php" onclick="return confirm('ΕΙΣΤΕ ΣΙΓΟΥΡΟΣ;');"> Αποσύνδεση </a> 
             
         </nav>
 
@@ -59,11 +58,12 @@
             </div>
        
     </header>
-    <div id="page-container">
         <div class="ban">
                 
-            <div class="lcolumn">  
-                <h3> Ανάλυση Χρόνων Απόκρισης </h3>
+            <div class="lcolumn"> 
+                <br>
+                <br>
+                <h3>Ανάλυση <span>Χρόνων Απόκρισης</span></h3>
                 
             </div>
         </div>
@@ -97,7 +97,6 @@
             </footer>
         </div>      
 
-    </div>
     <script>
 
           //get arrays with php

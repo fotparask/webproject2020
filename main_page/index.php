@@ -65,8 +65,6 @@
 
     </header>
 
-    <div id="page-container">
-
         <section class="ban" id="ban">
             
             <div class="lcolumn"> 
@@ -82,14 +80,14 @@
                 <br>
                 <h2>ΣΚΟ<spanun>ΠΟΣ</spanun> μας είναι:</h2>
                 <div class="hope">
-                <br>
-                <br>
-                Μέσω της συγκεκριμένης ιστοσελίδας η απεικόνιση ενός πλήρους συστήματος συλλογής, διαχείρισης και
-                ανάλυσης πληθοποριστικής (crowdsourced) πληροφορίας, που αφορά δεδομένα κίνησης HTTP.
-                <br>
-                <br>
-                <br>
-                <br>
+                    <br>
+                    <br>
+                    Μέσω της συγκεκριμένης ιστοσελίδας η απεικόνιση ενός πλήρους συστήματος συλλογής, διαχείρισης και
+                    ανάλυσης πληθοποριστικής (crowdsourced) πληροφορίας, που αφορά δεδομένα κίνησης HTTP.
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                 </div>
 
 
@@ -117,14 +115,15 @@
 
             </div>
 
+            </section>
+
             <div class="footer">
                 <footer>
                     <p> &copy; HARcules Copyright 2021</p>
                 </footer>
             </div> 
 
-        </section>
-    </div>
+       
     
        
 </body>

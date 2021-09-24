@@ -57,8 +57,6 @@
 
 </header>
 
-<div id="page-container">
-
     <div class="ban">
        
         <div class="lcolumn">  
@@ -68,19 +66,91 @@
             <h3>Δείτε <span> Βασικά Στατιστικά για τα δεδομένα που έχετε ανεβάσει</span></h3>
             <br>
             <br>
-            
+        </div>
 
             </div>
         
           
-        </div>
-       
-  
-        <div class="buttons">
-            <button type="button" class="primier"> Στατιστικά </button>
-        </div>
+            <table>
 
-        <div class="options"> 
+                <tr>
+
+                    <th>Δεδομένα που έχουν Ανέβει</th>
+                    <th>Ημερομηνία Τελευταίου Upload</th>
+                    <th>Πλήθος Εγγραφών</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>#</td>
+                    <td>#</td>
+                    <td>#</td>
+                    
+
+                </tr>
+
+                <tr>
+
+                    <td>#</td>
+                    <td>#</td>
+                    <td>#</td>
+                    
+
+                </tr>
+
+                <tr>
+
+                    <td>#</td>
+                    <td>#</td>
+                    <td>#</td>
+                    
+
+                </tr>
+
+                <tr>
+
+                    <td>#</td>
+                    <td>#</td>
+                    <td>#</td>
+                    
+
+                </tr>
+
+                <tr>
+
+                    <td>#</td>
+                    <td>#</td>
+                    <td>#</td>
+                    
+
+                </tr>
+
+                <tr>
+
+                    <td>#</td>
+                    <td>#</td>
+                    <td>#</td>
+                    
+
+                </tr>
+
+                <tr>
+
+                    <td>#</td>
+                    <td>#</td>
+                    <td>#</td>
+                    
+
+                </tr>
+
+
+
+
+
+                </table>
+
+        <div class="option"> 
 
         <h3>Επιθυμείτε:</h3>
    
@@ -110,7 +180,7 @@
             <p> &copy; HARcules Copyright 2021</p>
         </footer>
     </div> 
-</div>
+
 
 
 </body>

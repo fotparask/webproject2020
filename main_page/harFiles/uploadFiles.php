@@ -45,8 +45,8 @@
             <a href="../uploadFiles.php"> Upload Δεδομένων </a>                        
             <a href="../editProfile.php"> Διαχείριση Προφίλ </a>                     
             <a href="#"> Οπτικοποίηση Δεδομένων </a>                      
-            <a href="../../logout.php"> Αποσύνδεση </a>   
-
+            <a href="../logout.php" onclick="return confirm('ΕΙΣΤΕ ΣΙΓΟΥΡΟΣ;');"> Αποσύνδεση </a> 
+            
         </nav>
            
         <div class="navbar_icons">                     
@@ -71,11 +71,18 @@
         </div>
 
        
-     
-       
+        <script defer src="har_collection.js" charset="utf-8"></script>
+        <div class="newbutton1">
+
+        
+            <div class="buttons">
+                <input class="primier" type="file" id="harFileInput" name="files">
+                <button class="primier" type="button" id="upload" name="upload">Προσθήκη Αρχείου</button>
+            </div>
+        </div>
 
 
-        <div class="options"> 
+        <div class="options4"> 
 
         <h3>Επιθυμείτε:</h3>
         <br>
@@ -91,15 +98,6 @@
         </div>
         
     </div>
-
-    
-  
-    <script defer src="har_collection.js" charset="utf-8"></script>
-
-    <input type="file" id="harFileInput" name="files">
-    <button type="button" id="upload" name="upload">Upload</button>
-
-
     
 
     <script type="text/javascript">

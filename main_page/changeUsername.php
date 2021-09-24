@@ -23,13 +23,13 @@
         include "../database_config.php";
 
 
-        $sql = "SELECT * FROM users WHERE username='$username'";
+        $sql = "SELECT * FROM users WHERE username='$old_username'";
         $result = $conn->query($sql);
             
         if ($result->num_rows > 0) {
 
             $row = $result->fetch_assoc();
-            $hashed_pwd = $row['password'];
+            $hashed_pwd = $row['user_password'];
             
             if(password_verify($password ,$hashed_pwd)){
                 $sql = "UPDATE users SET username='$new_username' WHERE username='$old_username';";
@@ -56,7 +56,7 @@
     }
 
 ?>
-
+<!DOCTYPE html>
 <html lang="=el">
 
 
@@ -101,14 +101,13 @@
         </div>
     </header>
 
-<div id="page-container">
     <div class="ban">
         <form method='post' name='changePassForm' onsubmit="javascript: startAjax(); return false;">
 
             <div class="lcolumn">  
                 
                 <br>
-                <h3>Αλλαγή <span>Ονόματος Χρήστη</span></h3>
+                <h5>Αλλαγή <span>Ονόματος Χρήστη</span></h5>
 
                 <h3>
                     <br>
@@ -116,31 +115,23 @@
                         <div class= "labels">
                         <label for="username"> Παλιό όνομα χρήστη:</label> <br>
                         <label for="username"> Νέο όνομα χρήστη:</label> <br>
-                        <label for="username"> Επιβεβαίωση νέου ονόματος:</label> <br>
+                        <label for="username"> Επιβεβαίωση ονόματος:</label> <br>
                         <label for="password"> Κωδικός:</label><br>
-                        </div>
+                    </div>
             
-                        <div class= "inputs">
+                    <div class= "inputs">
                         <input type="text" placeholder="Παλιό όνομα χρήστη" name="oldUsername" id="oldUsername"> <br>
                         <input type="text" placeholder="Νέο όνομα χρήστη" name="newUsername" id="newUsername">  <br>
-                        <input type="text" placeholder="Επιβεβαίωση νέου ονόματος" name="confirmUsername" id="confirmUsername">   <br>
+                        <input type="text" placeholder="Επιβεβαίωση ονόματος" name="confirmUsername" id="confirmUsername">   <br>
                         <input type="password" placeholder="Κωδικός" name="password" id="password">  <br>
-                        </div>
                     </div>
+                    
                 </h3>
-            </div>
-
-
-
-            <div class= "remember">
-                <input type="checkbox"> Θυμήσου με 
+                </div>
             </div>
 
             
             <br>
-            <!--
-            <a href="index3.html" target="blank" >  Ξεχάσατε τον κωδικό; </a>
-            -->
             <br>
             
             <div class= "newbutton">
@@ -158,7 +149,6 @@
             <p> &copy; HARcules Copyright 2021</p>
         </footer>
     </div> 
-</div>
              
     
     <script type="text/javascript">
@@ -174,42 +164,41 @@
     }
 
 
-    $(document).ready(function () {
-        function startAjax(){
-             
+    function startAjax(){
+            
 
-            let oldUsername = $("#oldUsername").val();
-            let newUsername = $("#newPassword").val();
-            let password = $("#password").val();
+        let oldUsername = $("#oldUsername").val();
+        let newUsername = $("#newPassword").val();
+        let password = $("#password").val();
 
-            if (!validateUsername(username)) {
-                alert('Please enter a valid username.');
-            }
-            else if(!validatePassword(password)) {
-                alert('Please enter a valid password.');
-            }
-            else if(newUsername != confirmUsername){
-                alert('Usernames do not match.');
-            }
-            else{
-                $.ajax(
-                    {
-                        url: 'changeUsername.php',
-                        method: 'POST',
-                        data: {
-                            login: 1,
-                            ajaxPassword: $("#password").val(),
-                            ajaxUsername: $("#newUsername").val()
-                        },
-                        success: function (response) {
-                            console.log("Ajax call succeded");
-                            document.changePassForm.submit();
-                        }
+        if (!validateUsername(username)) {
+            alert('Please enter a valid username.');
+        }
+        else if(!validatePassword(password)) {
+            alert('Please enter a valid password.');
+        }
+        else if(newUsername != confirmUsername){
+            alert('Usernames do not match.');
+        }
+        else{
+            document.changePassForm.submit();
+            $.ajax(
+                {
+                    url: 'changeUsername.php',
+                    method: 'POST',
+                    data: {
+                        login: 1,
+                        ajaxPassword: $("#password").val(),
+                        ajaxUsername: $("#newUsername").val()
+                    },
+                    success: function (response) {
+                        console.log("Ajax call succeded");
+                        document.changePassForm.submit();
                     }
-                );
-            }
-       }
-    });
+                }
+            );
+        }
+    }
 
     </script>
        
