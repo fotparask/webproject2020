@@ -37,17 +37,15 @@
         
         <nav class="the_navbar">   
             
-            <a href="admin_info.php"> Απεικόνιση Πληροφορίων </a> 
+        <a href="admin_info.php"> Απεικόνιση Πληροφορίων </a> 
                         
-            <a href="admin_times.php"> Ανάλυση Χρόνων </a> 
+        <a href="admin_times.php"> Ανάλυση Χρόνων </a> 
 
-            <a href="admin_HTTP.php"> Ανάλυση HTTP </a> 
-                    
-            <a href="admin_heatmap.php"> HEAT Map </a>
+        <a href="admin_HTTP.php"> Ανάλυση HTTP </a> 
 
-            <a href="#"> Χρήστης </a> 
+        <a href="../index.php"> Χρήστης </a> 
 
-            <a href="../../logout.php"> Αποσύνδεση </a> 
+        <a href="../../logout.php"> Αποσύνδεση </a> 
             
         </nav>
 

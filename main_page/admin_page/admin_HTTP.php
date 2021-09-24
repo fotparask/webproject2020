@@ -43,8 +43,8 @@
             <a href="admin_times.php"> Ανάλυση Χρόνων </a> 
 
             <a href="admin_HTTP.php"> Ανάλυση HTTP </a> 
-                    
-            <a href="admin_heatmap.php"> Οπτικοποίηση Δεδομένων </a>
+
+            <a href="../index.php"> Χρήστης </a> 
 
             <a href="../../logout.php"> Αποσύνδεση </a> 
             

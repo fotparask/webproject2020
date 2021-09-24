@@ -25,7 +25,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <link rel="stylesheet" href="style-main.css">
+    <link rel="stylesheet" href="..\style-main.css">
 </head>
 <body>
     
@@ -43,10 +43,8 @@
             <a href="admin_times.php"> Ανάλυση Χρόνων </a> 
 
             <a href="admin_HTTP.php"> Ανάλυση HTTP </a> 
-                    
-            <a href="admin_heatmap.php"> HEAT Map </a> 
 
-            <a href="#"> Χρήστης </a> 
+            <a href="../index.php"> Χρήστης </a> 
 
             <a href="../../logout.php"> Αποσύνδεση </a>  
             

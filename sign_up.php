@@ -1,6 +1,6 @@
 <?php
 
-    if ($_POST['register']){
+    if (isset($_POST['register'])){
 
         $email = $_POST["email"];
         $username = $_POST["username"];
@@ -49,6 +49,7 @@
 
 <html>
 
+
   <head>
     <meta charset="utf-8">
     <title>HARcules Register </title>
@@ -62,7 +63,7 @@
     </div>
     <div class="center">
       <h1>Register</h1>
-      <form method="post" name='registerForm' onsubmit="javascript: startAjax(); return false;">
+      <form method="post" name='register' onsubmit="javascript: startJavascript(); return false;">
         <div class="txt_field">
           <input type="email" name="email" id="email" required>
           <span></span>
@@ -96,6 +97,65 @@
   </body>
 
 
+  <script> 
+
+    function validateEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+
+    function validateUsername(username) {
+        const re = /^[a-zA-Z0-9-' ]*$/;
+        return re.test(String(username).toLowerCase());
+    }
+
+
+    function validatePassword(password) {
+        const re = /^[a-zA-Z0-9-' ]*$/;
+        return re.test(String(password).toLowerCase());
+    }
+
+    function startJavascript() {
+        let email = $("#email").val();
+        let username = $("#username").val();
+        let password = $("#password").val();
+        let secondPassword = $("#secondPassword").val();
+
+        if (!validateEmail(email)) {
+            alert('Please enter a valid email.');
+        }
+        else if(!validateUsername(username)) {
+            alert('Please enter a valid password.');
+        }
+        else if(!validatePassword(password)) {
+            alert('Please enter a valid password.');
+        }
+        else if(secondPassword != password) {
+            alert('Password do not match.');
+        }
+        else{
+            document.registerForm.submit();
+            $.ajax(
+                {
+                    url:'sign_up.php',
+                    method: 'POST',
+                    data: {
+                        register: 1,
+                        ajaxEmail: email,
+                        ajaxUsername: username,
+                        ajaxPassword: password
+                    },
+                    success: function (response) {
+                        console.log("Ajax call succeded");
+                        document.registerForm.submit();
+                    }
+                }
+            );
+        }
+    }
+  </script>
+
   <script type="text/javascript">
 
     function validateEmail(email) {
@@ -122,7 +182,6 @@
             let password = $("#password").val();
             let secondPassword = $("#secondPassword").val();
 
-            
             if (!validateEmail(email)) {
                 alert('Please enter a valid email.');
             }

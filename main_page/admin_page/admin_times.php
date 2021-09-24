@@ -44,10 +44,8 @@
             <a href="admin_times.php"> Ανάλυση Χρόνων </a> 
 
             <a href="admin_HTTP.php"> Ανάλυση HTTP </a> 
-                    
-            <a href="admin_heatmap.php"> HEAT Map </a> 
 
-            <a href="#"> Χρήστης </a> 
+            <a href="../index.php"> Χρήστης </a> 
 
             <a href="../../logout.php"> Αποσύνδεση </a> 
             
@@ -77,17 +75,18 @@
 
         <!-- getting the data from the database -->
         <?php 
-          $timings = "SELECT * FROM entries ";
-          $result_q1 = mysqli_query($link, $timings) or die(mysql_error());
+
+          include "../../database_config.php";
+          $sql = "SELECT * FROM entries";
+          $result = $conn->query($sql);
           
           $timings_array = array();
           $hours_array = array();
-          while($row = mysqli_fetch_assoc($result_q1)){
 
-            // add each row returned into an array
+          if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
             array_push($timings_array,$row["timings_wait"]);
             array_push($hours_array,date("H",strtotime($row["startedDateTime"])));
-
           }
           
         ?>

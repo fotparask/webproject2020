@@ -71,7 +71,7 @@
         </div>
 
        
-        <input type="file" id="harFileInput" name="files">
+     
        
 
 
@@ -96,6 +96,7 @@
   
     <script defer src="har_collection.js" charset="utf-8"></script>
 
+    <input type="file" id="harFileInput" name="files">
     <button type="button" id="upload" name="upload">Upload</button>
 
 

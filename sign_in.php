@@ -1,6 +1,6 @@
 <?php
 
-    if($_POST['login']) {
+    if(isset($_POST['login'])) {
 
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -23,6 +23,10 @@
               $_SESSION["email"] = $row['email'];
               $_SESSION["is_admin"] = $row['is_admin'];
               $_SESSION["user_id"] = $row['userid'];
+              if($_SESSION["is_admin"] == 1){
+                header("Location: main_page/admin_page/admin.php");
+                exit;
+              }
               header("Location: main_page/index.php");
               exit;
             }
@@ -100,6 +104,8 @@
 
     $(document).ready(function () {
       function startAjax(){
+
+            alert('Skata');
             
             if (!validateEmail(email)) {
                 alert('Please enter a valid email.');

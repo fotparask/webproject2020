@@ -1,7 +1,7 @@
 <?php
 
     //Connecting to the database
-    $servername = "localhost";
+    $servername = "localhost:3306";
         $dbusername = "root";
         $dbpassword = "";
         $dbname = "harcules_database";
