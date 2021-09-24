@@ -47,7 +47,7 @@
 
             <a href="../index.php"> Χρήστης </a> 
 
-            <a href="../../logout.php"> Αποσύνδεση </a> 
+            <a href="../logout.php" onclick="return confirm('ΕΙΣΤΕ ΣΙΓΟΥΡΟΣ;');"> Αποσύνδεση </a> 
             
         </nav>
 
