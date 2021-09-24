@@ -45,7 +45,7 @@
             <a href="../uploadFiles.php"> Upload Δεδομένων </a>                        
             <a href="../editProfile.php"> Διαχείριση Προφίλ </a>                     
             <a href="#"> Οπτικοποίηση Δεδομένων </a>                      
-            <a href="../logout.php" onclick="return confirm('ΕΙΣΤΕ ΣΙΓΟΥΡΟΣ;');"> Αποσύνδεση </a> 
+            <a href="../../logout.php" onclick="return confirm('ΕΙΣΤΕ ΣΙΓΟΥΡΟΣ;');"> Αποσύνδεση </a> 
             
         </nav>
            
